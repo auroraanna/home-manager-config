@@ -28,8 +28,41 @@
   # For 32 bit applications
   hardware.opengl.driSupport32Bit = true;
 
-  networking.hostName = "Cryogonal"; # Define your hostname.
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
+  # Networking
+  networking = {
+    hostName = "Cryogonal";
+    nameservers = [ "1.1.1.1" "9.9.9.9" ];
+    #resolvconf.enable = false;
+    # If using dhcpcd:
+    dhcpcd.extraConfig = "nohook resolv.conf";
+    # If using NetworkManager:
+    #networkmanager.dns = "none";
+    #wireless.enable = true;  # Enables wireless support via wpa_supplicant.
+  };
+  ## dnscrypt-proxy2
+  services.dnscrypt-proxy2 = {
+    enable = true;
+    settings = {
+      ipv6_servers = true;
+      require_dnssec = true;
+
+      sources.public-resolvers = {
+        urls = [
+          "https://raw.githubusercontent.com/DNSCrypt/dnscrypt-resolvers/master/v3/public-resolvers.md"
+          "https://download.dnscrypt.info/resolvers-list/v3/public-resolvers.md"
+        ];
+        cache_file = "/var/lib/dnscrypt-proxy2/public-resolvers.md";
+        minisign_key = "RWQf6LRCGA9i53mlYecO4IzT51TGPpvWucNSCh1CBM0QTaLn73Y7GFO3";
+      };
+
+      # You can choose a specific set of servers from https://github.com/DNSCrypt/dnscrypt-resolvers/blob/master/v3/public-resolvers.md
+      # server_names = [ ... ];
+    };
+  };
+
+  systemd.services.dnscrypt-proxy2.serviceConfig = {
+    StateDirectory = "dnscrypt-proxy";
+  };
 
   # Set your time zone.
   time.timeZone = "Europe/Berlin";
@@ -163,9 +196,9 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
      # Shell
-     zsh zsh-syntax-highlighting zsh-autosuggestions dash
+     zsh zsh-syntax-highlighting zsh-autosuggestions zsh-powerlevel10k dash
      # CLI
-     wget kakoune neovim neofetch htop cava git tealdeer stow unzip
+     wget kakoune neovim neofetch htop cava git tealdeer stow unzip scrcpy
      # Audio
      pipewire pavucontrol pulseaudio
      # Wine
@@ -178,7 +211,7 @@
      papirus-icon-theme lxappearance materia-theme capitaine-cursors pywal
      # Apps
      alacritty cinnamon.nemo gnome.nautilus gnome.gnome-tweak-tool
-     brave bitwarden ferdi spotify steam exodus minecraft
+     brave bitwarden ferdi spotify steam exodus minecraft discord-canary 
      # E-Mail
      gnome.geary thunderbird-bin
      # Recording
@@ -205,6 +238,7 @@
   ubuntu_font_family
   font-awesome-ttf
   iosevka
+  meslo-lgs-nf
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
