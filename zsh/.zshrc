@@ -5,6 +5,8 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
+source ~/powerlevel10k/powerlevel10k.zsh-theme
+
 # Dependancies You Need for this Config
 # zsh-syntax-highlighting - syntax highlighting for ZSH in standard repos
 # autojump - jump to directories with j or jc for child or jo to open in file manager
@@ -15,7 +17,6 @@ fi
 # Enable colors and change prompt:
 
 TERM=xterm-256color
-neofetch
 autoload -U colors && colors
 #cat ~/.cache/wal/sequences
 #export PS1="%F{15}┌─%F{7}⚞%f%F{13}(%B%F{10}U%f%b%F{1}w%f%B%F{10}U%f%b%F{13})%f%F{7}⚟%f [%F{1}%n%f%B@%b%F{4}%m%f] %F{5}⚞▇▇▇⚟%f
@@ -40,15 +41,9 @@ _comp_options+=(globdots)               # Include hidden files.
 # Custom ZSH Binds
 bindkey '^ ' autosuggest-accept
 
-# Load aliases and shortcuts if existent.
+# Load aliases if existent.
 [ -f "$HOME/.aliases" ] && source "$HOME/.aliases"
 [ -f "$HOME/.aliases-personal" ] && source "$HOME/.aliases-personal"
-
-# Load ; should be last.
-#source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh 2>/dev/null
-#source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null
-#source /usr/share/autojump/autojump.zsh 2>/dev/null
-source ~/powerlevel10k/powerlevel10k.zsh-theme
 
 # Lines configured by zsh-newuser-install
 bindkey -e
@@ -96,7 +91,6 @@ alias lrt='ls -1Fcrt'
 
 alias zshrc='${=EDITOR} ~/.zshrc' # Quick access to the ~/.zshrc file
 alias aliases='${=EDITOR} ~/.aliases' # Quick access to the ~/.aliases file
-alias lightdm.conf='sudo ${=EDITOR} /etc/lightdm/lightdm.conf' # Quick access to the lightdm configuration file
 
 alias grep='grep --color'
 alias sgrep='grep -R -n -H -C 5 --exclude-dir={.git,.svn,CVS} '
@@ -136,3 +130,6 @@ alias nano='nvim'
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+# neofetch
+neofetch
