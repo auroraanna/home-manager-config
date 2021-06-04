@@ -19,17 +19,21 @@
 
 ## Installation
 
-## Build `configuration.nix`
+### Build `configuration.nix`
 
 More information at [NixOS 21.05 manual](https://nixos.org/manual/nixos/unstable/)
 
-### From the machine
+#### From the machine
 
 	wget https://gitlab.com/papojari/config/-/raw/master/configuration.nix && cp configuration.nix /etc/nixos/ && nixos-rebuild switch
 
-### From installation medium
+#### From installation medium
 
 	wget https://gitlab.com/papojari/config/-/raw/master/configuration.nix && cp configuration.nix /mnt/etc/nixos/ && nixos-install
+
+### Powerlevel10k prompt
+
+git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/powerlevel10k
 
 ### Backgrounds
 
