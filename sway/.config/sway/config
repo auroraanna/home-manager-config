@@ -33,8 +33,8 @@ set $SocialMedia ferdi
 # Music application
 set $MusicApp spotify
 # path to background image
-set $BackgroundLandscape /usr/share/backgrounds/nixos/nix-wallpaper-cryogonal-2560x1440.png
-set $BackgroundPortrait /usr/share/backgrounds/nixos/nix-wallpaper-cryogonal-1080x1920.png
+set $BackgroundLandscape /usr/share/backgrounds/nixos/nix-wallpaper-3d-showcase-3840x2160.png
+set $BackgroundPortrait /usr/share/backgrounds/nixos/nix-wallpaper-3d-showcase-3840x2160.png
 
 ### Font
 font pango:Roboto, 12
