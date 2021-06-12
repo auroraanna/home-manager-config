@@ -39,9 +39,9 @@ git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/powerlevel10k
 
 Eveverything from here on should be done one the machine, which you installed NixOS with my `configuration.nix` on.
 
-- Cryogonal background
+- 3d NixOS background
 
-	![Cryogonal background](https://raw.githubusercontent.com/papojari/nixos-artwork/master/wallpapers/nix-wallpaper-cryogonal-1920x1080.png)
+	![3d NixOS background](https://raw.githubusercontent.com/papojari/nixos-artwork/master/wallpapers/nix-wallpaper-3d-showcase-1920x1080.png)
 
 	- to install run
 
