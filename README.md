@@ -17,6 +17,8 @@
 
 <!-- /TOC -->
 
+Note that the `nixos/configuration.nix` is specifically tailed to and AMD CPU and an AMD Sea Islands graphics card. Change it depending on your hardware.
+
 ## Installation
 
 ### Build `configuration.nix`
