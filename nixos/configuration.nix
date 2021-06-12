@@ -8,6 +8,8 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
+      # Home manager
+      (import "${builtins.fetchTarball https://github.com/rycee/home-manager/archive/master.tar.gz}/nixos")
     ];
 
   # Use the systemd-boot EFI boot loader.
@@ -86,7 +88,7 @@
 
   # Enable the X11 windowing system.
   services.xserver.enable = true;
-  
+
   # X uses amdgpu video driver
   services.xserver.videoDrivers = [ "amdgpu" ];
 
@@ -94,21 +96,21 @@
   services.xserver.displayManager.gdm.wayland = true;
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.desktopManager.gnome.enable = true;
-  
+
   # Enable sway
   programs.sway.enable = true;
 
   # Configure keymap in X11
   services.xserver.layout = "de";
   services.xserver.xkbOptions = "eurosign:e";
-  
+
   # Printing
   ## Driver
-  services.printing.drivers = with pkgs; [ hplip ];
+  services.printing.drivers = with pkgs; [ hplipWithPlugin ];
   ## Enable CUPS to print documents.
   services.printing.enable = true;
 
-  # Audio 
+  # Audio
   #sound.enable = false;
   ## Disable pulseaudio
   hardware.pulseaudio.enable = false;
@@ -151,7 +153,7 @@
 
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
-  
+
   # Enable GVfs
   services.gvfs.enable = true;
 
@@ -171,26 +173,60 @@
   description = "papojari";
   extraGroups = [ "wheel" "networkmanager" ];
   shell = pkgs.zsh;
-  #openssh.authorizedKeys.keys = [ "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGcgywMb4yGH8ZN97LBa9P7Q4/3O9GVy/kjtGrV7KFaV papojari@Cryogonal" ];
+  openssh.authorizedKeys.keys = [ "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGcgywMb4yGH8ZN97LBa9P7Q4/3O9GVy/kjtGrV7KFaV papojari@Cryogonal" ];
+  };
+  home-manager.users.papojari = {
+    programs = {
+      git = {
+        enable = true;
+        userName  = "papojari";
+        userEmail = "papojari-git.ovoid@aleeas.com";
+      };
+      alacritty = {
+        enable = true;
+	settings = {
+	  window.dimensions = {
+    	  lines = 3;
+    	  columns = 200;
+          };
+        };
+      };
+    };
+    wayland.windowManager = {
+      sway = {
+        enable = true;
+	config = {
+
+	};
+      };
+    };
   };
 
   # Automatic upgrades
   system.autoUpgrade.enable = true;
-  
-  # Allow unfree packages (needed for spotify and steam)
+
+  # Allow unfree packages (sorry stallman)
   nixpkgs.config.allowUnfree = true;
-  
+
   # OpenCL and Vulkan
   hardware.opengl.extraPackages = with pkgs; [
     rocm-opencl-icd
     rocm-opencl-runtime
     amdvlk
   ];
-  # For 32 bit applications 
+  # For 32 bit applications
   # Only available on unstable
   hardware.opengl.extraPackages32 = with pkgs; [
     driversi686Linux.amdvlk
   ];
+
+  # Steam
+  nixpkgs.config.packageOverrides = pkgs: {
+    steam = pkgs.steam.override {
+      nativeOnly = true;
+    };
+  };
+  programs.steam.enable = true;
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
@@ -198,7 +234,9 @@
      # Shell
      zsh zsh-syntax-highlighting zsh-autosuggestions zsh-powerlevel10k dash
      # CLI
-     wget kakoune neovim neofetch htop cava git tealdeer stow unzip scrcpy
+     tmux cmatrix toilet cowsay wget kakoune neovim neofetch htop cava git tealdeer stow unzip pandoc youtube-dl ytfzf
+     # Video and image
+     pqiv mpv scrcpy
      # Audio
      pipewire pavucontrol pulseaudio
      # Wine
@@ -211,35 +249,42 @@
      papirus-icon-theme lxappearance materia-theme capitaine-cursors pywal
      # Apps
      alacritty cinnamon.nemo gnome.nautilus gnome.gnome-tweak-tool
-     brave bitwarden ferdi spotify steam exodus minecraft discord-canary 
+     brave bitwarden gnome-passwordsafe ferdi spotify exodus minecraft discord
      # E-Mail
      gnome.geary thunderbird-bin
-     # Recording
-     obs-studio xdg-desktop-portal-wlr obs-wlrobs
+     # Media processing
+     ffmpeg obs-studio xdg-desktop-portal-wlr obs-wlrobs
      # Development
      atom hugo
      # Creative
-     blender gimp godot inkscape audacity
+     blender gimp godot godot-export-templates inkscape audacity
      # Office
      libreoffice-fresh
      # Vulkan
      vulkan-loader mangohud
+     # Games
+     teeworlds
+     superTuxKart
+     superTux
+     mindustry-wayland
      # MTP
      jmtpfs
      # KDE Connect
-     kdeconnect
-     # Printing & scanning 
+     gparted dosfstools mtools
+     # Printing & scanning
      cups system-config-printer gnome.simple-scan
   ];
 
   # Fonts
   fonts.fonts = with pkgs; [
-  roboto roboto-mono roboto-mono
-  ubuntu_font_family
-  font-awesome-ttf
-  iosevka
-  meslo-lgs-nf
+    roboto roboto-mono roboto-mono
+    ubuntu_font_family
+    font-awesome-ttf
+    iosevka
   ];
+
+  # enable dconf for setting GTK themes via home manager
+  programs.dconf.enable = true;
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
@@ -266,7 +311,6 @@
   # this value at the release version of the first install of this system.
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  system.stateVersion = "21.05"; # Did you read the comment?
+  system.stateVersion = "21.11"; # Did you read the comment?
 
 }
-
