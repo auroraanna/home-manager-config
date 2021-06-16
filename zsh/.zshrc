@@ -5,7 +5,7 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-source ~/powerlevel10k/powerlevel10k.zsh-theme
+source /git-repos/powerlevel10k/powerlevel10k.zsh-theme
 
 # Dependancies You Need for this Config
 # zsh-syntax-highlighting - syntax highlighting for ZSH in standard repos
@@ -23,7 +23,7 @@ autoload -U colors && colors
 #└%B%F{3}%~%f>_%b"
 
 # Custom Variables
-EDITOR=nvim
+EDITOR=kak
 
 # History in cache directory:
 HISTSIZE=10000
@@ -124,9 +124,10 @@ alias unexport='unset'
 alias rm='rm -i'
 alias cp='cp -i'
 alias mv='mv -i'
-alias vim='nvim'
-alias vi='nvim'
-alias nano='nvim'
+alias vim='echo "Vim is not installed. Use \"kak\" instead!"'
+alias vi='echo "Vi is not installed. Use \"kak\" instead!"'
+alias nano='echo "GNU Nano is not installed. Use \"kak\" instead!"'
+alias nvim='echo "Neovim is not installed. Use \"kak\" instead!"'
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
