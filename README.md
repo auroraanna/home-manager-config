@@ -35,11 +35,13 @@ More information at [NixOS 21.05 manual](https://nixos.org/manual/nixos/unstable
 
 ### Powerlevel10k prompt
 
-git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/powerlevel10k
+Change the location to wherever you want the repository to be.
+
+git clone --depth=1 https://github.com/romkatv/powerlevel10k.git /git-repos/powerlevel10k
 
 ### Backgrounds
 
-Eveverything from here on should be done one the machine, which you installed NixOS with my `configuration.nix` on.
+Everything from here on should be done one the machine, which you installed NixOS with my `configuration.nix` on.
 
 - 3d NixOS background
 
