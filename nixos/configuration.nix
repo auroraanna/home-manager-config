@@ -9,11 +9,16 @@
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
       # Home manager
-      (import "${builtins.fetchTarball https://github.com/rycee/home-manager/archive/master.tar.gz}/nixos")
+      #(import "${builtins.fetchTarball https://github.com/rycee/home-manager/archive/master.tar.gz}/nixos")
     ];
 
   # Use the systemd-boot EFI boot loader.
-  boot.loader.systemd-boot.enable = true;
+  boot.loader.systemd-boot = {
+    enable = true;
+    configurationLimit = 4;
+    consoleMode = "max";
+    memtest86.enable = true;
+  };
   boot.loader.efi.canTouchEfiVariables = true;
 
   # Microcode
@@ -47,7 +52,6 @@
     settings = {
       ipv6_servers = true;
       require_dnssec = true;
-
       sources.public-resolvers = {
         urls = [
           "https://raw.githubusercontent.com/DNSCrypt/dnscrypt-resolvers/master/v3/public-resolvers.md"
@@ -111,7 +115,6 @@
   services.printing.enable = true;
 
   # Audio
-  #sound.enable = false;
   ## Disable pulseaudio
   hardware.pulseaudio.enable = false;
   ## rtkit is optional but recommended
@@ -154,9 +157,6 @@
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
 
-  # Enable GVfs
-  services.gvfs.enable = true;
-
   # Shell
   programs.zsh = {
     enable = true;
@@ -175,32 +175,32 @@
   shell = pkgs.zsh;
   openssh.authorizedKeys.keys = [ "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGcgywMb4yGH8ZN97LBa9P7Q4/3O9GVy/kjtGrV7KFaV papojari@Cryogonal" ];
   };
-  home-manager.users.papojari = {
-    programs = {
-      git = {
-        enable = true;
-        userName  = "papojari";
-        userEmail = "papojari-git.ovoid@aleeas.com";
-      };
-      alacritty = {
-        enable = true;
-	settings = {
-	  window.dimensions = {
-    	  lines = 3;
-    	  columns = 200;
-          };
-        };
-      };
-    };
-    wayland.windowManager = {
-      sway = {
-        enable = true;
-	config = {
-
-	};
-      };
-    };
-  };
+  #home-manager.users.papojari = {
+  #  programs = {
+  #    git = {
+  #      enable = true;
+  #      userName  = "papojari";
+  #      userEmail = "papojari-git.ovoid@aleeas.com";
+  #    };
+  #    alacritty = {
+  #      enable = true;
+#	settings = {
+#	  window.dimensions = {
+ #   	  lines = 3;
+  #  	  columns = 200;
+   #       };
+   #     };
+ #     };
+ #   };
+ #   wayland.windowManager = {
+#      sway = {
+  #      enable = true;
+#	config = {
+#
+#	};
+ #     };
+  #  };
+  #};
 
   # Automatic upgrades
   system.autoUpgrade.enable = true;
@@ -220,13 +220,15 @@
     driversi686Linux.amdvlk
   ];
 
+  #nixpkgs.config.allowBroken = true;
+
   # Steam
-  nixpkgs.config.packageOverrides = pkgs: {
-    steam = pkgs.steam.override {
-      nativeOnly = true;
-    };
-  };
-  programs.steam.enable = true;
+  #nixpkgs.config.packageOverrides = pkgs: {
+  #  steam = pkgs.steam.override {
+  #    nativeOnly = true;
+  #  };
+  #};
+  #programs.steam.enable = true;
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
@@ -248,12 +250,12 @@
      # Theming
      papirus-icon-theme lxappearance materia-theme capitaine-cursors pywal
      # Apps
-     alacritty cinnamon.nemo gnome.nautilus gnome.gnome-tweak-tool
-     brave bitwarden gnome-passwordsafe ferdi spotify exodus minecraft discord
+     alacritty gnome.nautilus gnome.gnome-tweak-tool
+     brave bitwarden gnome-passwordsafe ferdi spotify exodus minecraft lunar-client discord
      # E-Mail
      gnome.geary thunderbird-bin
      # Media processing
-     ffmpeg obs-studio xdg-desktop-portal-wlr obs-wlrobs
+     ffmpeg obs-studio obs-v4l2sink
      # Development
      atom hugo
      # Creative
@@ -266,7 +268,7 @@
      teeworlds
      superTuxKart
      superTux
-     mindustry-wayland
+     #mindustry-wayland
      # MTP
      jmtpfs
      # KDE Connect
