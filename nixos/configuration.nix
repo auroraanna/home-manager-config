@@ -166,13 +166,17 @@
 			enableCompletion = true;
 			syntaxHighlighting.enable = true;
 			autosuggestions.enable = true;
+			promptInit = "source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme";
 		};
+		# enable dconf for setting GTK themes via home manager
+		dconf.enable = true;
 		light.enable = true;
 		sway = {
 			enable = true;
 		};
 		xwayland.enable = true;
 		qt5ct.enable = true;
+		steam.enable = true;
 	};
 
 	# Define a user account. Don't forget to set a password with ‘passwd’.
@@ -237,7 +241,6 @@
 			nativeOnly = true;
 		};
 	};
-	programs.steam.enable = true;
 
 	# List packages installed in system profile. To search, run:
 	# $ nix search wget
@@ -266,7 +269,7 @@
 		 # Media processing
 		 ffmpeg obs-studio
 		 # Development
-		 atom hugo zola
+		 atom cobalt
 		 # Creative
 		 blender gimp godot godot-export-templates inkscape audacity
 		 # Office
@@ -286,6 +289,8 @@
 		 cups system-config-printer gnome.simple-scan
 	];
 
+	environment.pathsToLink = [ "/libexec" ];
+
 	# Fonts
 	fonts.fonts = with pkgs; [
 		roboto roboto-mono roboto-mono
@@ -293,9 +298,6 @@
 		font-awesome-ttf
 		nerdfonts
 	];
-
-	# enable dconf for setting GTK themes via home manager
-	programs.dconf.enable = true;
 
 	# Some programs need SUID wrappers, can be configured further or are
 	# started in user sessions.
