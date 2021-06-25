@@ -4,7 +4,7 @@
 
 * {
     border: none;
-    border-radius: 0;
+    border-radius: 5;
     font-family: 'Roboto','Font Awesome 5', 'SFNS Display',  Helvetica, Arial, sans-serif;
     font-size: 13px;
     min-height: 0;
@@ -12,8 +12,8 @@
 
 window#waybar {
     background: rgba(43, 48, 59, 0.5);
-    border-bottom: 3px solid rgba(100, 114, 125, 0.5);
-    color: #ffffff;
+    border-bottom: 0px solid rgba(100, 114, 125, 0.5);
+    color: #d0cfcc;
 }
 
 window#waybar.hidden {
@@ -24,7 +24,7 @@ window#waybar.hidden {
     padding: 0 0px;
     background: transparent;
     color: #ffffff;
-    border-bottom: 3px solid transparent;
+    border-bottom: 5px solid transparent;
 }
 
 #workspaces button.focused {
@@ -41,13 +41,15 @@ window#waybar.hidden {
     border-bottom: 3px solid #ffffff;
 }
 
-#clock, #battery, #cpu, #memory, #temperature, #backlight, #network, #pulseaudio, #custom-media, #tray, #mode, #idle_inhibitor {
+#clock, #battery, #cpu, #memory, #disk, #temperature, #backlight, #network, #pulseaudio, #custom-media, #tray, #mode, #idle_inhibitor {
     padding: 0 10px;
     margin: 0 3px;
 }
 
 #clock {
-    background-color: #64727d;
+    background-color: #e9ad0c;
+	color: #000000;
+
 }
 
 #battery {
@@ -78,12 +80,17 @@ window#waybar.hidden {
 }
 
 #cpu {
-    background: #2ecc71;
+    background: #c01c28;
     color: #000000;
 }
 
 #memory {
-    background: #9b59b6;
+    background: #26a269;
+	color: #000000;
+}
+
+#disk {
+    background: #171421;
 }
 
 #backlight {
@@ -91,21 +98,21 @@ window#waybar.hidden {
 }
 
 #network {
-    background: #2980b9;
+    background: #12488b;
 }
 
 #network.disconnected {
-    background: #f53c3c;
+    background: #ef2929;
 }
 
 #pulseaudio {
-    background: #f1c40f;
+    background: #c061cb;
     color: #000000;
 }
 
 #pulseaudio.muted {
-    background: #90b1b1;
-    color: #2a5c45;
+    background: #a347ba;
+    color: #000000;
 }
 
 #custom-media {
@@ -114,23 +121,25 @@ window#waybar.hidden {
 }
 
 .custom-spotify {
-    background: #66cc99;
+    background: #8ae234;
 }
 
 .custom-vlc {
-    background: #ffa000;
+    background: #e9560c;
 }
 
 #temperature {
-    background: #f0932b;
+    background: #33c7de;
+	color: #000000;
 }
 
 #temperature.critical {
-    background: #eb4d4b;
+    background: #ef2929;
+	color: #000000;
 }
 
 #tray {
-    background-color: #2980b9;
+    background-color: #171421;
 }
 
 #idle_inhibitor {
