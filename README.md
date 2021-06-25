@@ -25,7 +25,7 @@ Note that the `nixos/configuration.nix` is specifically tailed to and AMD CPU an
 
 ### Build `configuration.nix`
 
-More information at [NixOS 21.05 manual](https://nixos.org/manual/nixos/unstable/)
+More information at [NixOS unstable manual](https://nixos.org/manual/nixos/unstable/)
 
 #### From the machine
 
@@ -34,12 +34,6 @@ More information at [NixOS 21.05 manual](https://nixos.org/manual/nixos/unstable
 #### From installation medium
 
 	wget https://gitlab.com/papojari/config/-/raw/master/configuration.nix && cp configuration.nix /mnt/etc/nixos/ && nixos-install
-
-### Powerlevel10k prompt
-
-Change the location to wherever you want the repository to be.
-
-git clone --depth=1 https://github.com/romkatv/powerlevel10k.git /git-repos/powerlevel10k
 
 ### Backgrounds
 
