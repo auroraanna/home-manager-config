@@ -1,103 +1,107 @@
-# Default config for sway
-#
-# Copy this to ~/.config/sway/config and edit it to your liking.
-#
-# Read `man 5 sway` for a complete reference.
-
 # wal color scheme
 include "$HOME/.cache/wal/colors-sway"
 
-### Variables
 #
-# Logo key. Use Mod1 for Alt.
-set $mod Mod4
-# Home row direction keys, like vim
-set $left h
-set $down j
-set $up k
-set $right l
-# resize amount
-set $ResizeAmount 30px
-# Your preferred terminal emulator
-set $term alacritty
-# Note: pass the final command to swaymsg so that the resulting window can be opened
-# on the original workspace that the command was run on.
-# Your preferred application launcher
-set $menu wofi --show=drun --lines=10 --prompt="" # Graphical file browser
-set $FileBrowser nemo
-# Web browser
-set $WebBrowser brave
-# Social media
-set $SocialMedia ferdi
-# Music application
-set $MusicApp spotify
-# path to background image
-set $BackgroundLandscape /usr/share/backgrounds/nixos/nix-wallpaper-3d-showcase-3840x2160.png
-set $BackgroundPortrait /usr/share/backgrounds/nixos/nix-wallpaper-3d-showcase-3840x2160.png
+# Variables
+#
 
-### Font
+	# Logo key. Use Mod1 for Alt.
+	set $mod Mod4
+
+	# Home row direction keys, like vim
+	set $left h
+	set $down j
+	set $up k
+	set $right l
+
+	# resize amount
+	set $ResizeAmount 30px
+
+	# Your preferred terminal emulator
+	set $term alacritty
+
+	# Note: pass the final command to swaymsg so that the resulting window can be opened
+	# on the original workspace that the command was run on.
+	# Your preferred application launcher
+	set $menu wofi --show=drun --lines=10 --prompt="" # Graphical file browser
+
+	set $FileBrowser nemo
+
+	# Web browser
+	set $WebBrowser brave
+
+	# Social media
+	set $SocialMedia ferdi
+
+	# Music application
+	set $MusicApp spotify
+
+	# path to background image
+	set $BackgroundLandscape /usr/share/backgrounds/nixos/nix-wallpaper-3d-showcase-3840x2160.png
+	set $BackgroundPortrait /usr/share/backgrounds/nixos/nix-wallpaper-3d-showcase-3840x2160.png
+
+# Font
 font pango:Roboto, 12
 
-### import GTK settings
+# import GTK settings
 exec_always sh $HOME/config/sway/.config/sway/import-gsettings.sh
 
-### Output configuration
 #
-# Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output DVI-I-1 bg $BackgroundLandscape fill
-output DP-1 bg $BackgroundLandscape fill
-output HDMI-A-1 bg $BackgroundPortrait fill
+# Output configuration
+#
+
+	# Backgrounds
+	output DVI-I-1 bg $BackgroundLandscape fill
+	output DP-1 bg $BackgroundLandscape fill
+	output HDMI-A-1 bg $BackgroundPortrait fill
+
+	# Monitor resolutions and positions
+	output DVI-I-1 resolution 1920x1080 position 320,0
+	output DP-1 resolution 2560x1440 position 0,1080
+	output HDMI-A-1 resolution 1920x1080 position 2560,952 transform 90
+
+	focus output DP-1
+
+	# You can get the names of your outputs by running: swaymsg -t get_outputs
 
 #
-# Example configuration:
+# Idle configuration
 #
-output DVI-I-1 resolution 1920x1080 position 320,0
-output DP-1 resolution 2560x1440 position 0,1080
-output HDMI-A-1 resolution 1920x1080 position 2560,952 transform 90
-#
-focus output DP-1
-#
-# You can get the names of your outputs by running: swaymsg -t get_outputs
 
-### Idle configuration
-#
-# Example configuration:
-#
-# exec swayidle -w \
-#          timeout 300 'swaylock -f -c 000000' \
-#          timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
-#          before-sleep 'swaylock -f -c 000000'
-#
+exec swayidle -w \
+	timeout 300 'swaylock -f -c 000000' \
+	timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
+	before-sleep 'swaylock -f -c 000000'
 # This will lock your screen after 300 seconds of inactivity, then turn off
 # your displays after another 300 seconds, and turn your screens back on when
 # resumed. It will also lock your screen before your computer goes to sleep.
 
-### Input configuration
 #
-# Example configuration:
+# Input configuration
 #
-#   input "2:14:SynPS/2_Synaptics_TouchPad" {
-#       dwt enabled
-#       tap enabled
-#       natural_scroll enabled
-#       middle_emulation enabled
-#   }
-#
+	# Example configuration:
+	#
+	#input "2:14:SynPS/2_Synaptics_TouchPad" {
+	#	dwt enabled
+	#	tap enabled
+	#	natural_scroll enabled
+	#	middle_emulation enabled
+	#}
+
     input "type:keyboard" {
         xkb_layout de
-        xkb_variant ,nodeadkeys
+        xkb_variant nodeadkeys
         xkb_options grp:alt_shift_toggle
     }
-
     input * xkb_numlock enable
-#
-# You can get the names of your inputs by running: swaymsg -t get_inputs
-# Read `man 5 sway-input` for more information about this section.
 
-### Key bindings
+	# You can get the names of your inputs by running: swaymsg -t get_inputs
+	# Read `man 5 sway-input` for more information about this section.
+
 #
-# Basics:
+# Key bindings
 #
+
     # Start a terminal
     bindsym $mod+x exec $term
 
@@ -120,49 +124,64 @@ focus output DP-1
     # Exit sway (logs you out of your Wayland session)
     bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'
 
-    # take a screenshot by selecting an area
+    # Take a screenshot by selecting an area
     bindsym print exec grim -g "$(slurp)" - | swappy -f -
 
 #
 # Programs:
 #
-    # Graphical File Browser
+
+    # Graphical file browser
     bindsym $mod+f7 exec $FileBrowser
-    # Browser
+
+    # Web browser
     bindsym $mod+f8 exec $WebBrowser
+
     # Social media
     bindsym $mod+f9 exec $SocialMedia
+
     # Music application
     bindsym $mod+f10 exec $MusicApp
 
 #
 # Media controls
 #
-    # Volume
-      # Toggle deafen
-      bindsym XF86AudioMute exec pactl set-sink-mute $(pactl list short sinks | grep RUNNING | cut -f1) toggle
-      # Toggle mute
-      #bindsym exec pactl set-source-mute alsa_input.usb-BLUE_MICROPHONE_Blue_Snowball_201306-00.mono-fallback toggle && play ~/Music/the-open-source-drumkit/sidestick/sidestick1.wav
-      # Raise sink volume
-      bindsym XF86AudioRaiseVolume exec pactl set-sink-volume $(pactl list short sinks | grep RUNNING | cut -f1) +2%
-      # Lower sink volume
-      bindsym XF86AudioLowerVolume exec pactl set-sink-volume $(pactl list short sinks | grep RUNNING | cut -f1) -2%
+
+	# Volume
+
+	    # Toggle deafen
+	    bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
+
+	    # Toggle mute
+	    bindsym XF86AudioMicMute exec pactl set-source-mute @DEFAULT_SOURCE@ toggle && play ~/Music/the-open-source-drumkit/sidestick/sidestick1.wav
+
+	    # Raise sink volume
+	    bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +2%
+
+	    # Lower sink volume
+	    bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -2%
+
     # Spotify
-      # Play/pause spotify
-      bindsym XF86AudioPlay exec dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause
-      # Play previous spotify track
-      bindsym XF86AudioPrev exec dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous
-      # Play next spotify track
-      bindsym XF86AudioNext exec dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next
+
+	    # Play/pause spotify
+	    bindsym XF86AudioPlay exec dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause
+
+		# Play previous spotify track
+	    bindsym XF86AudioPrev exec dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous
+
+		# Play next spotify track
+	    bindsym XF86AudioNext exec dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next
 
 #
 # Moving around:
 #
+
     # Move your focus around
     bindsym $mod+$left focus leftl
     bindsym $mod+$down focus down
     bindsym $mod+$up focus up
     bindsym $mod+$right focus right
+
     # Or use $mod+[up|down|left|right]
     bindsym $mod+Left focus left
     bindsym $mod+Down focus down
@@ -174,11 +193,13 @@ focus output DP-1
     bindsym $mod+Shift+$down move down
     bindsym $mod+Shift+$up move up
     bindsym $mod+Shift+$right move right
+
     # Ditto, with arrow keys
     bindsym $mod+Shift+Left move left
     bindsym $mod+Shift+Down move down
     bindsym $mod+Shift+Up move up
     bindsym $mod+Shift+Right move right
+
 #
 # Workspaces:
 #
@@ -193,6 +214,7 @@ focus output DP-1
     bindsym $mod+8 workspace number 8
     bindsym $mod+9 workspace number 9
     bindsym $mod+0 workspace number 10
+
     # Move focused container to workspace
     bindsym $mod+Shift+1 move container to workspace number 1
     bindsym $mod+Shift+2 move container to workspace number 2
@@ -204,11 +226,14 @@ focus output DP-1
     bindsym $mod+Shift+8 move container to workspace number 8
     bindsym $mod+Shift+9 move container to workspace number 9
     bindsym $mod+Shift+0 move container to workspace number 10
+
     # Note: workspaces can have any name you want, not just numbers.
     # We just use 1-10 as the default.
+
 #
 # Layout stuff:
 #
+
     # You can "split" the current object of your focus with
     # $mod+b or $mod+v, for horizontal and vertical splits
     # respectively.
@@ -231,9 +256,11 @@ focus output DP-1
 
     # Move focus to the parent container
     bindsym $mod+a focus parent
+
 #
 # Scratchpad:
 #
+
     # Sway has a "scratchpad", which is a bag of holding for windows.
     # You can send windows there and get them back later.
 
@@ -243,9 +270,11 @@ focus output DP-1
     # Show the next scratchpad window or hide the focused scratchpad window.
     # If there are multiple scratchpad windows, this command cycles through them.
     bindsym $mod+minus scratchpad show
+
 #
 # Resizing containers:
 #
+
 mode "resize" {
     # left will shrink the containers width
     # right will grow the containers width
@@ -271,10 +300,11 @@ bindsym $mod+r mode "resize"
 #
 # Status Bar:
 #
-# waybar
-bar {
-    swaybar_command waybar
-}
+
+	# waybar
+	bar {
+	    swaybar_command waybar
+	}
 
 # Polkit
 exec /run/current-system/sw/libexec/polkit-gnome-authentication-agent-1
