@@ -1,5 +1,7 @@
 # papojari's NixOS configuration
 
+[![forthebadge](https://forthebadge.com/images/badges/uses-badges.svg)](https://forthebadge.com)
+
 [![forthebadge](https://forthebadge.com/images/badges/powered-by-electricity.svg)](https://forthebadge.com)
 
 [![built with nix](https://builtwithnix.org/badge.svg)](https://builtwithnix.org)
