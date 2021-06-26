@@ -57,6 +57,24 @@
 		# Configure network proxy if necessary
 		#networking.proxy.default = "http://user:password@proxy:port/";
 		#networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
+		# Firewall
+		firewall = {
+			# Steam
+			allowedTCPPorts = [ 80 443 27036 ];
+			allowedUDPPorts = [ 4380 3478 4379 4380 ];
+			allowedUDPPortRanges = [
+    				{
+        				from = 27000;
+        				to = 27100;
+				}
+			];
+			allowedTCPPortRanges = [
+    				{
+					from = 27015;
+					to = 27030;
+    				}
+			];
+		};
 	};
 	## dnscrypt-proxy2
 	services.dnscrypt-proxy2 = {
@@ -85,8 +103,6 @@
 	# Set your time zone.
 	time.timeZone = "Europe/Berlin";
 
-	# Select internationalisation properties.
-	i18n.defaultLocale = "en_US.UTF-8";
 	console = {
 		font = "Lat2-Terminus16";
 		keyMap = "de";
@@ -100,13 +116,13 @@
 		# X uses amdgpu video driver
 		videoDrivers = [ "amdgpu" ];
 		displayManager = {
-			# Enable the GNOME 40 Desktop Environment.
-			#wayland = true;
 			gdm = {
 				enable = true;
 				wayland = true;
 			};
-			#gnome.enable = true;
+		};
+		desktopManager = {
+    			gnome.enable = true;
 		};
 	};
 
@@ -160,6 +176,57 @@
 	# Enable touchpad support (enabled default in most desktopManager).
 	# services.xserver.libinput.enable = true;
 
+	# Mounting
+	fileSystems = {
+		# sda8
+		"/backgrounds" = {
+			device = "/dev/disk/by-uuid/9feb2ea8-a1c5-4dc7-866e-402437d2489f";
+			fsType = "btrfs";
+			options = [ "subvolid=329" ];
+		};
+		"/games/ssd-btrfs" = {
+			device = "/dev/disk/by-uuid/9feb2ea8-a1c5-4dc7-866e-402437d2489f";
+			fsType = "btrfs";
+			options = [ "subvolid=331" ];
+		};
+		"/git-repos" = {
+			device = "/dev/disk/by-uuid/9feb2ea8-a1c5-4dc7-866e-402437d2489f";
+			fsType = "btrfs";
+			options = [ "subvolid=1007" ];
+		};
+		"/data" = {
+			device = "/dev/disk/by-uuid/9feb2ea8-a1c5-4dc7-866e-402437d2489f";
+			fsType = "btrfs";
+			options = [ "subvolid=356" ];
+		};
+		"/stick" = {
+			device = "/dev/disk/by-uuid/9feb2ea8-a1c5-4dc7-866e-402437d2489f";
+			fsType = "btrfs";
+			options = [ "subvolid=436" ];
+		};
+		# sdb4
+		"/video-download" = {
+			device = "/dev/disk/by-uuid/2b2f4aec-9d14-450e-93c4-b5f7d8dafafa";
+			fsType = "btrfs";
+			options = [ "subvolid=336" ];
+		};
+		"/images" = {
+			device = "/dev/disk/by-uuid/2b2f4aec-9d14-450e-93c4-b5f7d8dafafa";
+			fsType = "btrfs";
+			options = [ "subvolid=335" ];
+		};
+		"/games/hdd-btrfs" = {
+			device = "/dev/disk/by-uuid/2b2f4aec-9d14-450e-93c4-b5f7d8dafafa";
+			fsType = "btrfs";
+			options = [ "subvolid=328" ];
+		};
+		# sdb3
+		"/games/hdd-ntfs" = {
+			device = "/dev/disk/by-uuid/5C2CF7652CF7389A";
+			fsType = "ntfs";
+		};
+	};
+
 	programs = {
 		zsh = {
 			enable = true;
@@ -173,10 +240,27 @@
 		light.enable = true;
 		sway = {
 			enable = true;
+			wrapperFeatures.gtk = true;
 		};
 		xwayland.enable = true;
 		qt5ct.enable = true;
-		steam.enable = true;
+		#steam.enable = true;
+	};
+
+	i18n = {
+		defaultLocale = "en_US.UTF-8";
+		extraLocaleSettings = {
+    			LANGUAGE = "en_US";
+			LC_TIME = "de_DE.UTF-8";
+			LC_MEASUREMENT = "de_DE.UTF-8";
+			LC_ADDRESS = "de_DE.UTF-8";
+			LC_PAPER = "de_DE.UTF-8";
+			LC_TELEPHONE = "de_DE.UTF-8";
+		};
+		supportedLocales = [
+			"en_US.UTF-8/UTF-8"
+			"de_DE.UTF-8/UTF-8"
+		];
 	};
 
 	# Define a user account. Don't forget to set a password with ‘passwd’.
@@ -233,60 +317,64 @@
 		driversi686Linux.amdvlk
 	];
 
-	nixpkgs.config.allowBroken = true;
+	#nixpkgs.config.allowBroken = true;
 
 	# Steam
-	nixpkgs.config.packageOverrides = pkgs: {
-		steam = pkgs.steam.override {
-			nativeOnly = true;
-		};
-	};
+	#nixpkgs.config.packageOverrides = pkgs: {
+	#	steam = pkgs.steam.override {
+	#		nativeOnly = true;
+	#	};
+	#};
 
 	# List packages installed in system profile. To search, run:
 	# $ nix search wget
 	environment.systemPackages = with pkgs; [
-		 # Languages
-		 zsh zsh-syntax-highlighting zsh-autosuggestions zsh-powerlevel10k dash rustc
-		 # CLI
-		 tmux cmatrix toilet cowsay wget kakoune neovim neofetch htop cava git tealdeer stow unzip pandoc youtube-dl ytfzf xplr
-		 # Video and image
-		 pqiv mpv scrcpy
-		 # Audio
-		 pipewire pavucontrol pulseaudio
-		 # Wine
-		 wine-staging
-		 # Wine both 32- and 64 bit support
-		 wineWowPackages.staging
-		 # Wayland, Xorg
-		 wayland xwayland xorg.xrdb polkit polkit_gnome waybar wofi slurp grim swappy alacritty
-		 # Theming
-		 papirus-icon-theme lxappearance qt5ct materia-theme capitaine-cursors pywal
-		 # Apps
-		 alacritty gnome.nautilus cinnamon.nemo gnome.gnome-tweak-tool gnome.gvfs
-		 brave bitwarden gnome-passwordsafe ferdi spotify exodus minecraft lunar-client discord mumble
-		 # E-Mail
-		 gnome.geary thunderbird-bin
-		 # Media processing
-		 ffmpeg obs-studio
-		 # Development
-		 atom cobalt
-		 # Creative
-		 blender gimp godot godot-export-templates inkscape audacity
-		 # Office
-		 libreoffice-fresh
-		 # Vulkan
-		 vulkan-loader mangohud
-		 # Games
-		 teeworlds
-		 superTuxKart
-		 superTux
-		 #m-wayland
-		 # MTP
-		 jmtpfs
-		 # KDE Connect
-		 gparted dosfstools mtools
-		 # Printing & scanning
-		 cups system-config-printer gnome.simple-scan
+		# Languages
+		zsh zsh-syntax-highlighting zsh-autosuggestions zsh-powerlevel10k dash rustc jdk11
+		# CLI
+		tmux cmatrix toilet cowsay wget kakoune neovim neofetch htop cava git tealdeer stow unzip pandoc youtube-dl ytfzf xplr
+		# Video and image
+		pqiv mpv scrcpy
+		# Audio
+		pipewire pavucontrol pulseaudio
+		# Wine
+		wine-staging lutris-unwrapped
+		# Wine both 32- and 64 bit support
+		wineWowPackages.staging
+		# Wayland, Xorg
+		wayland xwayland xorg.xrdb polkit polkit_gnome waybar wofi slurp grim swappy alacritty
+		# Theming
+		papirus-icon-theme lxappearance materia-theme capitaine-cursors pywal
+		# Apps
+		alacritty gnome.nautilus cinnamon.nemo gnome.gnome-tweak-tool gnome.gvfs
+		brave firefox-wayland tor-browser-bundle-bin bitwarden gnome-passwordsafe ferdi spotify exodus minecraft multimc amidst discord mumble osu-lazer #steam-tui
+		# E-Mail
+		gnome.geary thunderbird-bin
+		# Media processing
+		ffmpeg obs-studio
+		# Development
+		atom cobalt
+		# Creative
+		blender gimp godot godot-export-templates inkscape audacity
+		# Office
+		libreoffice-fresh
+		# Vulkan
+		vulkan-loader mangohud vulkan-tools
+		# Games
+		teeworlds
+		superTuxKart
+		superTux
+		#mindustry-wayland
+		# MTP
+		jmtpfs
+		# KDE Connect
+		gparted dosfstools mtools
+		# Printing & scanning
+		cups system-config-printer gnome.simple-scan
+
+		(multimc.overrideAttrs (old: {
+    		  buildInputs = with pkgs; [ libsForQt5.qt5.qtbase jdk11 zlib ];
+		}))
 	];
 
 	environment.pathsToLink = [ "/libexec" ];
@@ -311,12 +399,6 @@
 
 	# Enable the OpenSSH daemon.
 	# services.openssh.enable = true;
-
-	# Open ports in the firewall.
-	# networking.firewall.allowedTCPPorts = [ ... ];
-	# networking.firewall.allowedUDPPorts = [ ... ];
-	# Or disable the firewall altogether.
-	# networking.firewall.enable = false;
 
 	# This value determines the NixOS release from which the default
 	# settings for stateful data, like file locations and database versions
