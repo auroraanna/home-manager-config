@@ -38,11 +38,11 @@ More information at [NixOS unstable manual](https://nixos.org/manual/nixos/unsta
 
 #### From the machine
 
-	wget https://gitlab.com/papojari/config/-/raw/master/configuration.nix && cp configuration.nix /etc/nixos/ && nixos-rebuild switch
+	wget https://codeberg.org/papojari/nixos-desktop-config/raw/branch/main/configuration.nix && cp configuration.nix /etc/nixos/ && nixos-rebuild switch
 
 #### From installation medium
 
-	wget https://gitlab.com/papojari/config/-/raw/master/configuration.nix && cp configuration.nix /mnt/etc/nixos/ && nixos-install
+	wget https://codeberg.org/papojari/nixos-desktop-config/raw/branch/main/configuration.nix && cp configuration.nix /mnt/etc/nixos/ && nixos-install
 
 ### Backgrounds
 
