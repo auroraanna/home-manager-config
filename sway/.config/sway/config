@@ -36,15 +36,52 @@ include "$HOME/.cache/wal/colors-sway"
 	# Music application
 	set $MusicApp spotify
 
-	# path to background image
+	# Path to background image
 	set $BackgroundLandscape /usr/share/backgrounds/nixos/nix-wallpaper-3d-showcase-3840x2160.png
 	set $BackgroundPortrait /usr/share/backgrounds/nixos/nix-wallpaper-3d-showcase-3840x2160.png
 
-# Font
-font pango:Roboto, 12
+#
+# Appearance
+#
 
-# import GTK settings
-exec_always sh $HOME/config/sway/.config/sway/import-gsettings.sh
+	# Font
+	font pango:Roboto, 12
+
+	# Import GTK settings
+	exec_always sh $HOME/config/sway/.config/sway/import-gsettings.sh
+
+	# Disable window title
+	default_border pixel 1
+
+	# If on, borders will onlybe drawn when there is more than 1 window in the workspace.
+	smart_borders on
+
+	# Base16 GNOME dark custom
+	set $base00 #171421
+	set $base01 #c01c28
+	set $base02 #26a269
+	set $base03 #a2734c
+	set $base04 #12488b
+	set $base05 #a347ba
+	set $base06 #06989a
+	set $base07 #d0cfcc
+	set $base08 #5e5c64
+	set $base09 #ef2929
+	set $base0A #8ae234
+	set $base0B #e9ad0c
+	set $base0C #2a7bde
+	set $base0D #c061cb
+	set $base0E #33c7de
+	set $base0F #ffffff
+	
+	# Colors
+	# Property Name         Border  BG      Text    Indicator Child Border
+	client.focused          $base0D $base0D $base00 $base0D   $base05
+	client.focused_inactive $base05 $base05 $base00 $base05   $base05
+	client.unfocused        $base00 $base00 $base07 $base00   $base00
+	client.urgent           $base01 $base01 $base00 $base01   $base01
+	client.placeholder      $base03 $base03 $base07 $base03   $base03
+	client.background       $base07
 
 #
 # Output configuration

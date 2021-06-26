@@ -6,18 +6,21 @@
 
 [![built with nix](https://builtwithnix.org/badge.svg)](https://builtwithnix.org)
 
+## Preview
 
+![Preview](preview.png)
 
 ## ToC
 
 <!-- TOC depthFrom:1 depthTo:6 withLinks:1 updateOnSave:1 orderedList:0 -->
 
 - [papojari's NixOS configuration](#papojaris-nixos-configuration)
+	- [Preview](#preview)
 	- [ToC](#toc)
 	- [Installation](#installation)
-	- [Build `configuration.nix`](#build-configurationnix)
-		- [From the machine](#from-the-machine)
-		- [From installation medium](#from-installation-medium)
+		- [Build `configuration.nix`](#build-configurationnix)
+			- [From the machine](#from-the-machine)
+			- [From installation medium](#from-installation-medium)
 		- [Backgrounds](#backgrounds)
 		- [Linking my dotfiles with `stow`](#linking-my-dotfiles-with-stow)
 		- [Wayland](#wayland)
