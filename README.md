@@ -1,34 +1,24 @@
-# papojari's NixOS configuration
+<div align="center">
 
-[![forthebadge](https://forthebadge.com/images/badges/uses-badges.svg)](https://forthebadge.com)
+<h1>papojari's NixOS configuration</h1>
 
-[![forthebadge](https://forthebadge.com/images/badges/powered-by-electricity.svg)](https://forthebadge.com)
+<p>
+  <a href="https://nixos.org/"><img src="https://img.shields.io/badge/NixOS-unstable-blue" alt="Badge: NixOS | unstable"/></a>
+  <a href="https://swaywm.org/"><img src="https://img.shields.io/badge/Sway-1.6.1-yellowgreen" alt="Badge: Sway | 1.6.1"/></a>
+  <a href="https://swaywm.org/"><img src="https://img.shields.io/badge/GNU%20Stow-2.3.1-yellow" alt="Badge: GNU Stow | 2.3.1"/></a>  
+</p>
 
-[![built with nix](https://builtwithnix.org/badge.svg)](https://builtwithnix.org)
+[![built with Nix](https://builtwithnix.org/badge.svg)](https://builtwithnix.org)
+
+This repository contains my NixOS desktop configuration files. Other than the `configuration-*.nix` files you will be able to use all of the files on other operating systems like BSD, macOS or any of the other Linux distributions.
+
+</div>
+
+---
 
 ## Preview
 
 ![Preview](preview.png)
-
-## ToC
-
-<!-- TOC depthFrom:1 depthTo:6 withLinks:1 updateOnSave:1 orderedList:0 -->
-
-- [papojari's NixOS configuration](#papojaris-nixos-configuration)
-	- [Preview](#preview)
-	- [ToC](#toc)
-	- [Installation](#installation)
-		- [Build `configuration.nix`](#build-configurationnix)
-			- [From the machine](#from-the-machine)
-			- [From installation medium](#from-installation-medium)
-		- [Backgrounds](#backgrounds)
-		- [Linking my dotfiles with `stow`](#linking-my-dotfiles-with-stow)
-		- [Wayland](#wayland)
-			- [lxappearance](#lxappearance)
-
-<!-- /TOC -->
-
-Note that the `nixos/configuration.nix` is specifically tailed to and AMD CPU and an AMD Sea Islands graphics card. Change it depending on your hardware.
 
 ## Installation
 
@@ -59,27 +49,29 @@ Everything from here on should be done one the machine, which you installed NixO
 
 ### Linking my dotfiles with `stow`
 
-This command clones the repository into your home directory, `cd`'s into the `dotfiles` folder and simulates the *stowing*.
+This command clones the repository into your home directory, `cd`'s into the `nixos-config-desktop-x86_64` folder and simulates the *stowing*.
 
-	cd && git clone https://gitlab.com/config/config.git && cd config && stow -nvSt ~ */
+	git clone https://codeberg.org/papojari/nixos-config-desktop-x86_64.git ~/ && stow -nvSt ~ ~/nixos-config-desktop-x86_64/*/
 
-**NEXT COMMAND WILL OVERWRITE FILES YOU MIGHT ALREADY HAVE IN PLACE**
+If `stow` reports that some files already exist in the corresponding locations you will have to move them.
 
-**The previous command told you what will be overwritten**
+The next command will put links in the corresponding locations in your home directory, that will be linking to my configuration.
 
-	stow -vSt ~ */
+	stow -vSt ~ ~/nixos-config-desktop-x86_64/*/
 
-to recreate the symbolic links in the appropriate position in your home directory pointing to the `~/dotfiles` folder's files.
-
-This way you have all the configuration files in one place. This makes publishing dotfiles to a repository very easy. If you wanted to you could add your own configuration files and link them with GNU Stow or just edit mine a bit.
+This way you have all the configuration files in one place. This makes publishing your configuration to a repository very easy. If you wanted to you could add your own configuration files and link them with GNU Stow or just edit mine a bit.
 
 Alternatively you could move every single file to its appropriate position given in the repository. For that you would manually have to create all the folders which is time consuming so GNU Stow makes much sense here.
 
 ### Wayland
 
-Before you start **sway** adjust `~/config/sway/.config/sway/config` to you monitor setup. You can just start **sway** with `sway` in a tty. Alternatively start **sway** from a display manager. In my experience, despite what the wiki says, **gdm** has worked.
+Before you start *sway* adjust `~/.config/sway/config` to you monitor setup. You can just start *sway* with `sway` in a tty. Alternatively start *sway* from a display manager. In my experience, despite what the wiki says, *gdm* works.
 
 #### lxappearance
 
-- In sway open `lxappearance`and set either **Materia-dark-compact** as the GTK theme.
-- Then set one of the **Papirus** icons themes depending on if you use a dark or light GTK theme or not and as your mouse cursor, select **Capitaine Cursors**.
+- In sway open `lxappearance`and set *Materia-dark-compact* as the GTK theme.
+- Then set *Papirus-Dark* and as your mouse cursor, select *Capitaine Cursors*.
+
+## License
+
+This repository is [unlicensed](https://unlicense.org/).
