@@ -23,7 +23,7 @@ include "$HOME/.cache/wal/colors-sway"
 	# Note: pass the final command to swaymsg so that the resulting window can be opened
 	# on the original workspace that the command was run on.
 	# Your preferred application launcher
-	set $menu wofi --show=drun --lines=10 --prompt="" # Graphical file browser
+	set $menu bash -ic 'wofi --show=drun --lines=10 --prompt="" | xargs swaymsg exec --' # Graphical file browser
 
 	set $FileBrowser nemo
 
@@ -116,6 +116,7 @@ exec swayidle -w \
 #
 # Input configuration
 #
+
 	# Example configuration:
 	#
 	#input "2:14:SynPS/2_Synaptics_TouchPad" {
