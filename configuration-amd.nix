@@ -28,15 +28,27 @@
 		initrd.kernelModules = [ "amdgpu" ];
 	};
 
-	# Microcode
-	hardware.cpu.amd.updateMicrocode = true;
 
-	# Enable vulkan
 	hardware = {
+		# Microcode
+		cpu.amd.updateMicrocode = true;
+		# OpenGL & Vulkan
 		opengl = {
 			driSupport = true;
 			driSupport32Bit = true;
+			extraPackages = with pkgs; [
+				rocm-opencl-icd
+				rocm-opencl-runtime
+				amdvlk
+			];
+			# For 32 bit applications
+			# Only available on unstable
+			extraPackages32 = with pkgs; [
+				driversi686Linux.amdvlk
+			];
 		};
+		# Disable Pulseaudio because Pipewire is used
+		pulseaudio.enable = false;
 	};
 
 	# Networking
@@ -76,25 +88,6 @@
 			];
 		};
 	};
-	## dnscrypt-proxy2
-	services.dnscrypt-proxy2 = {
-		enable = true;
-		settings = {
-			ipv6_servers = true;
-			require_dnssec = true;
-			sources.public-resolvers = {
-				urls = [
-					"https://raw.githubusercontent.com/DNSCrypt/dnscrypt-resolvers/master/v3/public-resolvers.md"
-					"https://download.dnscrypt.info/resolvers-list/v3/public-resolvers.md"
-				];
-				cache_file = "/var/lib/dnscrypt-proxy2/public-resolvers.md";
-				minisign_key = "RWQf6LRCGA9i53mlYecO4IzT51TGPpvWucNSCh1CBM0QTaLn73Y7GFO3";
-			};
-
-			# You can choose a specific set of servers from https://github.com/DNSCrypt/dnscrypt-resolvers/blob/master/v3/public-resolvers.md
-			# server_names = [ ... ];
-		};
-	};
 
 	systemd.services.dnscrypt-proxy2.serviceConfig = {
 		StateDirectory = "dnscrypt-proxy";
@@ -108,70 +101,85 @@
 		keyMap = "de";
 	};
 
-	services.xserver = {
-		enable = true;
-		# Configure keymap in X11
-		layout = "de";
-		xkbOptions = "eurosign:e";
-		# X uses amdgpu video driver
-		videoDrivers = [ "amdgpu" ];
-		displayManager = {
-			gdm = {
-				enable = true;
-				wayland = true;
+	services = {
+		dnscrypt-proxy2 = {
+			enable = true;
+			settings = {
+				ipv6_servers = true;
+				require_dnssec = true;
+				sources.public-resolvers = {
+					urls = [
+						"https://raw.githubusercontent.com/DNSCrypt/dnscrypt-resolvers/master/v3/public-resolvers.md"
+						"https://download.dnscrypt.info/resolvers-list/v3/public-resolvers.md"
+					];
+					cache_file = "/var/lib/dnscrypt-proxy2/public-resolvers.md";
+					minisign_key = "RWQf6LRCGA9i53mlYecO4IzT51TGPpvWucNSCh1CBM0QTaLn73Y7GFO3";
+				};
+
+				# You can choose a specific set of servers from https://github.com/DNSCrypt/dnscrypt-resolvers/blob/master/v3/public-resolvers.md
+				# server_names = [ ... ];
 			};
 		};
-		desktopManager = {
-    			gnome.enable = true;
+		xserver = {
+			enable = true;
+			# Configure keymap in X11
+			layout = "de";
+			xkbOptions = "eurosign:e";
+			# X uses amdgpu video driver
+			videoDrivers = [ "amdgpu" ];
+			displayManager = {
+				gdm = {
+					enable = true;
+					wayland = true;
+				};
+			};
+			desktopManager = {
+	    			gnome.enable = true;
+			};
+		};
+		pipewire = {
+			enable = true;
+			alsa.enable = true;
+			alsa.support32Bit = true;
+			pulse.enable = true;
+			## If you want to use JACK applications, uncomment this
+			#jack.enable = true;
+			## Bluetooth
+			media-session.config.bluez-monitor.rules = [
+				{
+					# Matches all cards
+					matches = [ { "device.name" = "~bluez_card.*"; } ];
+					actions = {
+						"update-props" = {
+							"bluez5.reconnect-profiles" = [ "hfp_hf" "hsp_hs" "a2dp_sink" ];
+							# mSBC is not expected to work on all headset + adapter combinations.
+							"bluez5.msbc-support" = true;
+						};
+					};
+				}
+				{
+					matches = [
+					# Matches all sources
+					{ "node.name" = "~bluez_input.*"; }
+					# Matches all outputs
+					{ "node.name" = "~bluez_output.*"; }
+					];
+					actions = {
+					"node.pause-on-idle" = false;
+					};
+				}
+			];
+		};
+		printing = {
+			# Enable CUPS to print documents.
+			enable = true;
+			# Driver
+			drivers = with pkgs; [ hplipWithPlugin ];
 		};
 	};
 
-	services.printing = {
-		# Enable CUPS to print documents.
-		enable = true;
-		# Driver
-		drivers = with pkgs; [ hplipWithPlugin ];
-	};
-
-	# Audio
-	## Disable pulseaudio
-	hardware.pulseaudio.enable = false;
 	## rtkit is optional but recommended
 	security.rtkit.enable = true;
-	## Pipewire
-	services.pipewire = {
-		enable = true;
-		alsa.enable = true;
-		alsa.support32Bit = true;
-		pulse.enable = true;
-		## If you want to use JACK applications, uncomment this
-		#jack.enable = true;
-		## Bluetooth
-		media-session.config.bluez-monitor.rules = [
-			{
-				# Matches all cards
-				matches = [ { "device.name" = "~bluez_card.*"; } ];
-				actions = {
-					"update-props" = {
-						"bluez5.reconnect-profiles" = [ "hfp_hf" "hsp_hs" "a2dp_sink" ];
-						# mSBC is not expected to work on all headset + adapter combinations.
-						"bluez5.msbc-support" = true;
-					};
-				};
-			}
-			{
-				matches = [
-				# Matches all sources
-				{ "node.name" = "~bluez_input.*"; }
-				# Matches all outputs
-				{ "node.name" = "~bluez_output.*"; }
-				];
-				actions = {
-				"node.pause-on-idle" = false;
-				};
-			}
-		];
-	};
 
 	# Enable touchpad support (enabled default in most desktopManager).
 	# services.xserver.libinput.enable = true;
@@ -273,58 +281,50 @@
 	shell = pkgs.zsh;
 	openssh.authorizedKeys.keys = [ "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGcgywMb4yGH8ZN97LBa9P7Q4/3O9GVy/kjtGrV7KFaV papojari@Cryogonal" ];
 	};
-	#home-manager.users.papojari = {
-	#	programs = {
-	#		git = {
-	#			enable = true;
-	#			userName	= "papojari";
-	#			userEmail = "papojari-git.ovoid@aleeas.com";
-	#		};
-	#		alacritty = {
-	#			enable = true;
-#	settings = {
-#		window.dimensions = {
- #	 		lines = 3;
-	#			columns = 200;
-	 #			 };
-	 #		 };
- #		 };
- #	 wayland.windowManager = {
-#			sway = {
-	#			enable = true;
-#	config = {
-#
-#	};
- #		 };
-	#	};
-	#};
+	home-manager.users.papojari = {
+		programs = {
+			git = {
+				enable = true;
+				userName	= "papojari";
+				userEmail = "papojari-git.ovoid@aleeas.com";
+			};
+			#alacritty = {
+			#	enable = true;
+			#	settings = {
+			#		window.dimensions = {
+ 	 		#			lines = 3;
+			#			columns = 200;
+			#		};
+			#	};
+			#};
+		};
+		#wayland.windowManager = {
+		#	sway = {
+		#		enable = true;
+		#		config = {
+		#
+		#		};
+		#	};
+		#};
+	};
 
 	# Automatic upgrades
 	system.autoUpgrade.enable = true;
 
-	# Allow unfree packages (sorry stallman)
-	nixpkgs.config.allowUnfree = true;
-
-	# OpenCL and Vulkan
-	hardware.opengl.extraPackages = with pkgs; [
-		rocm-opencl-icd
-		rocm-opencl-runtime
-		amdvlk
-	];
-	# For 32 bit applications
-	# Only available on unstable
-	hardware.opengl.extraPackages32 = with pkgs; [
-		driversi686Linux.amdvlk
-	];
-
-	#nixpkgs.config.allowBroken = true;
-
-	# Steam
-	#nixpkgs.config.packageOverrides = pkgs: {
-	#	steam = pkgs.steam.override {
-	#		nativeOnly = true;
-	#	};
-	#};
+	nixpkgs.config = {
+		# Allow unfree packages (sorry stallman)
+		allowUnfree = true;
+		#allowBroken = true;
+		packageOverrides = pkgs: {
+			# Steam
+			steam = pkgs.steam.override {
+				nativeOnly = true;
+			};
+		};
+		allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
+      		"hplip"
+    	];
+	};
 
 	# List packages installed in system profile. To search, run:
 	# $ nix search wget
@@ -332,7 +332,7 @@
 		# Languages
 		zsh zsh-syntax-highlighting zsh-autosuggestions zsh-powerlevel10k dash rustc jdk11
 		# CLI
-		tmux cmatrix toilet cowsay wget kakoune neovim neofetch htop cava git tealdeer stow unzip pandoc youtube-dl ytfzf xplr
+		tmux cmatrix toilet cowsay wget kakoune neovim neofetch htop cava git tealdeer stow unzip pandoc youtube-dl ytfzf xplr librespeed-cli
 		# Video and image
 		pqiv mpv scrcpy
 		# Audio
@@ -346,8 +346,8 @@
 		# Theming
 		papirus-icon-theme lxappearance materia-theme capitaine-cursors pywal
 		# Apps
-		alacritty gnome.nautilus cinnamon.nemo gnome.gnome-tweak-tool gnome.gvfs
-		brave firefox-wayland tor-browser-bundle-bin bitwarden gnome-passwordsafe ferdi spotify exodus minecraft multimc amidst discord mumble osu-lazer #steam-tui
+		alacritty gnome.nautilus xsane cinnamon.nemo gnome.gnome-tweak-tool gnome.gvfs teamspeak_client
+		brave firefox-wayland tor-browser-bundle-bin bitwarden gnome-passwordsafe ferdi spotify exodus minecraft multimc amidst discord mumble osu-lazer steam-tui
 		# E-Mail
 		gnome.geary thunderbird-bin
 		# Media processing
@@ -371,7 +371,7 @@
 		gparted dosfstools mtools
 		# Printing & scanning
 		cups system-config-printer gnome.simple-scan
-
+		# MultiMC
 		(multimc.overrideAttrs (old: {
     		  buildInputs = with pkgs; [ libsForQt5.qt5.qtbase jdk11 zlib ];
 		}))
