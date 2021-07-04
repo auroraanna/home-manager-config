@@ -20,19 +20,29 @@ This repository contains my NixOS desktop configuration files. Other than the `c
 
 ![Preview](preview.png)
 
-## Installation
+## Getting started
 
-### Build `configuration.nix`
+### Installing NixOS
 
-More information at [NixOS unstable manual](https://nixos.org/manual/nixos/unstable/)
+#### x86_64 architecture
 
-#### From the machine
+1. Follow [NixOS unstable manual](https://nixos.org/manual/nixos/unstable/) until you have a working system.
+2. Boot it without the installation medium.
 
-	wget https://codeberg.org/papojari/nixos-desktop-config/raw/branch/main/configuration.nix && cp configuration.nix /etc/nixos/ && nixos-rebuild switch
+#### Raspberry Pi 4 Model B
 
-#### From installation medium
+1. Follow this [nix.dev turorial](https://nix.dev/tutorials/installing-nixos-on-a-raspberry-pi) until you have a working system.
+2. Boot from the disk.
 
-	wget https://codeberg.org/papojari/nixos-desktop-config/raw/branch/main/configuration.nix && cp configuration.nix /mnt/etc/nixos/ && nixos-install
+### Build `configuration-*.nix`
+
+Copy one of the `configuration-*.nix` to `/etc/nixos/configuration.nix` by downloading one of them with `wget` or cloning the repository. Choose the `configuration-*.nix` based on if you want to install the configuration on a Raspberry Pi 4 Model B or an x86_64 computer, preferably with AMD processor and a AMD Radeon Sea Islands graphics card.
+
+If you're computer is x86_64 but not what I described in the latter of the last sentence you will have to tweak the `configuration-amd.nix` a bit.
+
+Next up rebuild the NixOS installation with
+
+	nixos-rebuild switch --upgrade
 
 ### Backgrounds
 
@@ -49,15 +59,15 @@ Everything from here on should be done one the machine, which you installed NixO
 
 ### Linking my dotfiles with `stow`
 
-This command clones the repository into your home directory, `cd`'s into the `nixos-config-desktop-x86_64` folder and simulates the *stowing*.
+This command clones the repository into your home directory, `cd`'s into the `nixos-config-desktop` folder and simulates the *stowing*.
 
-	git clone https://codeberg.org/papojari/nixos-config-desktop-x86_64.git ~/ && stow -nvSt ~ ~/nixos-config-desktop-x86_64/*/
+	git clone https://codeberg.org/papojari/nixos-config-desktop.git ~/ && stow -nvSt ~ ~/nixos-config-desktop/*/
 
 If `stow` reports that some files already exist in the corresponding locations you will have to move them.
 
 The next command will put links in the corresponding locations in your home directory, that will be linking to my configuration.
 
-	stow -vSt ~ ~/nixos-config-desktop-x86_64/*/
+	stow -vSt ~ ~/nixos-config-desktop/*/
 
 This way you have all the configuration files in one place. This makes publishing your configuration to a repository very easy. If you wanted to you could add your own configuration files and link them with GNU Stow or just edit mine a bit.
 
