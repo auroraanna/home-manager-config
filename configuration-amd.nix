@@ -2,14 +2,14 @@
 # your system.	Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
 {
 	imports =
 		[ # Include the results of the hardware scan.
 			./hardware-configuration.nix
 			# Home manager
-			#(import "${builtins.fetchTarball https://github.com/rycee/home-manager/archive/master.tar.gz}/nixos")
+			(import "${builtins.fetchTarball https://github.com/rycee/home-manager/archive/master.tar.gz}/nixos")
 		];
 
 	boot = {
@@ -49,6 +49,10 @@
 		};
 		# Disable Pulseaudio because Pipewire is used
 		pulseaudio.enable = false;
+		sane = {
+			enable = true;
+			extraBackends = [ pkgs.hplipWithPlugin ];
+		};
 	};
 
 	# Networking
@@ -125,6 +129,8 @@
 			# Configure keymap in X11
 			layout = "de";
 			xkbOptions = "eurosign:e";
+			# Enable touchpad support (enabled default in most desktopManager).
+			#libinput.enable = true;
 			# X uses amdgpu video driver
 			videoDrivers = [ "amdgpu" ];
 			displayManager = {
@@ -180,9 +186,6 @@
 
 	## rtkit is optional but recommended
 	security.rtkit.enable = true;
-
-	# Enable touchpad support (enabled default in most desktopManager).
-	# services.xserver.libinput.enable = true;
 
 	# Mounting
 	fileSystems = {
@@ -253,6 +256,12 @@
 		xwayland.enable = true;
 		qt5ct.enable = true;
 		#steam.enable = true;
+		# Some programs need SUID wrappers, can be configured further or are started in user sessions.
+		#mtr.enable = true;
+		#gnupg.agent = {
+		#	enable = true;
+		#	enableSSHSupport = true;
+		#};
 	};
 
 	i18n = {
@@ -272,15 +281,24 @@
 	};
 
 	# Define a user account. Don't forget to set a password with ‘passwd’.
-	## papojari
-	users.users.papojari = {
-	isNormalUser = true;
-	home = "/home/papojari";
-	description = "papojari";
-	extraGroups = [ "wheel" "networkmanager" "video" ];
-	shell = pkgs.zsh;
-	openssh.authorizedKeys.keys = [ "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGcgywMb4yGH8ZN97LBa9P7Q4/3O9GVy/kjtGrV7KFaV papojari@Cryogonal" ];
+	users.users = {
+		papojari = {
+			isNormalUser = true;
+			home = "/home/papojari";
+			description = "papojari";
+			extraGroups = [ "wheel" "networkmanager" "video" "lp" ];
+			shell = pkgs.zsh;
+			openssh.authorizedKeys.keys = [ "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGcgywMb4yGH8ZN97LBa9P7Q4/3O9GVy/kjtGrV7KFaV papojari@Cryogonal" ];
+		};
+		susi = {
+			isNormalUser = true;
+			home = "/home/susi";
+			description = "susi";
+			extraGroups = [ "lp" ];
+			shell = pkgs.zsh;
+		};
 	};
+
 	home-manager.users.papojari = {
 		programs = {
 			git = {
@@ -332,7 +350,7 @@
 		# Languages
 		zsh zsh-syntax-highlighting zsh-autosuggestions zsh-powerlevel10k dash rustc jdk11
 		# CLI
-		tmux cmatrix toilet cowsay wget kakoune neovim neofetch htop cava git tealdeer stow unzip pandoc youtube-dl ytfzf xplr librespeed-cli
+		tmux cmatrix toilet cowsay wget kakoune neovim neofetch htop cava git tealdeer stow unzip pandoc youtube-dl ytfzf librespeed-cli lolcat
 		# Video and image
 		pqiv mpv scrcpy
 		# Audio
@@ -342,39 +360,53 @@
 		# Wine both 32- and 64 bit support
 		wineWowPackages.staging
 		# Wayland, Xorg
-		wayland xwayland xorg.xrdb polkit polkit_gnome waybar wofi slurp grim swappy alacritty
+		wayland xwayland xorg.xrdb polkit polkit_gnome waybar wofi slurp grim swappy
 		# Theming
 		papirus-icon-theme lxappearance materia-theme capitaine-cursors pywal
-		# Apps
-		alacritty gnome.nautilus xsane cinnamon.nemo gnome.gnome-tweak-tool gnome.gvfs teamspeak_client
-		brave firefox-wayland tor-browser-bundle-bin bitwarden gnome-passwordsafe ferdi spotify exodus minecraft multimc amidst discord mumble osu-lazer steam-tui
+		# Other
+		alacritty gnome.gnome-tweak-tool exodus
+		# File browsers
+		gnome.nautilus cinnamon.nemo xplr
+		# Web browsers
+		brave firefox-wayland tor-browser-bundle-bin
+		# Voicechat, Social media
+		ferdi discord mumble teamspeak_client
+		# Music streaming
+		spotify
 		# E-Mail
 		gnome.geary thunderbird-bin
+		# Password managers
+		bitwarden gnome-passwordsafe
 		# Media processing
 		ffmpeg obs-studio
 		# Development
 		atom cobalt
-		# Creative
+		# Creative apps
 		blender gimp godot godot-export-templates inkscape audacity
 		# Office
 		libreoffice-fresh
 		# Vulkan
 		vulkan-loader mangohud vulkan-tools
 		# Games
+		minecraft multimc amidst
+		osu-lazer
+		steam-tui
 		teeworlds
-		superTuxKart
-		superTux
+		superTuxKart superTux
 		#mindustry-wayland
 		# MTP
 		jmtpfs
-		# KDE Connect
+		# Filesystem stuff
 		gparted dosfstools mtools
 		# Printing & scanning
-		cups system-config-printer gnome.simple-scan
+		cups system-config-printer gnome.simple-scan skanlite
 		# MultiMC
 		(multimc.overrideAttrs (old: {
     		  buildInputs = with pkgs; [ libsForQt5.qt5.qtbase jdk11 zlib ];
 		}))
+		# Python packages
+		python39Packages.pyqt5
+
 	];
 
 	environment.pathsToLink = [ "/libexec" ];
@@ -386,19 +418,6 @@
 		font-awesome-ttf
 		nerdfonts
 	];
-
-	# Some programs need SUID wrappers, can be configured further or are
-	# started in user sessions.
-	# programs.mtr.enable = true;
-	# programs.gnupg.agent = {
-	#	 enable = true;
-	#	 enableSSHSupport = true;
-	# };
-
-	# List services that you want to enable:
-
-	# Enable the OpenSSH daemon.
-	# services.openssh.enable = true;
 
 	# This value determines the NixOS release from which the default
 	# settings for stateful data, like file locations and database versions
