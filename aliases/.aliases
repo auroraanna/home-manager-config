@@ -22,16 +22,4 @@ alias edit-keycodes='sudo $EDITOR /etc/udev/hwdb.d/90-extra-keyboard.hwdb'
 alias rtop='radeontop'
 alias update-grub='grub-mkconfig -o /boot/grub/grub.cfg'
 alias stream='scrcpy & sndcpy'
-
-# Rate Arch Mirrors: Example of everyday use (modified)
-
-COUNTRIES="Germany Netherlands Belgium Poland Denmark"
-
-alias ua-drop-caches='sudo paccache -rk3; $PKGMANAGER -Sc --aur --noconfirm'
-alias ua-update-all='export TMPFILE="$(mktemp)"; \
-	sudo true; \
-	rate-arch-mirrors --max-delay=21600 | tee -a $TMPFILE \
-	  && sudo mv /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist-backup \
-	  && sudo mv $TMPFILE /etc/pacman.d/mirrorlist \
-	  && ua-drop-caches \
-	  && $PKGMANAGER -Syyu --noconfirm'
+alias hp-setup='nix run nixpkgs.hplipWithPlugin -c sudo hp-setup'
