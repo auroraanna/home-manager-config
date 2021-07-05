@@ -4,8 +4,8 @@
 
 * {
     border: none;
-    border-radius: 5;
-    font-family: 'Roboto','Font Awesome 5', 'SFNS Display',  Helvetica, Arial, sans-serif;
+    border-radius: 0.6em;
+    font-family: 'otf-font-awesome', 'Roboto', sans-serif;
     font-size: 13px;
     min-height: 0;
 }
@@ -46,10 +46,14 @@ window#waybar.hidden {
     margin: 0 3px;
 }
 
+#custom-power{
+	padding: 0 12px;
+	margin: 0 3px;
+}
+
 #clock {
     background-color: #e9ad0c;
 	color: #000000;
-
 }
 
 #battery {
@@ -140,6 +144,11 @@ window#waybar.hidden {
 
 #tray {
     background-color: #171421;
+}
+
+#custom-power {
+    background-color: #171421;
+	color: #ffffff;
 }
 
 #idle_inhibitor {
