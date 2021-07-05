@@ -5,7 +5,7 @@
 	// "width": 48, // Waybar width
 	// Choose the order of the modules
 	"modules-left": ["custom/power", "tray", "sway/mode", "custom/media"],
-	"modules-center": ["sway/workspaces"],
+	"modules-center": ["sway/workspaces", "sway/window"],
 	"modules-right": ["backlight", "pulseaudio", "network", "disk", "memory", "temperature", "cpu", "backlight", "battery", "battery#bat2", "clock"],
 	// Modules configuration
 	 "sway/workspaces": {

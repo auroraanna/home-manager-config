@@ -19,9 +19,15 @@ window#waybar {
 window#waybar.hidden {
     opacity: 0.0;
 }
+
+#workspaces {
+	margin: 0 3px;
+	padding: 0 0px;
+}
+
 /* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
 #workspaces button {
-    padding: 0 0px;
+	padding: 0 0px;
     background: transparent;
     color: #ffffff;
     border-bottom: 5px solid transparent;
@@ -41,7 +47,7 @@ window#waybar.hidden {
     border-bottom: 3px solid #ffffff;
 }
 
-#clock, #battery, #cpu, #memory, #disk, #temperature, #backlight, #network, #pulseaudio, #custom-media, #tray, #mode, #idle_inhibitor {
+#clock, #battery, #cpu, #memory, #disk, #temperature, #backlight, #network, #pulseaudio, #custom-media, #tray, #mode, #idle_inhibitor, #window {
     padding: 0 10px;
     margin: 0 3px;
 }
@@ -49,6 +55,7 @@ window#waybar.hidden {
 #custom-power{
 	padding: 0 12px;
 	margin: 0 3px;
+	background: #90b1b1;
 }
 
 #clock {
@@ -158,4 +165,9 @@ window#waybar.hidden {
 #idle_inhibitor.activated {
     background-color: #ecf0f1;
     color: #2d3436;
+}
+
+#window {
+    background: #7c5e48;
+    border-bottom: 3px solid #f0ab77;
 }
