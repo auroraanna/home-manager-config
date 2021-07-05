@@ -73,7 +73,7 @@ include "$HOME/.cache/wal/colors-sway"
 	set $base0D #c061cb
 	set $base0E #33c7de
 	set $base0F #ffffff
-	
+
 	# Colors
 	# Property Name         Border  BG      Text    Indicator Child Border
 	client.focused          $base0D $base0D $base00 $base0D   $base05
@@ -336,15 +336,18 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 #
-# Status Bar:
+# Starting up applicaions
 #
 
-	# waybar
+	# Status bar: waybar
 	bar {
 	    swaybar_command waybar
 	}
 
-# Polkit
-exec /run/current-system/sw/libexec/polkit-gnome-authentication-agent-1
+	# Notification daemon: mako
+	exec mako
+
+	# Polkit
+	exec /run/current-system/sw/libexec/polkit-gnome-authentication-agent-1
 
 include /etc/sway/config.d/*

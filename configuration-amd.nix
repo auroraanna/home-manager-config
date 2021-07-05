@@ -360,7 +360,7 @@
 		# Wine both 32- and 64 bit support
 		wineWowPackages.staging
 		# Wayland, Xorg
-		wayland xwayland xorg.xrdb polkit polkit_gnome waybar wofi slurp grim swappy rofi
+		wayland xwayland xorg.xrdb polkit polkit_gnome waybar wofi slurp grim swappy rofi mako
 		# Theming
 		papirus-icon-theme lxappearance materia-theme capitaine-cursors pywal
 		# Other
@@ -370,7 +370,7 @@
 		# Web browsers
 		brave firefox-wayland tor-browser-bundle-bin
 		# Voicechat, Social media
-		ferdi discord mumble teamspeak_client
+		ferdi discord mumble teamspeak_client element-desktop
 		# Music streaming
 		spotify
 		# E-Mail
