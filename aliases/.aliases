@@ -1,12 +1,6 @@
-PKGMANAGER=trizen
-
-## aliases
-
-alias speed='speedtest-cli'
+alias speed='librespeed-cli'
 alias neo='neofetch'
-alias owo='owofetch'
-alias up='trizen -Syu'
-alias spice='spicetify'
+alias fetch='freshfetch'
 alias buytime='dd if=/dev/urandom of=homework.pdf bs=1M count=4'
 alias poweroff='systemctl poweroff'
 alias suspend='systemctl suspend'
