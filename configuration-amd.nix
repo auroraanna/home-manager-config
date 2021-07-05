@@ -360,7 +360,7 @@
 		# Wine both 32- and 64 bit support
 		wineWowPackages.staging
 		# Wayland, Xorg
-		wayland xwayland xorg.xrdb polkit polkit_gnome waybar wofi slurp grim swappy rofi mako
+		wayland xwayland xorg.xrdb polkit polkit_gnome waybar wofi slurp grim swappy rofi mako libappindicator
 		# Theming
 		papirus-icon-theme lxappearance materia-theme capitaine-cursors pywal
 		# Other

@@ -48,7 +48,7 @@ include "$HOME/.cache/wal/colors-sway"
 	font pango:Roboto, 12
 
 	# Import GTK settings
-	exec_always sh $HOME/config/sway/.config/sway/import-gsettings.sh
+	exec_always sh import-gsettings.sh
 
 	# Disable window title
 	default_border pixel 1

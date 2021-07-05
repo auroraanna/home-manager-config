@@ -47,7 +47,7 @@ window#waybar.hidden {
     border-bottom: 3px solid #ffffff;
 }
 
-#clock, #battery, #cpu, #memory, #disk, #temperature, #backlight, #network, #pulseaudio, #custom-media, #tray, #mode, #idle_inhibitor, #window {
+#clock, #battery, #cpu, #memory, #disk, #temperature, #backlight, #network, #pulseaudio, #custom-media, #tray, #mode, #idle_inhibitor, #window, #custom-gpu-usage {
     padding: 0 10px;
     margin: 0 3px;
 }
@@ -91,6 +91,11 @@ window#waybar.hidden {
 }
 
 #cpu {
+    background: #c01c28;
+    color: #000000;
+}
+
+#custom-gpu-usage {
     background: #c01c28;
     color: #000000;
 }
