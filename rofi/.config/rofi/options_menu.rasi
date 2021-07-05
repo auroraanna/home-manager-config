@@ -1,12 +1,12 @@
 configuration {
     theme:                          "config";
     show-icons:                     false;
-    font:                           "Font Awesome 17";
+    font:                           "Roboto 17";
 }
 
 window {
     height:                         500px; // 1440 - 2*16
-    width:                          200px;
+    width:                          250px;
     location:                       center;
     anchor:                         center;
     x-offset:                       0;

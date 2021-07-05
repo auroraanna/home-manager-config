@@ -1,6 +1,5 @@
 configuration {
     show-icons:                     false;
-    font:                           "Roboto 15";
 }
 
 * {
