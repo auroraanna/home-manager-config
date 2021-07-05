@@ -1,12 +1,12 @@
 #!/bin/sh
 
-LOCK=""
-LOGOUT=""
+LOCK=" Lock"
+LOGOUT=" Logout"
 SUSPEND=" Suspend"
 HIBERNATE="  Hibernate"
 HYBRID_SLEEP=" Hybrid sleep"
-RESTART=""
-SHUTDOWN=""
+RESTART=" Restart"
+SHUTDOWN=" Shutdown"
 
 list_icons() {
     echo $LOCK
