@@ -130,9 +130,12 @@
 		"on-click": "sh $HOME/.config/waybar/power-menu.sh"
 	},
 	"custom/gpu-usage": {
-		"exec": "radeontop -d --limit 1 -i 4 - | cut -c 32-35 -",
-		"format": "{}%  GPU",
+		"exec": "radeontop -d - -l 1 | cut -c 31-35 -",
+		"format": "{}% {icon} GPU",
 		"return-type": "",
-		"interval": 4
+		"interval": 4,
+		"format-icons": {
+			"default": ""
+		}
 	}
 }
