@@ -48,13 +48,13 @@
 		"format-alt": "{:%Y/%m/%d}"
 	},
 	"cpu": {
-		"format": "{usage}% "
+		"format": "{usage}% ︁ CPU"
 	},
 	"memory": {
 		"format": "{}% "
 	},
 	"disk": {
-    	"format": "{}% ",
+    	"format": "{}% ",
     	"tooltip-format": "{used} / {total} used"
     },
 	"temperature": {
@@ -130,7 +130,7 @@
 		"on-click": "sh $HOME/.config/waybar/power-menu.sh"
 	},
 	"custom/gpu-usage": {
-		"exec": "radeontop -d - -l 1 | cut -c 31-35 -",
+		"exec": "echo $(radeontop -d - -l 1 | cut -c 31-35 -)",
 		"format": "{}% {icon} GPU",
 		"return-type": "",
 		"interval": 4,
