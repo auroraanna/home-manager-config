@@ -52,7 +52,7 @@ element normal.active, element alternate.active {
 }
 
 element selected {
-	color:						@primary;
+	color:					@primary;
 }
 
 element selected.urgent {
@@ -64,8 +64,8 @@ element selected.active {
 }
 
 element-icon {
-	border:						1px;
+	border:					1px;
 	border-color:				@primary;
 	border-radius:				5;
-	padding:					6px;
+	padding:				6px;
 }
