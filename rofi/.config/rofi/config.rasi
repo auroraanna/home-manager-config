@@ -1,71 +1,71 @@
 configuration {
-    show-icons:                     false;
+	show-icons:				false;
 }
 
 * {
-    background-color:				#2b2724;
+	background-color:			#2b2724;
 
-    background:                     #2b2724;
-    background-alt:                 #2b2724;
-    text-color:                     #8f5536;
-    primary:                        #345f69;
-    urgent:                         #785849;
+	background:				#2b2724;
+	background-alt:				#2b2724;
+	text-color:				#8f5536;
+	primary:				#345f69;
+	urgent:					#785849;
 }
 
 window {
-    height:                         100%;
-    width:                          100%;
-    transparency:                   "real";
-    background-color:               @background;
+	height:					100%;
+	width:					100%;
+	transparency:				"real";
+	background-color:			@background;
 
 }
 
 mainbox {
-    children:                       [ entry, listview, message ];
-    padding:                        400px 1400px;
+	children:				[ entry, listview, message ];
+	padding:				400px 1400px;
 }
 
 entry {
-    expand:                         true;
-    margin:                         12px 36px;
-    background-color:               @background-alt;
-    padding:                        8px;
-    border:                         8px;
-    border-color:                   @background-alt;
-    border-radius:                  5px;
+	expand:					true;
+	margin:					12px 36px;
+	background-color:			@background-alt;
+	padding:				8px;
+	border:					8px;
+	border-color:				@background-alt;
+	border-radius:				5px;
 }
 
 element {
-    padding:                        8px;
-    orientation:                    horizontal;
+	padding:				8px;
+	orientation:				horizontal;
 }
 
 element normal.urgent, element alternate.urgent {
-    background-color:               @urgent;
+	background-color:			@urgent;
 }
 
 element normal.active, element alternate.active {
-    background-color:               @background-alt;
-    border:                         4px 4px solid 4px 4px;
-    border-radius:                  8;
-    border-color:                   transparent;
+	background-color:			@background-alt;
+	border:					4px 4px solid 4px 4px;
+	border-radius:				8;
+	border-color:				transparent;
 }
 
 element selected {
-    color: @primary;
+	color:						@primary;
 }
 
 element selected.urgent {
-    background-color:               @urgent;
+	background-color:			@urgent;
 }
 
 element selected.active {
-    background-color:               @background-alt;
+	background-color:			@background-alt;
 }
 
 element-icon {
-    border:                         1px;
-    border-color:                   @primary;
-    border-radius:                  5;
-    padding:                        6px;
+	border:						1px;
+	border-color:				@primary;
+	border-radius:				5;
+	padding:					6px;
 }
