@@ -350,7 +350,7 @@
 		# Languages
 		zsh zsh-syntax-highlighting zsh-autosuggestions zsh-powerlevel10k dash rustc jdk11
 		# CLI
-		tmux cmatrix toilet cowsay wget kakoune neovim neofetch htop cava git tealdeer stow unzip pandoc youtube-dl ytfzf librespeed-cli lolcat bpytop freshfetch radeontop
+		tmux cmatrix toilet cowsay wget kakoune neovim neofetch htop cava git tealdeer stow unzip pandoc youtube-dl ytfzf librespeed-cli lolcat bpytop freshfetch radeontop wkhtmltopdf
 		# Video and image
 		pqiv mpv scrcpy
 		# Audio
@@ -369,8 +369,8 @@
 		gnome.nautilus cinnamon.nemo xplr
 		# Web browsers
 		brave firefox-wayland tor-browser-bundle-bin
-		# Voicechat, Social media
-		ferdi discord mumble teamspeak_client element-desktop
+		# Voicechat, Social media, Messaging
+		ferdi discord mumble teamspeak_client element-desktop signal-desktop
 		# Music streaming
 		spotify
 		# E-Mail
@@ -380,7 +380,7 @@
 		# Media processing
 		ffmpeg obs-studio
 		# Development
-		atom cobalt
+		atom cobalt vscodium
 		# Creative apps
 		blender gimp godot godot-export-templates inkscape audacity
 		# Office
