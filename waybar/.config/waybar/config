@@ -130,12 +130,11 @@
 		"on-click": "sh $HOME/.config/waybar/power-menu.sh"
 	},
 	"custom/gpu-usage": {
-		"exec": "echo $(radeontop -d - -l 1 | cut -c 31-35 -)",
-		"format": "{}% {icon} GPU",
-		"return-type": "",
-		"interval": 4,
-		"format-icons": {
-			"default": ""
-		}
+		// Use either the next line or the second and third next line
+		"exec": "command -v radeontop >/dev/null 2>&1 && radeontop -d - -l 1 | tr -d '\n' | cut -s -d ',' -f3 | cut -s -d ' ' -f3 | tr -d '%' | awk '{ print $1 }' | tr -d '\n' || echo 'No radeontop'",
+		//"exec": "radeontop -d - -l 1 | tr -d '\n' | cut -s -d ',' -f3 | cut -s -d ' ' -f3 | tr -d '%' | awk '{ print $1 }' | tr -d '\n'",
+		//"exec-if": "command -v radeontop",
+		"format": "{}% ﬙ GPU",
+		"interval": 10
 	}
 }
