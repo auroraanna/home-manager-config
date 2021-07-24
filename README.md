@@ -42,36 +42,55 @@ If you're computer is x86_64 but not what I described in the latter of the last 
 
 Next up rebuild the NixOS installation with
 
-	nixos-rebuild switch --upgrade
-
-### Backgrounds
-
-Everything from here on should be done one the machine, which you installed NixOS with my `configuration.nix` on.
-
-- 3d NixOS background
-
-	![3d NixOS background](https://raw.githubusercontent.com/papojari/nixos-artwork/master/wallpapers/nix-wallpaper-3d-showcase-1920x1080.png)
-
-	- to install run
-
-
-	git clone https://github.com/papojari/nixos-artwork.git && mkdir -p /usr/share/backgrounds/nixos && mv nixos-artwork/wallpapers/* /usr/share/backgrounds/nixos/ && rm -rf nixos-artwork
+```bash
+nixos-rebuild switch --upgrade
+```
 
 ### Linking my dotfiles with `stow`
 
 This command clones the repository into your home directory, `cd`'s into the `nixos-config-desktop` folder and simulates the *stowing*.
 
-	git clone https://codeberg.org/papojari/nixos-config-desktop.git ~/ && stow -nvSt ~ ~/nixos-config-desktop/*/
+```bash
+git clone https://codeberg.org/papojari/nixos-config-desktop.git ~/ && stow -nvSt ~ ~/nixos-config-desktop/*/
+```
 
 If `stow` reports that some files already exist in the corresponding locations you will have to move them.
 
 The next command will put links in the corresponding locations in your home directory, that will be linking to my configuration.
 
-	stow -vSt ~ ~/nixos-config-desktop/*/
+```bash
+stow -vSt ~ ~/nixos-config-desktop/*/
+```
 
 This way you have all the configuration files in one place. This makes publishing your configuration to a repository very easy. If you wanted to you could add your own configuration files and link them with GNU Stow or just edit mine a bit.
 
 Alternatively you could move every single file to its appropriate position given in the repository. For that you would manually have to create all the folders which is time consuming so GNU Stow makes much sense here.
+
+### Backgrounds
+
+Everything from here on should be done one the machine, which you installed NixOS with my `configuration.nix` on.
+
+- Highway to shell
+
+	![Highway to shell backgrounds](https://codeberg.org/papojari/nixos-config-desktop/raw/branch/main/backgrounds/HighwayToShell.png)
+
+	- run this to to copy the background you already downloaded to the backgrounds folder
+
+	```
+	cp ~/nixos-config-desktop/backgrounds/HighwayToShell.png /usr/share/backgrounds
+	```
+
+- 3d NixOS
+
+	![3d NixOS background](https://raw.githubusercontent.com/papojari/nixos-artwork/master/wallpapers/nix-wallpaper-3d-showcase-1920x1080.png)
+
+	- to install run
+
+	```bash
+	git clone https://github.com/papojari/nixos-artwork.git && mkdir -p /usr/share/backgrounds/nixos && mv nixos-artwork/wallpapers/* /usr/share/backgrounds/nixos/ && rm -rf nixos-artwork
+	```
+
+	- to use uncomment the first `$Background` line and comment the next line in `~/.config/sway/config`
 
 ### Wayland
 
@@ -82,6 +101,6 @@ Before you start *sway* adjust `~/.config/sway/config` to you monitor setup. You
 - In sway open `lxappearance`and set *Materia-dark-compact* as the GTK theme.
 - Then set *Papirus-Dark* and as your mouse cursor, select *Capitaine Cursors*.
 
-## License
+## Licenses
 
-This repository is [unlicensed](https://unlicense.org/).
+[View this repository's licenses](https://codeberg.org/papojari/nixos-config-desktop/src/branch/main/Licenses.md)
