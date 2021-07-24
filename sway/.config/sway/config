@@ -37,8 +37,8 @@ include "$HOME/.cache/wal/colors-sway"
 	set $MusicApp spotify
 
 	# Path to background image
-	set $BackgroundLandscape /usr/share/backgrounds/nixos/nix-wallpaper-3d-showcase-3840x2160.png
-	set $BackgroundPortrait /usr/share/backgrounds/nixos/nix-wallpaper-3d-showcase-3840x2160.png
+	#set $Background /usr/share/backgrounds/nixos/nix-wallpaper-3d-showcase-3840x2160.png
+    set $Background /usr/share/backgrounds/HighwayToShell.png
 
 #
 # Appearance
@@ -88,9 +88,7 @@ include "$HOME/.cache/wal/colors-sway"
 #
 
 	# Backgrounds
-	output DVI-I-1 bg $BackgroundLandscape fill
-	output DP-1 bg $BackgroundLandscape fill
-	output HDMI-A-1 bg $BackgroundPortrait fill
+	output * bg $Background fill
 
 	# Monitor resolutions and positions
 	output DVI-I-1 resolution 1920x1080 position 320,0
@@ -107,7 +105,8 @@ include "$HOME/.cache/wal/colors-sway"
 
 exec swayidle -w \
 	timeout 300 'swaylock -f -c 000000' \
-	timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
+	#timeout 900 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
+	timeout 600 'systemctl suspend"' \
 	before-sleep 'swaylock -f -c 000000'
 # This will lock your screen after 300 seconds of inactivity, then turn off
 # your displays after another 300 seconds, and turn your screens back on when
