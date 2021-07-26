@@ -186,7 +186,7 @@
 
 	# Mounting
 	#fileSystems = {
-    #	# sda8
+	# sda8
 	#	"/backgrounds" = {
 	#		device = "/dev/disk/by-uuid/9feb2ea8-a1c5-4dc7-866e-402437d2489f";
 	#		fsType = "btrfs";
@@ -239,7 +239,7 @@
 	i18n = {
 		defaultLocale = "en_US.UTF-8";
 		extraLocaleSettings = {
-    			LANGUAGE = "en_US";
+			LANGUAGE = "en_US";
 			LC_TIME = "de_DE.UTF-8";
 			LC_MEASUREMENT = "de_DE.UTF-8";
 			LC_ADDRESS = "de_DE.UTF-8";
@@ -277,36 +277,36 @@
 			#			columns = 200;
 	 		#	 	};
 	 		#	};
- 		 	#};
+		 	#};
 		};
- 		#wayland.windowManager = {
+		#wayland.windowManager = {
 		#	sway = {
 		#		enable = true;
 		#		config = {
 		#
 		#		};
- 		#	};
+		#	};
 		#};
 	};
 
 	# Automatic upgrades
 	system.autoUpgrade = {
-    		enable = true;
+		enable = true;
 			allowReboot = true;
-    		channel = "https://nixos.org/channels/nixos-unstable";
-    		dates = "daily";
+		channel = "https://nixos.org/channels/nixos-unstable";
+		dates = "daily";
 	};
 
 	nix = {
-	    autoOptimiseStore = true;
-	    gc = {
-	    	automatic = true;
-	    	dates = "daily";
-	    	options = "--delete-older-than 4d";
+		autoOptimiseStore = true;
+		gc = {
+			automatic = true;
+			dates = "daily";
+			options = "--delete-older-than 4d";
 		};
-    };
+	};
 
-	nixpkgs.config. = {
+	nixpkgs.config = {
 		# Allow unfree packages (sorry stallman)
 		allowUnfree = true;
 		#allowBroken = true;
