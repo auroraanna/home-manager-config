@@ -8,7 +8,7 @@
 	"modules-center": ["sway/workspaces", "sway/window"],
 	"modules-right": ["backlight", "pulseaudio", "network", "disk", "memory", "temperature", "cpu", "custom/gpu-usage", "backlight", "battery", "battery#bat2", "clock"],
 	// Modules configuration
-	 "sway/workspaces": {
+	"sway/workspaces": {
 		 "disable-scroll": true,
 		 "disable-markup" : false,
 		 "all-outputs": false,
@@ -28,7 +28,7 @@
 			 "focused": "",
 			 "default": ""
 		 }
-	 },
+	},
 	"sway/mode": {
 		"format": "<span style=\"italic\">{}</span>"
 	},
@@ -54,9 +54,9 @@
 		"format": "{}% "
 	},
 	"disk": {
-    	"format": "{}% ",
-    	"tooltip-format": "{used} / {total} used"
-    },
+	"format": "{}% ",
+	"tooltip-format": "{used} / {total} used"
+	},
 	"temperature": {
 		// "thermal-zone": 2,
 		// "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
@@ -125,8 +125,8 @@
 		"exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null" // Script in resources folder
 	},
 	"custom/power": {
-    	"format": "⏻",
-    	//"on-click": "swaynag -t warning -m 'Power Menu Options' -b 'Power off'  'shutdown -P now' -b 'Restart' 'shutdown -r now' -b 'Hibernate' 'systemctl hibernate' -b 'Hybrid-sleep' 'systemctl hybrid-sleep' -b 'Suspend' 'systemctl suspend' -b 'Logout' 'swaymsg exit' --background=#005566 --button-background=#009999 --button-border=#002b33 --border-bottom=#002b33"
+	"format": "⏻",
+	//"on-click": "swaynag -t warning -m 'Power Menu Options' -b 'Power off'  'shutdown -P now' -b 'Restart' 'shutdown -r now' -b 'Hibernate' 'systemctl hibernate' -b 'Hybrid-sleep' 'systemctl hybrid-sleep' -b 'Suspend' 'systemctl suspend' -b 'Logout' 'swaymsg exit' --background=#005566 --button-background=#009999 --button-border=#002b33 --border-bottom=#002b33"
 		"on-click": "sh $HOME/.config/waybar/power-menu.sh"
 	},
 	"custom/gpu-usage": {
