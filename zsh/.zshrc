@@ -31,7 +31,7 @@ autoload -U compinit
 zstyle ':completion:*' menu select
 zmodload zsh/complist
 compinit
-_comp_options+=(globdots)               # Include hidden files.
+_comp_options+=(globdots)		   # Include hidden files.
 
 # Custom ZSH Binds
 bindkey '^ ' autosuggest-accept
@@ -50,25 +50,25 @@ zstyle :compinstall filename '$HOME/.zshrc'
 ## usage: ex <file>
 ex ()
 {
-  if [ -f $1 ] ; then
-    case $1 in
-      *.tar.bz2)   tar xjf $1   ;;
-      *.tar.gz)    tar xzf $1   ;;
-      *.tar.xz)    tar xJf $1   ;;
-      *.bz2)       bunzip2 $1   ;;
-      *.rar)       unrar x $1     ;;
-      *.gz)        gunzip $1    ;;
-      *.tar)       tar xf $1    ;;
-      *.tbz2)      tar xjf $1   ;;
-      *.tgz)       tar xzf $1   ;;
-      *.zip)       unzip $1     ;;
-      *.Z)         uncompress $1;;
-      *.7z)        7z x $1      ;;
-      *)           echo "'$1' cannot be extracted via ex()" ;;
-    esac
-  else
-    echo "'$1' is not a valid file"
-  fi
+	if [ -f $1 ] ; then
+		case $1 in
+			*.tar.bz2)	tar xjf $1						;;
+			*.tar.gz)	tar xzf $1						;;
+			*.tar.xz)	tar xJf $1						;;
+			*.bz2)	bunzip2 $1						;;
+			*.rar)	unrar x $1						;;
+			*.gz)		gunzip $1						;;
+			*.tar)	tar xf $1						;;
+			*.tbz2)	tar xjf $1						;;
+			*.tgz)	tar xzf $1						;;
+			*.zip)	unzip $1						;;
+			*.Z)		uncompress $1					;;
+			*.7z)		7z x $1						;;
+			*)		echo "'$1' cannot be extracted via ex()"	;;
+		esac
+	else
+		echo "'$1' is not a valid file"
+	fi
 }
 
 alias ls='ls'
@@ -78,7 +78,7 @@ alias l='ls -lFh'     #size,show type,human readable
 alias la='ls -lAFh'   #long list,show almost all,show type,human readable
 alias lr='ls -tRFh'   #sorted by date,recursive,show type,human readable
 alias lt='ls -ltFh'   #long list,sorted by date,show type,human readable
-alias ll='ls -l'      #long list
+alias ll='ls -l'	#long list
 alias ldot='ls -ld .*'
 alias lS='ls -1FSsh'
 alias lart='ls -1Fcart'
