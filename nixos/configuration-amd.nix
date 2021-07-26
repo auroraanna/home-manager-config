@@ -79,16 +79,16 @@
 			allowedTCPPorts = [ 80 443 27036 ];
 			allowedUDPPorts = [ 4380 3478 4379 4380 ];
 			allowedUDPPortRanges = [
-    				{
-        				from = 27000;
-        				to = 27100;
+				{
+					from = 27000;
+					to = 27100;
 				}
 			];
 			allowedTCPPortRanges = [
-    				{
+				{
 					from = 27015;
 					to = 27030;
-    				}
+				}
 			];
 		};
 	};
@@ -140,7 +140,7 @@
 				};
 			};
 			desktopManager = {
-	    			gnome.enable = true;
+				gnome.enable = true;
 			};
 		};
 		pipewire = {
@@ -267,7 +267,7 @@
 	i18n = {
 		defaultLocale = "en_US.UTF-8";
 		extraLocaleSettings = {
-    			LANGUAGE = "en_US";
+			LANGUAGE = "en_US";
 			LC_TIME = "de_DE.UTF-8";
 			LC_MEASUREMENT = "de_DE.UTF-8";
 			LC_ADDRESS = "de_DE.UTF-8";
@@ -340,8 +340,8 @@
 			};
 		};
 		allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
-      		"hplip"
-    	];
+			"hplip"
+		];
 	};
 
 	# List packages installed in system profile. To search, run:
@@ -364,7 +364,7 @@
 		# Theming
 		papirus-icon-theme lxappearance materia-theme capitaine-cursors pywal
 		# Other
-		alacritty gnome.gnome-tweak-tool exodus
+		alacritty gnome.gnome-tweak-tool exodus openrgb gnome.gnome-shell-extensions
 		# File browsers
 		gnome.nautilus cinnamon.nemo xplr
 		# Web browsers
@@ -397,12 +397,12 @@
 		# MTP
 		jmtpfs
 		# Filesystem stuff
-		gparted dosfstools mtools
+		gparted dosfstools mtools ntfs3g
 		# Printing & scanning
-		cups system-config-printer gnome.simple-scan skanlite
+		cups gnome.simple-scan system-config-printer
 		# MultiMC
 		(multimc.overrideAttrs (old: {
-    		  buildInputs = with pkgs; [ libsForQt5.qt5.qtbase jdk11 zlib ];
+			buildInputs = with pkgs; [ libsForQt5.qt5.qtbase jdk11 zlib ];
 		}))
 		# Python packages
 		python39Packages.pyqt5
