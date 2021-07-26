@@ -6,9 +6,9 @@
 	// Choose the order of the modules
 	"modules-left": ["custom/power", "tray", "sway/mode", "custom/media"],
 	"modules-center": ["sway/workspaces", "sway/window"],
-	"modules-right": ["backlight", "pulseaudio", "network", "disk", "memory", "temperature", "cpu", "custom/gpu-usage", "backlight", "battery", "battery#bat2", "clock"],
+	"modules-right": ["backlight", "pulseaudio", "network", "disk", "memory", "cpu", "temperature", "custom/gpu-usage", "backlight", "battery", "battery#bat2", "clock"],
 	// Modules configuration
-	"sway/workspaces": {
+	 "sway/workspaces": {
 		 "disable-scroll": true,
 		 "disable-markup" : false,
 		 "all-outputs": false,
@@ -32,6 +32,10 @@
 	"sway/mode": {
 		"format": "<span style=\"italic\">{}</span>"
 	},
+	"sway/language": {
+		"format": "{}",
+		"max-length": 50
+	},
 	"idle_inhibitor": {
 		"format": "{icon}",
 		"format-icons": {
@@ -44,7 +48,7 @@
 		"spacing": 10
 	},
 	"clock": {
-		"tooltip-format": "{:%Y-%m-%d | %H:%M}",
+		"tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
 		"format-alt": "{:%Y/%m/%d}"
 	},
 	"cpu": {
@@ -54,12 +58,12 @@
 		"format": "{}% "
 	},
 	"disk": {
-	"format": "{}% ",
-	"tooltip-format": "{used} / {total} used"
+		"format": "{}% ",
+		"tooltip-format": "{used} / {total} used"
 	},
 	"temperature": {
 		// "thermal-zone": 2,
-		// "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
+		"hwmon-path": "/sys/class/hwmon/hwmon1/temp1_input",
 		"critical-threshold": 80,
 		// "format-critical": "{temperatureC}°C ",
 		"format": "{temperatureC}°C "
@@ -90,6 +94,16 @@
 		"format-ethernet": "{ifname}: {ipaddr}/{cidr} ",
 		"format-disconnected": "Disconnected ⚠",
 		"interval" : 7
+	},
+	"bluetooth": {
+		"format": "<b>{icon}</b>",
+		"format-alt": "{status} {icon}",
+		"interval": 30,
+		"format-icons": {
+			"enabled": "",
+			"disabled": ""
+		},
+		"tooltip-format": "{}"
 	},
 	"backlight": {
 		// "device": "acpi_video1",
