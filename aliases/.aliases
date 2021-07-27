@@ -1,3 +1,6 @@
+#!/bin/sh
+
+alias base2='basenc --base2msbf'
 alias speed='librespeed-cli'
 alias neo='neofetch'
 alias fetch='freshfetch'
@@ -10,6 +13,7 @@ alias bonsai='cbonsai -l -t 0.01 -i -w 0.5 -m BonsaiDisIs -M 6 -L 48 -v'
 alias rainbowpuke='cat /dev/random | base64 -w 0 | lolcat'
 alias uwu='uwufetch'
 alias meip='curl ifconfig.me'
+alias coinflip='echo $((RANDOM % 2))'
 alias reload-keys='sudo systemd-hwdb update && sudo udevadm trigger --verbose --sysname-match="event*"'
 alias keycodes='nvim /usr/include/linux/input-event-codes.h'
 alias edit-keycodes='sudo $EDITOR /etc/udev/hwdb.d/90-extra-keyboard.hwdb'
