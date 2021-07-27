@@ -189,7 +189,6 @@
 
 	# Mounting
 	fileSystems = {
-		# sda8
 		"/backgrounds" = {
 			device = "/dev/disk/by-uuid/9feb2ea8-a1c5-4dc7-866e-402437d2489f";
 			fsType = "btrfs";
@@ -215,7 +214,6 @@
 			fsType = "btrfs";
 			options = [ "subvolid=436" ];
 		};
-		# sdb4
 		"/video-download" = {
 			device = "/dev/disk/by-uuid/2b2f4aec-9d14-450e-93c4-b5f7d8dafafa";
 			fsType = "btrfs";
@@ -226,12 +224,16 @@
 			fsType = "btrfs";
 			options = [ "subvolid=335" ];
 		};
+		"/ginkgo" = {
+			device = "/dev/disk/by-uuid/2b2f4aec-9d14-450e-93c4-b5f7d8dafafa";
+			fsType = "btrfs";
+			options = [ "subvolid=354" ];
+		};
 		"/games/hdd-btrfs" = {
 			device = "/dev/disk/by-uuid/2b2f4aec-9d14-450e-93c4-b5f7d8dafafa";
 			fsType = "btrfs";
 			options = [ "subvolid=328" ];
 		};
-		# sdb3
 		"/games/hdd-ntfs" = {
 			device = "/dev/disk/by-uuid/5C2CF7652CF7389A";
 			fsType = "ntfs";
@@ -290,13 +292,6 @@
 			shell = pkgs.zsh;
 			openssh.authorizedKeys.keys = [ "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGcgywMb4yGH8ZN97LBa9P7Q4/3O9GVy/kjtGrV7KFaV papojari@Cryogonal" ];
 		};
-		susi = {
-			isNormalUser = true;
-			home = "/home/susi";
-			description = "susi";
-			extraGroups = [ "lp" ];
-			shell = pkgs.zsh;
-		};
 	};
 
 	home-manager.users.papojari = {
@@ -350,7 +345,7 @@
 		# Languages
 		zsh zsh-syntax-highlighting zsh-autosuggestions zsh-powerlevel10k dash rustc jdk11
 		# CLI
-		tmux cmatrix toilet cowsay wget kakoune neovim neofetch htop cava git tealdeer stow unzip pandoc youtube-dl ytfzf librespeed-cli lolcat bpytop freshfetch radeontop wkhtmltopdf
+		tmux cmatrix toilet cowsay wget kakoune neovim neofetch htop cava git tealdeer stow unzip pandoc youtube-dl ytfzf librespeed-cli lolcat bpytop freshfetch radeontop wkhtmltopdf gnupg
 		# Video and image
 		pqiv mpv scrcpy
 		# Audio
@@ -364,13 +359,13 @@
 		# Theming
 		papirus-icon-theme lxappearance materia-theme capitaine-cursors pywal
 		# Other
-		alacritty gnome.gnome-tweak-tool exodus openrgb gnome.gnome-shell-extensions
+		alacritty gnome.gnome-tweak-tool exodus openrgb gnome.gnome-shell-extensions deja-dup
 		# File browsers
 		gnome.nautilus cinnamon.nemo xplr
 		# Web browsers
 		brave firefox-wayland tor-browser-bundle-bin
 		# Voicechat, Social media, Messaging
-		ferdi discord mumble teamspeak_client element-desktop signal-desktop
+		discord mumble teamspeak_client element-desktop signal-desktop
 		# Music streaming
 		spotify
 		# E-Mail
@@ -397,7 +392,7 @@
 		# MTP
 		jmtpfs
 		# Filesystem stuff
-		gparted dosfstools mtools ntfs3g
+		gparted dosfstools mtools ntfs3g btrfs-progs
 		# Printing & scanning
 		cups gnome.simple-scan system-config-printer
 		# MultiMC
