@@ -5,8 +5,8 @@
 { config, pkgs, lib, ... }:
 
 {
-	imports =
-		[ # Include the results of the hardware scan.
+	imports = [
+			# Include the results of the hardware scan.
 			./hardware-configuration.nix
 			# Home manager
 			(import "${builtins.fetchTarball https://github.com/rycee/home-manager/archive/master.tar.gz}/nixos")
@@ -16,7 +16,7 @@
 		loader = {
 			systemd-boot = {
 				enable = true;
-				configurationLimit = 4;
+				configurationLimit = 8;
 				consoleMode = "max";
 				memtest86.enable = true;
 			};
@@ -27,7 +27,6 @@
 		# Video drivers
 		initrd.kernelModules = [ "amdgpu" ];
 	};
-
 
 	hardware = {
 		# Microcode
@@ -58,7 +57,10 @@
 	# Networking
 	networking = {
 		hostName = "Cryogonal";
-		nameservers = [ "1.1.1.1" "9.9.9.9" ];
+		nameservers = [
+			"1.1.1.1"
+			"9.9.9.9"
+		];
 		#resolvconf.enable = false;
 		# The global useDHCP flag is deprecated, therefore explicitly set to false here.
 		# Per-interface useDHCP will be mandatory in the future, so this generated config
@@ -76,12 +78,16 @@
 		# Firewall
 		firewall = {
 			# Steam
-			allowedTCPPorts = [ 80 443 27036 ];
-			allowedUDPPorts = [ 4380 3478 4379 4380 ];
+			allowedTCPPorts = [
+				80 443 27036
+			];
+			allowedUDPPorts = [
+				4380 3478 4379 4380
+			];
 			allowedUDPPortRanges = [
 				{
 					from = 27000;
-					to = 27100;
+				to = 27100;
 				}
 			];
 			allowedTCPPortRanges = [
@@ -106,6 +112,8 @@
 	};
 
 	services = {
+		fstrim.enable = true;
+		dbus.apparmor = "enabled";
 		dnscrypt-proxy2 = {
 			enable = true;
 			settings = {
@@ -124,6 +132,9 @@
 				# server_names = [ ... ];
 			};
 		};
+		gvfs = {
+			enable = true;
+		};
 		xserver = {
 			enable = true;
 			# Configure keymap in X11
@@ -132,7 +143,9 @@
 			# Enable touchpad support (enabled default in most desktopManager).
 			#libinput.enable = true;
 			# X uses amdgpu video driver
-			videoDrivers = [ "amdgpu" ];
+			videoDrivers = [
+				"amdgpu"
+			];
 			displayManager = {
 				gdm = {
 					enable = true;
@@ -140,7 +153,7 @@
 				};
 			};
 			desktopManager = {
-				gnome.enable = true;
+	    			gnome.enable = true;
 			};
 		};
 		pipewire = {
@@ -154,7 +167,11 @@
 			media-session.config.bluez-monitor.rules = [
 				{
 					# Matches all cards
-					matches = [ { "device.name" = "~bluez_card.*"; } ];
+					matches = [
+						{
+							"device.name" = "~bluez_card.*";
+						}
+					];
 					actions = {
 						"update-props" = {
 							"bluez5.reconnect-profiles" = [ "hfp_hf" "hsp_hs" "a2dp_sink" ];
@@ -165,13 +182,17 @@
 				}
 				{
 					matches = [
-					# Matches all sources
-					{ "node.name" = "~bluez_input.*"; }
-					# Matches all outputs
-					{ "node.name" = "~bluez_output.*"; }
+						# Matches all sources
+						{
+							"node.name" = "~bluez_input.*";
+						}
+						# Matches all outputs
+						{
+							"node.name" = "~bluez_output.*";
+						}
 					];
 					actions = {
-					"node.pause-on-idle" = false;
+						"node.pause-on-idle" = false;
 					};
 				}
 			];
@@ -180,12 +201,22 @@
 			# Enable CUPS to print documents.
 			enable = true;
 			# Driver
-			drivers = with pkgs; [ hplipWithPlugin ];
+			drivers = with pkgs; [
+				hplipWithPlugin
+			];
 		};
 	};
 
-	## rtkit is optional but recommended
-	security.rtkit.enable = true;
+	security = {
+		# rtkit is optional but recommended
+		rtkit.enable = true;
+		apparmor = {
+			enable = true;
+			packages = with pkgs; [
+				apparmor-profiles
+			];
+		};
+	};
 
 	# Mounting
 	fileSystems = {
@@ -247,9 +278,25 @@
 			syntaxHighlighting.enable = true;
 			autosuggestions.enable = true;
 			promptInit = "source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme";
+			shellAliases = {
+				ll = "ls -al";
+				l="ls -lFh";
+				la = "ls -a";
+				lr = "ls -tRFh";
+				lt = "ls -ltFh";
+				ldot = "ls -ld .*";
+				lS = "ls -1FSsh";
+				lart = "ls -1Fcart";
+				lrt = "ls -1Fcrt";
+				grep = "grep --color=auto";
+				dud = "du -d 1 -h";
+				duf = "du -sh *";
+				help = "man";
+			};
 		};
 		# enable dconf for setting GTK themes via home manager
 		dconf.enable = true;
+		java.enable = true;
 		light.enable = true;
 		sway = {
 			enable = true;
@@ -322,7 +369,11 @@
 	};
 
 	# Automatic upgrades
-	system.autoUpgrade.enable = true;
+	system.autoUpgrade ={
+		enable = true;
+		channel = "https://nixos.org/channels/nixos-unstable";
+		dates = "daily";
+	};
 
 	nixpkgs.config = {
 		# Allow unfree packages (sorry stallman)
@@ -335,76 +386,93 @@
 			};
 		};
 		allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
-			"hplip"
-		];
+      		"hplip"
+    		];
+	};
+
+	nix = {
+		gc = {
+			automatic = true;
+			dates = "daily";
+			options = "--delete-older-than 4d";
+		};
+		optimise = {
+			automatic = true;
+			dates = [ "weekly" ];
+		};
 	};
 
 	# List packages installed in system profile. To search, run:
 	# $ nix search wget
-	environment.systemPackages = with pkgs; [
-		# Languages
-		zsh zsh-syntax-highlighting zsh-autosuggestions zsh-powerlevel10k dash rustc jdk11
-		# CLI
-		tmux cmatrix toilet cowsay wget kakoune neovim neofetch htop cava git tealdeer stow unzip pandoc youtube-dl ytfzf librespeed-cli lolcat bpytop freshfetch radeontop wkhtmltopdf gnupg
-		# Video and image
-		pqiv mpv scrcpy
-		# Audio
-		pipewire pavucontrol pulseaudio
-		# Wine
-		wine-staging lutris-unwrapped
-		# Wine both 32- and 64 bit support
-		wineWowPackages.staging
-		# Wayland, Xorg
-		wayland xwayland xorg.xrdb polkit polkit_gnome waybar wofi slurp grim swappy rofi mako libappindicator
-		# Theming
-		papirus-icon-theme lxappearance materia-theme capitaine-cursors pywal
-		# Other
-		alacritty gnome.gnome-tweak-tool exodus openrgb gnome.gnome-shell-extensions deja-dup
-		# File browsers
-		gnome.nautilus cinnamon.nemo xplr
-		# Web browsers
-		brave firefox-wayland tor-browser-bundle-bin
-		# Voicechat, Social media, Messaging
-		discord mumble teamspeak_client element-desktop signal-desktop
-		# Music streaming
-		spotify
-		# E-Mail
-		gnome.geary thunderbird-bin
-		# Password managers
-		bitwarden gnome-passwordsafe
-		# Media processing
-		ffmpeg obs-studio
-		# Development
-		atom cobalt vscodium
-		# Creative apps
-		blender gimp godot godot-export-templates inkscape audacity
-		# Office
-		libreoffice-fresh
-		# Vulkan
-		vulkan-loader mangohud vulkan-tools
-		# Games
-		minecraft multimc amidst
-		osu-lazer
-		steam-tui
-		teeworlds
-		superTuxKart superTux
-		#mindustry-wayland
-		# MTP
-		jmtpfs
-		# Filesystem stuff
-		gparted dosfstools mtools ntfs3g btrfs-progs
-		# Printing & scanning
-		cups gnome.simple-scan system-config-printer
-		# MultiMC
-		(multimc.overrideAttrs (old: {
-			buildInputs = with pkgs; [ libsForQt5.qt5.qtbase jdk11 zlib ];
-		}))
-		# Python packages
-		python39Packages.pyqt5
-
-	];
-
-	environment.pathsToLink = [ "/libexec" ];
+	environment = {
+		variables = {
+			CLICOLOR = "TRUE";
+			EDITOR = "codium";
+			TERM = "xterm-256color";
+		};
+		pathsToLink = [ "/libexec" ];
+		systemPackages = with pkgs; [
+			# Languages
+			zsh rustc
+			# CLI
+			tmux cmatrix toilet cowsay wget kakoune neovim neofetch htop cava git tealdeer stow unzip pandoc youtube-dl ytfzf librespeed-cli lolcat bpytop freshfetch radeontop wkhtmltopdf sftpman
+			# Video and image
+			pqiv mpv scrcpy
+			# Audio
+			pipewire pavucontrol pulseaudio
+			# Wine
+			wine-staging lutris-unwrapped
+			# Wine both 32- and 64 bit support
+			wineWowPackages.staging
+			# Wayland, Xorg
+			wayland xwayland xorg.xrdb polkit polkit_gnome waybar wofi slurp grim swappy rofi mako libappindicator
+			# Theming
+			papirus-icon-theme lxappearance materia-theme capitaine-cursors pywal
+			# Other
+			alacritty gnome.gnome-tweak-tool exodus gnome.gnome-boxes
+			# File browsers
+			gnome.nautilus cinnamon.nemo xplr
+			# Web browsers
+			brave firefox-wayland tor-browser-bundle-bin
+			# Voicechat, Social media, Messaging
+			ferdi discord mumble teamspeak_client element-desktop signal-desktop
+			# Music streaming
+			spotify
+			# E-Mail
+			gnome.geary thunderbird-bin
+			# Password managers
+			bitwarden gnome-passwordsafe
+			# Media processing
+			ffmpeg obs-studio
+			# Development
+			atom cobalt vscodium
+			# Creative apps
+			blender gimp godot godot-export-templates inkscape audacity
+			# Office
+			libreoffice-fresh
+			# Vulkan
+			vulkan-loader mangohud vulkan-tools
+			# Games
+			minecraft multimc amidst
+			osu-lazer
+			steam-tui
+			teeworlds
+			superTuxKart superTux
+			#mindustry-wayland
+			# MTP
+			jmtpfs
+			# Filesystem stuff
+			gparted dosfstools mtools ntfs3g btrfs-progs sshfs
+			# Printing & scanning
+			cups system-config-printer gnome.simple-scan skanlite
+			# MultiMC
+			#(multimc.overrideAttrs (old: {
+			#	buildInputs = with pkgs; [ libsForQt5.qt5.qtbase jdk zlib ];
+			#}))
+			# Python packages
+			python39Packages.pyqt5
+		];
+	};
 
 	# Fonts
 	fonts.fonts = with pkgs; [
