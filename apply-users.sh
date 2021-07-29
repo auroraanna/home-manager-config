@@ -1,4 +1,5 @@
 #!/bin/sh
-pushd users/papojari
-home-manager switch -f ./home.nix
+pushd /git-repos/nixos-config-desktop
+nix build .#homeManagerConfigurations.papojari.activationPackage
+./result/activate
 popd

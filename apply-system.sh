@@ -1,4 +1,4 @@
 #!/bin/sh
-pushd system
-sudo nixos-rebuild switch -I nixos-config=./configuration-amd.nix
+pushd /git-repos/nixos-config-desktop
+sudo nixos-rebuild switch --flake .#
 popd
