@@ -10,7 +10,7 @@
 
 [![built with Nix](https://builtwithnix.org/badge.svg)](https://builtwithnix.org)
 
-This repository contains my NixOS desktop configuration files. Other than the `configuration-*.nix` files you will be able to use all of the files on other operating systems like BSD, macOS or any of the other Linux distributions.
+This repository contains my NixOS desktop configuration files. Other than the `*.nix` files you will be able to use all of the files on other operating systems like BSD, macOS or any of the other Linux distributions.
 
 </div>
 
@@ -36,35 +36,45 @@ This repository contains my NixOS desktop configuration files. Other than the `c
 
 ### Build `configuration-*.nix`
 
-Copy one of the `configuration-*.nix` to `/etc/nixos/configuration.nix` by downloading one of them with `wget` or cloning the repository. Choose the `configuration-*.nix` based on if you want to install the configuration on a Raspberry Pi 4 Model B or an x86_64 computer, preferably with AMD processor and a AMD Radeon Sea Islands graphics card.
+Clone this repository to somewhere, for example: *your home directory*, like this
 
-If you're computer is x86_64 but not what I described in the latter of the last sentence you will have to tweak the `configuration-amd.nix` a bit.
+```bash
+git clone https://codeberg.org/papojari/nixos-config-desktop.git
+```
+
+Based on if you want to install the configuration on a Raspberry Pi 4 Model B or an x86_64 computer, preferably with AMD processor and a AMD Radeon Sea Islands graphics cardy you need to change the third line in `apply-system.sh` to the right file path.
+
+If you're computer is x86_64 but don't have an AMD Sea Islands GPU you will have to tweak the `system/configuration-amd.nix` a bit.
 
 Next up rebuild the NixOS installation with
 
 ```bash
-nixos-rebuild switch --upgrade
+./apply-system.sh
 ```
+
+in the repository.
 
 ### Linking my dotfiles with `stow`
 
-This command clones the repository into your home directory, `cd`'s into the `nixos-config-desktop` folder and simulates the *stowing*.
+Do
 
 ```bash
-git clone https://codeberg.org/papojari/nixos-config-desktop.git ~/ && stow -nvSt ~ ~/nixos-config-desktop/*/
+./stow.sh
 ```
 
-If `stow` reports that some files already exist in the corresponding locations you will have to move them.
-
-The next command will put links in the corresponding locations in your home directory, that will be linking to my configuration.
-
-```bash
-stow -vSt ~ ~/nixos-config-desktop/*/
-```
+in the repository.
 
 This way you have all the configuration files in one place. This makes publishing your configuration to a repository very easy. If you wanted to you could add your own configuration files and link them with GNU Stow or just edit mine a bit.
 
 Alternatively you could move every single file to its appropriate position given in the repository. For that you would manually have to create all the folders which is time consuming so GNU Stow makes much sense here.
+
+If you ever want to unstow, do
+
+```bash
+./unstow.sh
+```
+
+in the repository.
 
 ### Backgrounds
 
@@ -76,7 +86,7 @@ Everything from here on should be done one the machine, which you installed NixO
 
 	- run this to to copy the background you already downloaded to the backgrounds folder
 
-	```
+	```bash
 	cp ~/nixos-config-desktop/backgrounds/HighwayToShell.png /usr/share/backgrounds
 	```
 
