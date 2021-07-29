@@ -9,20 +9,37 @@
 
 	outputs = { nixpkgs, home-manager, ... }:
 	let
-		system = "x86_64-linux";
 		pkgs = import nixpkgs {
-			inherit system;
 			config = {
 				allowUnfree = true;
 			};
 		};
 		lib = nixpkgs.lib;
 	in {
+		homeManagerConfigurations = {
+			papojari = home-manager.lib.homeManagerConfiguration {
+				system = "x86_64-linux";
+				inherit pkgs;
+				username = "papojari";
+				homeDirectory = "/home/papojari";
+				configuration = {
+					imports = [
+						./users/papojari/home.nix
+					];
+				};
+			};
+		};
 		nixosConfigurations = {
 			Cryogonal = lib.nixosSystem {
-				inherit system;
+				system = "x86_64-linux";
 				modules = [
-					./system/configuration.nix
+					./system/configuration-amd.nix
+				];
+			};
+			Cryogonull = lib.nixosSystem {
+				system = "aarch64-linux";
+				modules = [
+					./system/configuration-amd.nix
 				];
 			};
 		};
