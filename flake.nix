@@ -39,7 +39,7 @@
 			Cryogonull = lib.nixosSystem {
 				system = "aarch64-linux";
 				modules = [
-					./system/configuration-amd.nix
+					./system/configuration-rpi4.nix
 				];
 			};
 		};
