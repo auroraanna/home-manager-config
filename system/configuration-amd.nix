@@ -66,7 +66,7 @@
 		# Per-interface useDHCP will be mandatory in the future, so this generated config
 		# replicates the default behaviour.
 		useDHCP = false;
-		interfaces.enp5s0.useDHCP = true;
+		interfaces.enp34s0.useDHCP = true;
 		# If using dhcpcd:
 		dhcpcd.extraConfig = "nohook resolv.conf";
 		# If using NetworkManager:
