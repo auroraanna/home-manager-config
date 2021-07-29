@@ -278,21 +278,6 @@
 			syntaxHighlighting.enable = true;
 			autosuggestions.enable = true;
 			promptInit = "source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme";
-			shellAliases = {
-				ll = "ls -al";
-				l="ls -lFh";
-				la = "ls -a";
-				lr = "ls -tRFh";
-				lt = "ls -ltFh";
-				ldot = "ls -ld .*";
-				lS = "ls -1FSsh";
-				lart = "ls -1Fcart";
-				lrt = "ls -1Fcrt";
-				grep = "grep --color=auto";
-				dud = "du -d 1 -h";
-				duf = "du -sh *";
-				help = "man";
-			};
 		};
 		# enable dconf for setting GTK themes via home manager
 		dconf.enable = true;
@@ -311,6 +296,7 @@
 		#	enable = true;
 		#	enableSSHSupport = true;
 		#};
+		steam.enable = true;
 	};
 
 	i18n = {
@@ -335,37 +321,23 @@
 			isNormalUser = true;
 			home = "/home/papojari";
 			description = "papojari";
-			extraGroups = [ "wheel" "networkmanager" "video" "lp" ];
+			extraGroups = [
+				"wheel"
+				"networkmanager"
+				"video"
+				"lp"
+			];
 			shell = pkgs.zsh;
-			openssh.authorizedKeys.keys = [ "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGcgywMb4yGH8ZN97LBa9P7Q4/3O9GVy/kjtGrV7KFaV papojari@Cryogonal" ];
+			openssh.authorizedKeys.keys = [
+				"ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGcgywMb4yGH8ZN97LBa9P7Q4/3O9GVy/kjtGrV7KFaV papojari@Cryogonal"
+			];
 		};
-	};
-
-	home-manager.users.papojari = {
-		programs = {
-			git = {
-				enable = true;
-				userName	= "papojari";
-				userEmail = "papojari-git.ovoid@aleeas.com";
-			};
-			#alacritty = {
-			#	enable = true;
-			#	settings = {
-			#		window.dimensions = {
- 	 		#			lines = 3;
-			#			columns = 200;
-			#		};
-			#	};
-			#};
+		susi = {
+			isNormalUser = true;
+			home = "/home/susi";
+			description = "susi";
+			shell = pkgs.zsh;
 		};
-		#wayland.windowManager = {
-		#	sway = {
-		#		enable = true;
-		#		config = {
-		#
-		#		};
-		#	};
-		#};
 	};
 
 	# Automatic upgrades
@@ -378,13 +350,6 @@
 	nixpkgs.config = {
 		# Allow unfree packages (sorry stallman)
 		allowUnfree = true;
-		#allowBroken = true;
-		packageOverrides = pkgs: {
-			# Steam
-			steam = pkgs.steam.override {
-				nativeOnly = true;
-			};
-		};
 		allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
       		"hplip"
     		];
@@ -410,65 +375,57 @@
 			EDITOR = "codium";
 			TERM = "xterm-256color";
 		};
+		shellAliases = {
+			ll = "ls -al";
+			l="ls -lFh";
+			la = "ls -a";
+			lr = "ls -tRFh";
+			lt = "ls -ltFh";
+			ldot = "ls -ld .*";
+			lS = "ls -1FSsh";
+			lart = "ls -1Fcart";
+			lrt = "ls -1Fcrt";
+			grep = "grep --color=auto";
+			dud = "du -d 1 -h";
+			duf = "du -sh *";
+			help = "man";
+		};
 		pathsToLink = [ "/libexec" ];
 		systemPackages = with pkgs; [
 			# Languages
 			zsh rustc
 			# CLI
-			tmux cmatrix toilet cowsay wget kakoune neovim neofetch htop cava git tealdeer stow unzip pandoc youtube-dl ytfzf librespeed-cli lolcat bpytop freshfetch radeontop wkhtmltopdf sftpman
+			tmux cmatrix toilet cowsay wget kakoune neofetch htop cava git git-crypt gnupg pinentry-gnome tealdeer stow unzip pandoc youtube-dl ytfzf librespeed-cli lolcat bpytop freshfetch radeontop wkhtmltopdf sftpman
 			# Video and image
 			pqiv mpv scrcpy
 			# Audio
 			pipewire pavucontrol pulseaudio
-			# Wine
-			wine-staging lutris-unwrapped
-			# Wine both 32- and 64 bit support
-			wineWowPackages.staging
 			# Wayland, Xorg
 			wayland xwayland xorg.xrdb polkit polkit_gnome waybar wofi slurp grim swappy rofi mako libappindicator
 			# Theming
 			papirus-icon-theme lxappearance materia-theme capitaine-cursors pywal
 			# Other
-			alacritty gnome.gnome-tweak-tool exodus gnome.gnome-boxes
+			gnome.gnome-tweak-tool gnome.gnome-shell-extensions
 			# File browsers
 			gnome.nautilus cinnamon.nemo xplr
 			# Web browsers
-			brave firefox-wayland tor-browser-bundle-bin
-			# Voicechat, Social media, Messaging
-			ferdi discord mumble teamspeak_client element-desktop signal-desktop
+			firefox-wayland
 			# Music streaming
 			spotify
 			# E-Mail
-			gnome.geary thunderbird-bin
+			gnome.geary
 			# Password managers
-			bitwarden gnome-passwordsafe
-			# Media processing
-			ffmpeg obs-studio
-			# Development
-			atom cobalt vscodium
-			# Creative apps
-			blender gimp godot godot-export-templates inkscape audacity
+			bitwarden
 			# Office
 			libreoffice-fresh
 			# Vulkan
 			vulkan-loader mangohud vulkan-tools
-			# Games
-			minecraft multimc amidst
-			osu-lazer
-			steam-tui
-			teeworlds
-			superTuxKart superTux
-			#mindustry-wayland
 			# MTP
 			jmtpfs
 			# Filesystem stuff
 			gparted dosfstools mtools ntfs3g btrfs-progs sshfs
 			# Printing & scanning
-			cups system-config-printer gnome.simple-scan skanlite
-			# MultiMC
-			#(multimc.overrideAttrs (old: {
-			#	buildInputs = with pkgs; [ libsForQt5.qt5.qtbase jdk zlib ];
-			#}))
+			cups system-config-printer gnome.simple-scan
 			# Python packages
 			python39Packages.pyqt5
 		];
