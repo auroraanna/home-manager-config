@@ -365,6 +365,11 @@
 			automatic = true;
 			dates = [ "weekly" ];
 		};
+		# Make ready for nix flakes
+		package = pkgs.nixFlakes;
+		extraOptions = ''
+			experimental-features = nix-command flakes
+		'';
 	};
 
 	# List packages installed in system profile. To search, run:
