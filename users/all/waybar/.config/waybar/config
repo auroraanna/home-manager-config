@@ -140,8 +140,8 @@
 	},
 	"custom/power": {
 	"format": "⏻",
-	//"on-click": "swaynag -t warning -m 'Power Menu Options' -b 'Power off'  'shutdown -P now' -b 'Restart' 'shutdown -r now' -b 'Hibernate' 'systemctl hibernate' -b 'Hybrid-sleep' 'systemctl hybrid-sleep' -b 'Suspend' 'systemctl suspend' -b 'Logout' 'swaymsg exit' --background=#005566 --button-background=#009999 --button-border=#002b33 --border-bottom=#002b33"
-		"on-click": "sh $HOME/.config/waybar/power-menu.sh"
+		"on-click": "swaynag -f Roboto -t warning -m 'Power Menu Options' -b 'Power off'  'shutdown -P now' -b 'Restart' 'shutdown -r now' -b 'Hibernate' 'systemctl hibernate' -b 'Hybrid-sleep' 'systemctl hybrid-sleep' -b 'Suspend' 'systemctl suspend' -b 'Logout' 'swaymsg exit' --background=#005566 --button-background=#009999 --button-border=#002b33 --border-bottom=#002b33"
+		//"on-click": "sh $HOME/.config/waybar/power-menu.sh"
 	},
 	"custom/gpu-usage": {
 		// Use either the next line or the second and third next line
