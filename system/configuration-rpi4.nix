@@ -9,9 +9,7 @@
 		[
 			# Include the results of the hardware scan and enable Raspberry Pi 4 profile
 			<nixos-hardware/raspberry-pi/4>
-			./hardware-configuration.nix
-			# Home manager
-			(import "${builtins.fetchTarball https://github.com/rycee/home-manager/archive/master.tar.gz}/nixos")
+			./hardware-configuration-rpi4.nix
 		];
 
 	boot = {
@@ -84,18 +82,6 @@
 			#libinput.enable = true;
 			# X uses ... video driver
 			#videoDrivers = [ "fbdev" ];
-			displayManager = {
-				#gdm = {
-				#	enable = true;
-				#	wayland = true;
-				#};
-				lightdm = {
-					enable = true;
-				};
-			};
-			desktopManager = {
-	    		gnome.enable = true;
-			};
 		};
 		pipewire = {
 			enable = true;
@@ -155,19 +141,22 @@
 		# Per-interface useDHCP will be mandatory in the future, so this generated config
 		# replicates the default behaviour.
 		useDHCP = false;
-		interfaces.enp5s0.useDHCP = true;
+		interfaces = {
+			eth0.useDHCP = true;
+			wlan.useDHCP = true;
+		};
 		# If using dhcpcd:
 		dhcpcd.extraConfig = "nohook resolv.conf";
 		# If using NetworkManager:
 		#networkmanager.dns = "none";
-		#wireless.enable = true;	# Enables wireless support via wpa_supplicant.
+		wireless.enable = true;	# Enables wireless support via wpa_supplicant.
 		# Configure network proxy if necessary
 		#networking.proxy.default = "http://user:password@proxy:port/";
 		#networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 		# Firewall
 		firewall = {
-    		enable = true;
-    		allowPing = false;
+    			enable = true;
+    			allowPing = false;
 			allowedTCPPorts = [ 80 443 ];
 		};
 	};
@@ -183,32 +172,6 @@
 		font = "Lat2-Terminus16";
 		keyMap = "de";
 	};
-
-	# Mounting
-	#fileSystems = {
-	# sda8
-	#	"/backgrounds" = {
-	#		device = "/dev/disk/by-uuid/9feb2ea8-a1c5-4dc7-866e-402437d2489f";
-	#		fsType = "btrfs";
-	#		options = [ "subvolid=329" ];
-	#	};
-	#	"/git-repos" = {
-	#		device = "/dev/disk/by-uuid/9feb2ea8-a1c5-4dc7-866e-402437d2489f";
-	#		fsType = "btrfs";
-	#		options = [ "subvolid=1007" ];
-	#	};
-	#	"/data" = {
-	#		device = "/dev/disk/by-uuid/9feb2ea8-a1c5-4dc7-866e-402437d2489f";
-	#		fsType = "btrfs";
-	#		options = [ "subvolid=356" ];
-	#	};
-	#	"/home" = {
-	#		device = "/dev/disk/by-uuid/9feb2ea8-a1c5-4dc7-866e-402437d2489f";
-	#		fsType = "btrfs";
-	#		options = [ "subvolid=356" ];
-	#	};
-	#};
-	#swapDevices = [ { device = "/swapfile"; size = 4096; } ];
 
 	programs = {
 		zsh = {
@@ -269,24 +232,7 @@
 				userName = "papojari";
 				userEmail = "papojari-git.ovoid@aleeas.com";
 			};
-			#alacritty = {
-			#	enable = true;
-			#	settings = {
-			#		window.dimensions = {
- 	 		#			lines = 3;
-			#			columns = 200;
-	 		#	 	};
-	 		#	};
-		 	#};
 		};
-		#wayland.windowManager = {
-		#	sway = {
-		#		enable = true;
-		#		config = {
-		#
-		#		};
-		#	};
-		#};
 	};
 
 	# Automatic upgrades

@@ -7,7 +7,7 @@
 {
 	imports = [
 			# Include the results of the hardware scan.
-			./hardware-configuration.nix
+			./hardware-configuration-amd.nix
 		];
 
 	boot = {
@@ -243,6 +243,11 @@
 			fsType = "btrfs";
 			options = [ "subvolid=436" ];
 		};
+		"/srv" = {
+			device = "/dev/disk/by-uuid/9feb2ea8-a1c5-4dc7-866e-402437d2489f";
+			fsType = "btrfs";
+			options = [ "subvolid=1016" ];
+		};
 		"/video-download" = {
 			device = "/dev/disk/by-uuid/2b2f4aec-9d14-450e-93c4-b5f7d8dafafa";
 			fsType = "btrfs";
@@ -300,7 +305,7 @@
 	i18n = {
 		defaultLocale = "en_US.UTF-8";
 		extraLocaleSettings = {
-			LANGUAGE = "en_US";
+			LANG = "de_DE.UTF-8";
 			LC_TIME = "de_DE.UTF-8";
 			LC_MEASUREMENT = "de_DE.UTF-8";
 			LC_ADDRESS = "de_DE.UTF-8";
@@ -329,6 +334,12 @@
 			openssh.authorizedKeys.keys = [
 				"ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGcgywMb4yGH8ZN97LBa9P7Q4/3O9GVy/kjtGrV7KFaV papojari@Cryogonal"
 			];
+		};
+		susi = {
+			isNormalUser = true;
+			home = "/home/susi";
+			description = "susi";
+			shell = pkgs.zsh;
 		};
 	};
 
@@ -396,13 +407,13 @@
 			# Video and image
 			pqiv mpv scrcpy
 			# Audio
-			pipewire pavucontrol pulseaudio
+			pavucontrol
 			# Wayland, Xorg
 			wayland xwayland xorg.xrdb polkit polkit_gnome waybar wofi slurp grim swappy rofi mako libappindicator
 			# Theming
 			papirus-icon-theme lxappearance materia-theme capitaine-cursors pywal
 			# Other
-			gnome.gnome-tweak-tool gnome.gnome-shell-extensions
+			gnome.gnome-tweak-tool gnome.gnome-shell-extensions deja-dup gnome.dconf-editor
 			# File browsers
 			gnome.nautilus cinnamon.nemo xplr
 			# Web browsers
