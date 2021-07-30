@@ -10,6 +10,8 @@
 			# Include the results of the hardware scan and enable Raspberry Pi 4 profile
 			<nixos-hardware/raspberry-pi/4>
 			./hardware-configuration-rpi4.nix
+			# home-manager
+			(import "${builtins.fetchTarball https://github.com/rycee/home-manager/archive/master.tar.gz}/nixos")
 		];
 
 	boot = {
