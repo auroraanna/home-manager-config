@@ -135,7 +135,7 @@
 
 	# Networking
 	networking = {
-		hostName = "Cryogonal";
+		hostName = "Cryogonull";
 		nameservers = [ "1.1.1.1" "9.9.9.9" ];
 		#resolvconf.enable = false;
 		# The global useDHCP flag is deprecated, therefore explicitly set to false here.
