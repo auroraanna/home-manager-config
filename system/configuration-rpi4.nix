@@ -25,16 +25,16 @@
 			generic-extlinux-compatible.enable = true;
 		};
 		kernelPackages = pkgs.linuxPackages_rpi4;
-    		tmpOnTmpfs = true;
+		tmpOnTmpfs = true;
 		initrd.availableKernelModules = [ "usbhid" "usb_storage" "vc4" ];
 		# ttyAMA0 is the serial console broken out to the GPIO
-    		kernelParams = [
-	        "8250.nr_uarts=1"
-	        "console=ttyAMA0,115200"
-	        "console=tty1"
-	        # Some gui programs need this
-	        "cma=128M"
-    		];
+		kernelParams = [
+			"8250.nr_uarts=1"
+			"console=ttyAMA0,115200"
+			"console=tty1"
+			# Some gui programs need this
+			"cma=128M"
+		];
 	};
 
 
@@ -82,6 +82,7 @@
 			#libinput.enable = true;
 			# X uses ... video driver
 			#videoDrivers = [ "fbdev" ];
+			displayManager.lightdm.enable = false;
 		};
 		pipewire = {
 			enable = true;
@@ -271,7 +272,7 @@
 		# Languages
 		zsh rustc
 		# CLI
-		cmatrix toilet cowsay wget kakoune htop cava git tealdeer stow youtube-dl ytfzf xplr wpa_supplicant
+		cmatrix toilet cowsay wget kakoune htop cava git tealdeer stow youtube-dl ytfzf xplr wpa_supplicant neofetch
 		# Video and image
 		pqiv mpv
 		# Audio
