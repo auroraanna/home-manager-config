@@ -244,12 +244,20 @@
 	};
 
 	nix = {
-		autoOptimiseStore = true;
 		gc = {
 			automatic = true;
 			dates = "daily";
 			options = "--delete-older-than 4d";
 		};
+		optimise = {
+			automatic = true;
+			dates = [ "weekly" ];
+		};
+		# Make ready for nix flakes
+		package = pkgs.nixFlakes;
+		extraOptions = ''
+			experimental-features = nix-command flakes
+		'';
 	};
 
 	nixpkgs.config = {
