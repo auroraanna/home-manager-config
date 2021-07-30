@@ -130,6 +130,14 @@
 				# server_names = [ ... ];
 			};
 		};
+		openssh = {
+			enable = true;
+			passwordAuthentication = false;
+			knownHosts.Cryogonal = {
+				hostNames = [ "Cryogonal" "192.168.178.98" ];
+				publicKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILcgisTGLBwRrhdmOIEkFP4K2IjI0KuJ4UoOOdn4KNcy papojari@Cryogonull";
+			};
+		};
 		gvfs = {
 			enable = true;
 		};
@@ -282,6 +290,7 @@
 			autosuggestions.enable = true;
 			promptInit = "source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme";
 		};
+		ssh.startAgent = true;
 		# enable dconf for setting GTK themes via home manager
 		dconf.enable = true;
 		java.enable = true;
