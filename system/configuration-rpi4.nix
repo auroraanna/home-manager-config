@@ -145,13 +145,16 @@
 		useDHCP = false;
 		interfaces = {
 			eth0.useDHCP = true;
-			wlan.useDHCP = true;
+			wlan0.useDHCP = true;
 		};
 		# If using dhcpcd:
 		dhcpcd.extraConfig = "nohook resolv.conf";
 		# If using NetworkManager:
 		#networkmanager.dns = "none";
-		wireless.enable = true;	# Enables wireless support via wpa_supplicant.
+		wireless = {
+			enable = true; # Enables wireless support via wpa_supplicant.
+			interfaces = [ "wlan0" ];
+		};
 		# Configure network proxy if necessary
 		#networking.proxy.default = "http://user:password@proxy:port/";
 		#networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
