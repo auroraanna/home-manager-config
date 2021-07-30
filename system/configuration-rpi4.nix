@@ -17,14 +17,16 @@
 	boot = {
 		loader = {
 			raspberryPi = {
-    			enable = true;
-    			version = 4;
-				firmwareConfig = ''
-					dtoverlay=vc4-kms-v3d
-				'';
-  			};
+				enable = true;
+				version = 4;
+				firmwareConfig = "dtoverlay=vc4-kms-v3d";
+				uboot = {
+					enable = true;
+					configurationLimit = 8;
+				};
+			};
 			grub.enable = false;
-			generic-extlinux-compatible.enable = true;
+			generic-extlinux-compatible.enable = false;
 		};
 		kernelPackages = pkgs.linuxPackages_rpi4;
     	tmpOnTmpfs = true;
