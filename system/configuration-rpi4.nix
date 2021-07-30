@@ -22,11 +22,11 @@
 				firmwareConfig = "dtoverlay=vc4-kms-v3d";
 			};
 			grub.enable = false;
-			generic-extlinux-compatible.enable = false;
+			generic-extlinux-compatible.enable = true;
 		};
 		kernelPackages = pkgs.linuxPackages_rpi4;
     		tmpOnTmpfs = true;
-		initrd.availableKernelModules = [ "usbhid" "usb_storage" ];
+		initrd.availableKernelModules = [ "usbhid" "usb_storage" "vc4" ];
 		# ttyAMA0 is the serial console broken out to the GPIO
     		kernelParams = [
 	        "8250.nr_uarts=1"
