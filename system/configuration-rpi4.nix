@@ -143,16 +143,12 @@
 		useDHCP = false;
 		interfaces = {
 			eth0.useDHCP = true;
-			wlan0.useDHCP = true;
 		};
 		# If using dhcpcd:
 		dhcpcd.extraConfig = "nohook resolv.conf";
 		# If using NetworkManager:
 		#networkmanager.dns = "none";
-		wireless = {
-			enable = true; # Enables wireless support via wpa_supplicant.
-			interfaces = [ "wlan0" ];
-		};
+		#wireless.enable = true; # Enables wireless support via wpa_supplicant.
 		# Configure network proxy if necessary
 		#networking.proxy.default = "http://user:password@proxy:port/";
 		#networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
@@ -275,7 +271,7 @@
 		# Languages
 		zsh rustc
 		# CLI
-		cmatrix toilet cowsay wget kakoune htop cava git tealdeer stow youtube-dl ytfzf xplr
+		cmatrix toilet cowsay wget kakoune htop cava git tealdeer stow youtube-dl ytfzf xplr wpa_supplicant
 		# Video and image
 		pqiv mpv
 		# Audio
