@@ -6,12 +6,12 @@
 
 {
 	imports = [
-			# Include the results of the hardware scan
-			./hardware-configuration-rpi4.nix
-			# Enable Raspberry Pi 4 profile
-			<nixos-hardware/raspberry-pi/4>
-			# home-manager
-			(import "${builtins.fetchTarball https://github.com/rycee/home-manager/archive/master.tar.gz}/nixos")
+		# Include the results of the hardware scan
+		./hardware-configuration-rpi4.nix
+		# Enable Raspberry Pi 4 profile
+		<nixos-hardware/raspberry-pi/4>
+		# home-manager
+		(import "${builtins.fetchTarball https://github.com/rycee/home-manager/archive/master.tar.gz}/nixos")
 	];
 
 	boot = {
