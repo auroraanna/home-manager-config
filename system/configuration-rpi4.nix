@@ -82,7 +82,7 @@
 			#libinput.enable = true;
 			# X uses ... video driver
 			#videoDrivers = [ "fbdev" ];
-			displayManager.lightdm.enable = false;
+			displayManager.lightdm.enable = true;
 		};
 		pipewire = {
 			enable = true;
