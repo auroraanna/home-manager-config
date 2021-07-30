@@ -45,11 +45,7 @@
 		#	driSupport32Bit = true;
 		#};
 		# Enable GPU acceleration
-		raspberry-pi."4".fkms-3d = {
-      		enable = lib.mkEnableOption ''
-       			Enable modesetting through fkms-3d
-      		'';
-		};
+		raspberry-pi."4".fkms-3d.enable = true;
 		# Required for the Wireless firmware
 		enableRedistributableFirmware = true;
 	};
