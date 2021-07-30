@@ -5,14 +5,14 @@
 { config, pkgs, ... }:
 
 {
-	imports =
-		[
-			# Include the results of the hardware scan and enable Raspberry Pi 4 profile
-			<nixos-hardware/raspberry-pi/4>
+	imports = [
+			# Include the results of the hardware scan
 			./hardware-configuration-rpi4.nix
+			# Enable Raspberry Pi 4 profile
+			<nixos-hardware/raspberry-pi/4>
 			# home-manager
 			(import "${builtins.fetchTarball https://github.com/rycee/home-manager/archive/master.tar.gz}/nixos")
-		];
+	];
 
 	boot = {
 		loader = {
@@ -73,8 +73,6 @@
 		};
 		xserver = {
 			enable = true;
-			# Touch input
-			#libinput.enable = true;
 			# Configure keymap in X11
 			layout = "de";
 			xkbOptions = "eurosign:e";
