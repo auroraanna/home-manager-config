@@ -20,10 +20,6 @@
 				enable = true;
 				version = 4;
 				firmwareConfig = "dtoverlay=vc4-kms-v3d";
-				uboot = {
-					enable = true;
-					configurationLimit = 8;
-				};
 			};
 			grub.enable = false;
 			generic-extlinux-compatible.enable = false;
@@ -317,7 +313,7 @@
 		roboto roboto-mono roboto-mono
 		ubuntu_font_family
 		font-awesome-ttf
-		nerdfonts
+		#nerdfonts
 	];
 
 	# This value determines the NixOS release from which the default
