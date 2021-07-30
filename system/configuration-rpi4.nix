@@ -272,21 +272,21 @@
 	# $ nix search wget
 	environment.systemPackages = with pkgs; [
 		# Languages
-		zsh zsh-syntax-highlighting zsh-autosuggestions zsh-powerlevel10k rustc
+		zsh rustc
 		# CLI
-		cmatrix toilet cowsay wget kakoune neofetch htop cava git tealdeer stow youtube-dl ytfzf xplr
+		cmatrix toilet cowsay wget kakoune htop cava git tealdeer stow youtube-dl ytfzf xplr
 		# Video and image
 		pqiv mpv
 		# Audio
-		pipewire pavucontrol pulseaudio
+		pavucontrol
 		# Wayland, Xorg
 		wayland xwayland xorg.xrdb waybar wofi slurp grim swappy alacritty
 		# Theming
-		papirus-icon-theme lxappearance materia-theme capitaine-cursors pywal
+		papirus-icon-theme lxappearance materia-theme capitaine-cursors
 		# Apps
 		gnome-passwordsafe gnome.gnome-tweaks spotify-qt mumble #firefox
 		# E-Mail
-		gnome.geary thunderbird-bin
+		gnome.geary
 		# Media processing
 		ffmpeg
 		# Development
