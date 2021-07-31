@@ -118,10 +118,6 @@
 		openssh = {
 			enable = true;
 			passwordAuthentication = false;
-			knownHosts.Cryogonal = {
-				hostNames = [ "Cryogonal" "192.168.178.112" ];
-				publicKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGcgywMb4yGH8ZN97LBa9P7Q4/3O9GVy/kjtGrV7KFaV";
-			};
 		};
 	};
 
