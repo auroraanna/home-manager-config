@@ -25,7 +25,7 @@
       # CLI fun
       cmatrix nyancat toilet cowsay lolcat cava
       # Video and image
-      pqiv mpv scrcpy
+      pqiv mpv
       # Audio
       pavucontrol pulseaudio
       # Wayland, Xorg
