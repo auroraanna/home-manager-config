@@ -146,7 +146,17 @@
       grep = "grep --color=auto";
       dud = "du -d 1 -h";
       duf = "du -sh *";
+      base2 = "basenc --base2msbf";
+      meip = "curl ifconfig.me";
+      speed = "librespeed";
       help = "man";
+      rtop = "radeontop";
+      neo = "neofetch";
+      frsh = "freshfetch";
+      coinflip = "echo $((RANDOM % 2))";
+      hp-setup = "nix run nixpkgs.hplipWithPlugin -c sudo hp-setup";
+      rainbow = "cat /dev/random | base64 -w 0 | lolcat";
+      buytime = "dd if=/dev/urandom of=homework.pdf bs=1M count=4";
     };
     pathsToLink = [ "/libexec" ];
   };

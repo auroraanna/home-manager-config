@@ -31,6 +31,7 @@
         configuration = {
           imports = [
             ./users/papojari/home.nix
+            ./.secrets/users/papojari/home.nix
           ];
         };
       };

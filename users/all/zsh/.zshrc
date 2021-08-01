@@ -14,10 +14,6 @@ SAVEHIST=10000
 HISTFILE=~/.cache/zshhistory
 setopt appendhistory
 
-# Load aliases if existent.
-[ -f "$HOME/.aliases" ] && source "$HOME/.aliases"
-[ -f "$HOME/.aliases-personal" ] && source "$HOME/.aliases-personal"
-
 # ex - archive extractor
 ## usage: ex <file>
 ex ()
