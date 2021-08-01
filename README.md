@@ -136,3 +136,7 @@ Before you start *sway* adjust `~/.config/sway/config` to you monitor setup. You
 ## Licenses
 
 [View this repository's licenses](https://codeberg.org/papojari/nixos-config-desktop/src/branch/main/Licenses.md)
+
+## Credits
+
+Thanks [Wil Taylor](https://github.com/wiltaylor) for teaching me nix flakes and `git crypt` in [your awesome tutorial series](https://www.youtube.com/watch?v=QKoQ1gKJY5A&list=PL-saUBvIJzOkjAw_vOac75v-x6EzNzZq-)!
