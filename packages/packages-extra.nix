@@ -5,6 +5,8 @@
     systemPackages = with pkgs; [
       # CLI
       radeontop wkhtmltopdf
+      # Video and image
+      scrcpy
       # Theming
       papirus-icon-theme lxappearance materia-theme capitaine-cursors pywal
       # Other
