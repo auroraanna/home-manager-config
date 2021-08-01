@@ -13,6 +13,8 @@
       gnome.gnome-tweak-tool gnome.gnome-shell-extensions deja-dup gnome.dconf-editor
       # Web browsers
       brave
+      # Password managers
+      bitwarden
       # Music streaming
       spotify
       # E-Mail

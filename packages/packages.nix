@@ -38,10 +38,8 @@
       gnome.nautilus cinnamon.nemo xplr
       # Web browsers
       firefox-wayland
-      # Password managers
-      bitwarden
       # Vulkan
-      vulkan-loader mangohud vulkan-tools
+      vulkan-loader vulkan-tools
       # MTP
       jmtpfs
       # Filesystem stuff
