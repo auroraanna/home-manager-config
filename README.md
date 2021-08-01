@@ -5,7 +5,7 @@
 <p>
   <a href="https://nixos.org/"><img src="https://img.shields.io/badge/NixOS-unstable-blue" alt="Badge: NixOS | unstable"/></a>
   <a href="https://swaywm.org/"><img src="https://img.shields.io/badge/Sway-1.6.1-yellowgreen" alt="Badge: Sway | 1.6.1"/></a>
-  <a href="https://swaywm.org/"><img src="https://img.shields.io/badge/GNU%20Stow-2.3.1-yellow" alt="Badge: GNU Stow | 2.3.1"/></a>  
+  <a href="https://swaywm.org/"><img src="https://img.shields.io/badge/GNU%20Stow-2.3.1-yellow" alt="Badge: GNU Stow | 2.3.1"/></a>
 </p>
 
 [![built with Nix](https://builtwithnix.org/badge.svg)](https://builtwithnix.org)
@@ -20,9 +20,31 @@ This repository contains my NixOS desktop configuration files. Other than the `*
 
 ![Preview](preview.png)
 
+## Stuff used
+
+### Programs
+
+| Type of program      | Type of programs used                                                              |
+| -------------------- | ---------------------------------------------------------------------------------- |
+| OS                   | [NixOS](https://nixos.org/)                                                        |
+| Shell                | [Zsh](https://en.wikipedia.org/wiki/Z_shell/)                                      |
+| Display manager      | [GDM](https://wiki.archlinux.org/title/GDM/)                                       |
+| Wayland compositor   | [sway](https://swaywm.org/)                                                        |
+| Status bar           | [Waybar](https://github.com/Alexays/Waybar/)                                       |
+| Application launcher | [Wofi](https://hg.sr.ht/~scoopta/wofi/)                                            |
+| Terminal emulator    | [Alacritty](https://github.com/alacritty/alacritty/)                               |
+| Text editor          | [VSCodium](https://vscodium.com/), [Kakoune](https://kakoune.org/)                 |
+| Web browser          | [Brave](https://brave.com/), [Firefox](https://www.mozilla.org/en-US/firefox/new/) |
+
+### Fonts
+
+- Roboto
+- Font Awesome
+- Iosevka (Nerdfont)
+
 ## Getting started
 
-### Installing NixOS
+### Installing NixOS with my configuration
 
 #### x86_64 architecture
 
