@@ -17,13 +17,13 @@
       # Languages
       zsh rustc
       # CLI
-      tmux bat wget kakoune git git-crypt gnupg pinentry-gnome tealdeer stow pandoc youtube-dl ytfzf librespeed-cli sftpman
+      tmux bat wget kakoune git git-crypt gnupg pinentry-gnome age tealdeer stow pandoc youtube-dl ytfzf librespeed-cli sftpman
       # Fetch programs
       freshfetch neofetch
       # System monitors
       bpytop
       # CLI fun
-      cmatrix nyancat toilet cowsay lolcat cava
+      cmatrix nyancat cbonsai toilet cowsay lolcat cava
       # Video and image
       pqiv mpv
       # Audio
