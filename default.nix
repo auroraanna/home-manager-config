@@ -122,6 +122,24 @@
     font = "Lat2-Terminus16";
     # Set your keyboard layout
     keyMap = "de";
+    colors = [
+      "171421"
+      "c01c28"
+      "26A269"
+      "a2734c"
+      "12488b"
+      "a347ba"
+      "06989a"
+      "d0cfcc"
+      "5e5c64"
+      "ef2929"
+      "8ae234"
+      "e9ad0c"
+      "2a7bde"
+      "c061cb"
+      "33c7de"
+      "ffffff"
+    ];
   };
 
   i18n = {
@@ -175,6 +193,21 @@
       buytime = "dd if=/dev/urandom of=homework.pdf bs=1M count=4";
     };
     pathsToLink = [ "/libexec" ];
+  };
+
+  fonts = {
+    enableDefaultFonts = true;
+    fontDir.enable = true;
+    fontconfig = {
+      enable = true;
+      antialias = true;
+      defaultFonts = {
+        serif = [ "Roboto Slab" ];
+        sansSerif = [ "Roboto" ];
+        monospace = [ "Iosevka" ];
+        emoji = [ "Noto Color Emoji" ];
+      };
+    };
   };
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
