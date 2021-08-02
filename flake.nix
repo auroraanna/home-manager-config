@@ -30,6 +30,8 @@
         homeDirectory = "/home/papojari";
         configuration = {
           imports = [
+            ./users/all/home.nix
+            ./users/all/alacritty/default.nix
             ./users/papojari/home.nix
             ./.secrets/users/papojari/home.nix
           ];
