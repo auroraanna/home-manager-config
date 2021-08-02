@@ -80,31 +80,7 @@ is determined by your hostname so change your hostname or the files depending or
 ./apply-users
 ```
 
-### Linking my dotfiles with `stow`
-
-Do
-
-```bash
-./stow.sh
-```
-
-in the repository.
-
-This way you have all the configuration files in one place. This makes publishing your configuration to a repository very easy. If you wanted to you could add your own configuration files and link them with GNU Stow or just edit mine a bit.
-
-Alternatively you could move every single file to its appropriate position given in the repository. For that you would manually have to create all the folders which is time consuming so GNU Stow makes much sense here.
-
-If you ever want to unstow, do
-
-```bash
-./unstow.sh
-```
-
-in the repository.
-
 ### Backgrounds
-
-Everything from here on should be done one the machine, which you installed NixOS with my `configuration.nix` on.
 
 - Highway to shell
 
