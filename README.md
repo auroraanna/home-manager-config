@@ -5,8 +5,6 @@
 <p>
   <a href="https://nixos.org/"><img src="https://img.shields.io/badge/NixOS-unstable-blue" alt="Badge: NixOS | unstable"/></a>
   <a href="https://swaywm.org/"><img src="https://img.shields.io/badge/Sway-1.6.1-yellowgreen" alt="Badge: Sway | 1.6.1"/></a>
-  <a href="https://swaywm.org/"><img src="https://img.shields.io/badge/GNU%20Stow-2.3.1-yellow" alt="Badge: GNU Stow | 2.3.1"/></a>
-</p>
 
 [![built with Nix](https://builtwithnix.org/badge.svg)](https://builtwithnix.org)
 
