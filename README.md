@@ -56,7 +56,7 @@ This repository contains my NixOS desktop configuration files. Other than the `*
 1. Follow this [nix.dev turorial](https://nix.dev/tutorials/installing-nixos-on-a-raspberry-pi) until you have a working system.
 2. Boot from the disk.
 
-### Build `configuration-*.nix`
+### Building from the Nix files
 
 Clone this repository to somewhere, for example: *your home directory*, like this
 
@@ -64,17 +64,23 @@ Clone this repository to somewhere, for example: *your home directory*, like thi
 git clone https://codeberg.org/papojari/nixos-config-desktop.git
 ```
 
-Based on if you want to install the configuration on a Raspberry Pi 4 Model B or an x86_64 computer, preferably with AMD processor and a AMD Radeon Sea Islands graphics cardy you need to change the third line in `apply-system.sh` to the right file path.
+#### NixOS
 
-If you're computer is x86_64 but don't have an AMD Sea Islands GPU you will have to tweak the `system/configuration-amd.nix` a bit.
+My configuration is specifically made for two system so If you don't have a computer with an AMD CPU and an AMD Sea Islands GPU or a Raspberry Pi 4 you'll have to adjust some files.
 
-Next up rebuild the NixOS installation with
+What configuration will be built when you run
 
 ```bash
 ./apply-system.sh
 ```
 
-in the repository.
+is determined by your hostname so change your hostname or the files depending or which should be built.
+
+#### Home Manager
+
+```bash
+./apply-users
+```
 
 ### Linking my dotfiles with `stow`
 
