@@ -7,9 +7,10 @@
 
   # Fonts
   fonts.fonts = with pkgs; [
+    iosevka
     roboto
-    font-awesome-ttf
-    nerdfonts
+    noto-fonts-emoji
+    font-awesome
   ];
 
   environment = {

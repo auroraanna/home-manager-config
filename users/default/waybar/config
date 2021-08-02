@@ -49,16 +49,17 @@
 	},
 	"clock": {
 		"tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-		"format-alt": "{:%Y/%m/%d}"
+		"format-alt": "{:%Y/%m/%d} ",
+		"format": "{:%H:%M} "
 	},
 	"cpu": {
-		"format": "{usage}% ︁ CPU"
+		"format": "{usage}%  CPU"
 	},
 	"memory": {
-		"format": "{}% "
+		"format": "{}% "
 	},
 	"disk": {
-		"format": "{}% ",
+		"format": "{}% ",
 		"tooltip-format": "{used} / {total} used"
 	},
 	"temperature": {
@@ -91,7 +92,7 @@
 	"network": {
 		// "interface": "wlp2s0", // (Optional) To force the use of this interface
 		"format-wifi": "{essid} ({signalStrength}%) ",
-		"format-ethernet": "{ifname}: {ipaddr}/{cidr} ",
+		"format-ethernet": "{ifname}: {ipaddr}/{cidr} ",
 		"format-disconnected": "Disconnected ⚠",
 		"interval" : 7
 	},
@@ -139,7 +140,7 @@
 		"exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null" // Script in resources folder
 	},
 	"custom/power": {
-	"format": "⏻",
+	"format": "",
 		"on-click": "swaynag -f Roboto -t warning -m 'Power Menu Options' -b 'Power off'  'shutdown -P now' -b 'Restart' 'shutdown -r now' -b 'Hibernate' 'systemctl hibernate' -b 'Hybrid-sleep' 'systemctl hybrid-sleep' -b 'Suspend' 'systemctl suspend' -b 'Logout' 'swaymsg exit' --background=#005566 --button-background=#009999 --button-border=#002b33 --border-bottom=#002b33"
 		//"on-click": "sh $HOME/.config/waybar/power-menu.sh"
 	},
@@ -148,7 +149,7 @@
 		"exec": "command -v radeontop >/dev/null 2>&1 && radeontop -d - -l 1 | tr -d '\n' | cut -s -d ',' -f3 | cut -s -d ' ' -f3 | tr -d '%' | awk '{ print $1 }' | tr -d '\n' || echo 'No radeontop'",
 		//"exec": "radeontop -d - -l 1 | tr -d '\n' | cut -s -d ',' -f3 | cut -s -d ' ' -f3 | tr -d '%' | awk '{ print $1 }' | tr -d '\n'",
 		//"exec-if": "command -v radeontop",
-		"format": "{}% ﬙ GPU",
+		"format": "{}%  GPU",
 		"interval": 10
 	}
 }
