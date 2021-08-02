@@ -8,7 +8,6 @@
       enableCompletion = true;
       enableSyntaxHighlighting = true;
       enableAutosuggestions = true;
-      #promptInit is located in /default.nix because Home Manager doesn't have this option.
       history = {
         path = "$HOME/.cache/zshhistory";
         size = 10000;
