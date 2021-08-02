@@ -38,7 +38,7 @@ include "$HOME/.cache/wal/colors-sway"
 
 	# Path to background image
 	#set $Background /usr/share/backgrounds/nixos/nix-wallpaper-3d-showcase-3840x2160.png
-	set $Background /usr/share/backgrounds/HighwayToShell.png
+	set $Background /../../../backgrounds/HighwayToShell.png
 
 #
 # Appearance
@@ -46,9 +46,6 @@ include "$HOME/.cache/wal/colors-sway"
 
 	# Font
 	font pango:Roboto, 12
-
-	# Import GTK settings
-	exec_always sh import-gsettings.sh
 
 	# Disable window title
 	default_border pixel 1

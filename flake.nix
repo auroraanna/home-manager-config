@@ -30,8 +30,15 @@
         homeDirectory = "/home/papojari";
         configuration = {
           imports = [
-            ./users/all/home.nix
-            ./users/all/alacritty/default.nix
+            ./users/default/home.nix
+            ./users/default/alacritty.nix
+            ./users/default/mako.nix
+            ./users/default/neofetch/default.nix
+            ./users/default/swappy.nix
+            ./users/default/sway/default.nix
+            ./users/default/waybar/default.nix
+            ./users/default/wofi/default.nix
+            ./users/default/zsh/default.nix
             ./users/papojari/home.nix
             ./.secrets/users/papojari/home.nix
           ];
@@ -45,11 +52,11 @@
           ./hardware/amd.nix
           ./system/amd.nix
           ./.secrets/system/amd.nix
-          ./network/all.nix
+          ./network/default.nix
           ./network/amd.nix
-          ./packages/packages.nix
-          ./packages/packages-extra.nix
-          ./all.nix
+          ./packages/default.nix
+          ./packages/extra.nix
+          ./default.nix
         ];
       };
       Cryogonull = lib.nixosSystem {
@@ -57,10 +64,10 @@
         modules = [
           ./hardware/rpi4.nix
           ./system/rpi4.nix
-          ./network/all.nix
+          ./network/default.nix
           ./network/rpi4.nix
-          ./packages/packages.nix
-          ./all.nix
+          ./packages/default.nix
+          ./default.nix
         ];
       };
     };

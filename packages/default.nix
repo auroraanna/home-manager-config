@@ -18,6 +18,8 @@
       zsh rustc
       # CLI
       tmux bat wget kakoune git git-crypt gnupg pinentry-gnome age tealdeer stow pandoc youtube-dl ytfzf librespeed-cli sftpman
+      # Prompts
+      starship
       # Fetch programs
       freshfetch neofetch
       # System monitors

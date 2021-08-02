@@ -132,6 +132,22 @@
     ];
   };
 
+  programs = {
+    ssh.startAgent = true;
+    # enable dconf for setting GTK themes via home manager
+    dconf.enable = true;
+    java.enable = true;
+    light.enable = true;
+    sway = {
+      enable = true;
+      wrapperFeatures.gtk = true;
+    };
+    xwayland.enable = true;
+    qt5ct.enable = true;
+    # Some programs need SUID wrappers, can be configured further or are started in user sessions.
+    #mtr.enable = true;
+  };
+
   environment = {
     variables = {
       CLICOLOR = "TRUE";
@@ -159,33 +175,6 @@
       buytime = "dd if=/dev/urandom of=homework.pdf bs=1M count=4";
     };
     pathsToLink = [ "/libexec" ];
-  };
-
-  programs = {
-    zsh = {
-      enable = true;
-      enableCompletion = true;
-      syntaxHighlighting.enable = true;
-      autosuggestions.enable = true;
-      promptInit = "source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme";
-    };
-    ssh.startAgent = true;
-    # enable dconf for setting GTK themes via home manager
-    dconf.enable = true;
-    java.enable = true;
-    light.enable = true;
-    sway = {
-      enable = true;
-      wrapperFeatures.gtk = true;
-    };
-    xwayland.enable = true;
-    qt5ct.enable = true;
-    # Some programs need SUID wrappers, can be configured further or are started in user sessions.
-    #mtr.enable = true;
-    #gnupg.agent = {
-    #	enable = true;
-    # enableSSHSupport = true;
-    #};
   };
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
