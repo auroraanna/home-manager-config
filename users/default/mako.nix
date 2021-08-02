@@ -5,13 +5,15 @@
     mako = {
       enable = true;
       defaultTimeout = 8000;
+      margin = "20";
+      padding = "10";
       anchor = "bottom-right";
-      backgroundColor = "#FFFFFFFF";
+      backgroundColor = "#F1F3F5FF";
       borderColor = "#E8E8E8FF";
       borderRadius = 10;
       borderSize = 0;
-      textColor = "#000000";
-      font = "Roboto 15";
+      textColor = "#343546ff";
+      font = "Roboto 10";
     };
   };
 }
