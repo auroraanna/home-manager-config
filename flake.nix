@@ -39,6 +39,7 @@
             ./users/default/waybar/default.nix
             ./users/default/wofi/default.nix
             ./users/default/zsh/default.nix
+            ./users/default/starship/default.nix
             ./users/papojari/home.nix
             ./.secrets/users/papojari/home.nix
           ];
@@ -56,6 +57,8 @@
           ./network/amd.nix
           ./packages/default.nix
           ./packages/extra.nix
+          ./programs/default.nix
+          ./fonts.nix
           ./default.nix
         ];
       };
