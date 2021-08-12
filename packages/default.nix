@@ -16,9 +16,11 @@
   environment = {
     systemPackages = with pkgs; [
       # Languages
-      zsh rustc
+      zsh rustc jdk
+      # Compression algorithms
+      zstd zpaqd
       # CLI
-      tmux bat wget kakoune git git-crypt gnupg pinentry-gnome age tealdeer stow pandoc youtube-dl ytfzf librespeed-cli sftpman
+      tmux bat wget kakoune git git-crypt gnupg pinentry-gnome age tealdeer stow pandoc youtube-dl ytfzf librespeed-cli sftpman zbar imagemagick
       # Prompts
       starship
       # Fetch programs
@@ -31,12 +33,14 @@
       pqiv mpv
       # Audio
       pavucontrol pulseaudio
+      # Display managers
+      libsForQt5.sddm-kcm
       # Wayland, Xorg
-      polkit polkit_gnome waybar wofi slurp grim swappy rofi mako libappindicator
+      wl-clipboard polkit polkit_gnome waybar wofi wofi-emoji slurp grim swappy rofi notify-desktop mako libappindicator zenity
       # Theming
-      lxappearance materia-theme papirus-icon-theme capitaine-cursors
+      lxappearance materia-theme papirus-icon-theme capitaine-cursors arc-kde-theme adapta-kde-theme
       # Other
-      alacritty gnome.gnome-tweak-tool gnome.gnome-shell-extensions deja-dup gnome.dconf-editor
+      alacritty gnome.gnome-tweak-tool gnome.gnome-shell-extensions deja-dup gnome.dconf-editor transmission-gtk
       # File browsers
       gnome.nautilus cinnamon.nemo xplr
       # Web browsers
