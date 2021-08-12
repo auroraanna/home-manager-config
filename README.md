@@ -82,27 +82,27 @@ is determined by your hostname so change your hostname or the files depending or
 
 ### Backgrounds
 
-- Highway to shell
+#### Highway to shell
 
-	![Highway to shell backgrounds](https://codeberg.org/papojari/nixos-config-desktop/raw/branch/main/backgrounds/HighwayToShell.png)
+![Highway to shell backgrounds](https://codeberg.org/papojari/nixos-config-desktop/raw/branch/main/backgrounds/HighwayToShell.png)
 
-	- run this to to copy the background you already downloaded to the backgrounds folder
+- run this to to copy the background you already downloaded to the backgrounds folder
 
-	```bash
-	cp ~/nixos-config-desktop/backgrounds/HighwayToShell.png /usr/share/backgrounds
-	```
+```bash
+cp ~/nixos-config-desktop/backgrounds/HighwayToShell.png /usr/share/backgrounds
+```
 
-- 3d NixOS
+#### 3d NixOS
 
-	![3d NixOS background](https://raw.githubusercontent.com/papojari/nixos-artwork/master/wallpapers/nix-wallpaper-3d-showcase-1920x1080.png)
+![3d NixOS background](https://raw.githubusercontent.com/papojari/nixos-artwork/master/wallpapers/nix-wallpaper-3d-showcase-1920x1080.png)
 
-	- to install run
+- to install run
 
-	```bash
-	git clone https://github.com/papojari/nixos-artwork.git && mkdir -p /usr/share/backgrounds/nixos && mv nixos-artwork/wallpapers/* /usr/share/backgrounds/nixos/ && rm -rf nixos-artwork
-	```
+```bash
+git clone https://github.com/papojari/nixos-artwork.git && mkdir -p /usr/share/backgrounds/nixos && mv nixos-artwork/wallpapers/* /usr/share/backgrounds/nixos/ && rm -rf nixos-artwork
+```
 
-	- to use uncomment the first `$Background` line and comment the next line in `~/.config/sway/config`
+- to use, uncomment the first `$Background` line and comment the next line in `~/.config/sway/config`
 
 ### Wayland
 
