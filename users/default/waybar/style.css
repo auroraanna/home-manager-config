@@ -47,7 +47,7 @@ window#waybar.hidden {
 	border-bottom: 3px solid #ffffff;
 }
 
-#clock, #battery, #cpu, #memory, #disk, #temperature, #backlight, #network, #pulseaudio, #custom-media, #tray, #mode, #idle_inhibitor, #window, #custom-gpu-usage {
+#clock, #battery, #cpu, #memory, #disk, #temperature, #backlight, #network, #pulseaudio, #custom-media, #tray, #mode, #idle_inhibitor, #window, #custom-gpu-usage, #custom-screenshot, #custom-scan-barcode, #custom-color-picker {
 	padding: 0 10px;
 	margin: 0 3px;
 }
@@ -55,7 +55,23 @@ window#waybar.hidden {
 #custom-power{
 	padding: 0 12px;
 	margin: 0 3px;
-	background: #90b1b1;
+	background-color: #272727;
+	color: #ffffff;
+}
+
+#custom-screenshot {
+	background-color: #38bdff;
+	color: #000000;
+}
+
+#custom-scan-barcode {
+	background-color: #f1f3f4;
+	color: #000000;
+}
+
+#custom-color-picker {
+	background-color: #ff8018;
+	color: #000000;
 }
 
 #clock {
@@ -156,11 +172,6 @@ window#waybar.hidden {
 
 #tray {
 	background-color: #171421;
-}
-
-#custom-power {
-	background-color: #f1f3f4;
-	color: #5f6368;
 }
 
 #idle_inhibitor {

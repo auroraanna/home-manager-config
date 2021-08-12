@@ -4,7 +4,7 @@
 	"height": 32, // Waybar height
 	// "width": 48, // Waybar width
 	// Choose the order of the modules
-	"modules-left": ["custom/power", "tray", "sway/mode", "custom/media"],
+	"modules-left": ["custom/power", "tray", "sway/mode", "custom/media", "custom/screenshot", "custom/scan-barcode", "custom/color-picker"],
 	"modules-center": ["sway/workspaces", "sway/window"],
 	"modules-right": ["backlight", "pulseaudio", "network", "disk", "memory", "cpu", "temperature", "custom/gpu-usage", "backlight", "battery", "battery#bat2", "clock"],
 	// Modules configuration
@@ -141,7 +141,7 @@
 	},
 	"custom/power": {
 	"format": "",
-		"on-click": "swaynag -f Roboto -t warning -m 'Power Menu Options' -b 'Power off'  'shutdown -P now' -b 'Restart' 'shutdown -r now' -b 'Hibernate' 'systemctl hibernate' -b 'Hybrid-sleep' 'systemctl hybrid-sleep' -b 'Suspend' 'systemctl suspend' -b 'Logout' 'swaymsg exit' --background=#005566 --button-background=#009999 --button-border=#002b33 --border-bottom=#002b33"
+		"on-click": "swaynag --background=#005566 --button-padding=8 --button-background=#009999 --button-border=#002b33 --border-bottom=#002b33 -f Roboto -t warning -m 'Power Menu Options' -b '⏻︁ Power off'  'shutdown -P now' -b '↻︁ Restart' 'shutdown -r now' -b '🛌︁ Hibernate' 'systemctl hibernate' -b '🛌︁ Hybrid-sleep' 'systemctl hybrid-sleep' -b '🛌︁ Suspend' 'systemctl suspend' -b '︁ Logout' 'swaymsg exit'"
 		//"on-click": "sh $HOME/.config/waybar/power-menu.sh"
 	},
 	"custom/gpu-usage": {
@@ -151,5 +151,20 @@
 		//"exec-if": "command -v radeontop",
 		"format": "{}%  GPU",
 		"interval": 10
+	},
+	"custom/screenshot": {
+		"format": " ",
+		"tooltip-format": "Take a screenshot",
+		"on-click": "sh $HOME/.config/sway/screenshot.sh"
+	},
+	"custom/scan-barcode": {
+		"format": "",
+		"tooltip-format": "Scan a barcode on the screen(s)",
+		"on-click": "sh $HOME/.config/sway/scan-barcode.sh"
+	},
+	"custom/color-picker": {
+		"format": "",
+		"tooltip-format": "Pick a color on the screen(s)",
+		"on-click": "sh $HOME/.config/sway/color-picker.sh"
 	}
 }
