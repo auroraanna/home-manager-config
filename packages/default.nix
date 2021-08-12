@@ -36,7 +36,7 @@
       # Display managers
       libsForQt5.sddm-kcm
       # Wayland, Xorg
-      wl-clipboard polkit polkit_gnome waybar wofi wofi-emoji slurp grim swappy rofi notify-desktop mako libappindicator zenity
+      wl-clipboard polkit polkit_gnome waybar wofi wofi-emoji slurp grim swappy rofi notify-desktop mako libappindicator gnome.zenity
       # Theming
       lxappearance materia-theme papirus-icon-theme capitaine-cursors arc-kde-theme adapta-kde-theme
       # Other
