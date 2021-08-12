@@ -1,6 +1,6 @@
 # Licenses
 
-## Everything except `backgrounds/HighwayToShell.png`
+## Everything except the files in the following headlines
 
 This is free and unencumbered software released into the public domain.
 
@@ -26,6 +26,12 @@ ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
 OTHER DEALINGS IN THE SOFTWARE.
 
 For more information, please refer to <http://unlicense.org/>
+
+## `users/default/sway/color-picker.sh`
+
+[MIT License](https://github.com/jgmdev/wl-color-picker/blob/main/LICENSE)
+
+Copyright (c) 2021 Jefferson González
 
 ## `backgrounds/HighwayToShell.png`
 
