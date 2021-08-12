@@ -101,9 +101,9 @@ include "$HOME/.cache/wal/colors-sway"
 #
 
 exec swayidle -w \
-	timeout 300 'swaylock -f -c 000000' \
-	#timeout 900 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
-	timeout 600 'systemctl suspend"' \
+	timeout 600 'swaylock -f -c 000000' \
+	timeout 900 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
+	#timeout 600 'systemctl suspend"' \
 	before-sleep 'swaylock -f -c 000000'
 # This will lock your screen after 300 seconds of inactivity, then turn off
 # your displays after another 300 seconds, and turn your screens back on when
@@ -159,7 +159,10 @@ exec swayidle -w \
 	bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'
 
 	# Take a screenshot by selecting an area
-	bindsym print exec grim -g "$(slurp)" - | swappy -f -
+	bindsym print exec $HOME/.config/sway/screenshot.sh
+
+	# Scan a barcode on the screen
+	bindsym pause exec $HOME/.config/sway/scan-barcode.sh
 
 #
 # Programs:
@@ -211,7 +214,7 @@ exec swayidle -w \
 #
 
 	# Move your focus around
-	bindsym $mod+$left focus leftl
+	bindsym $mod+$left focus left
 	bindsym $mod+$down focus down
 	bindsym $mod+$up focus up
 	bindsym $mod+$right focus right
