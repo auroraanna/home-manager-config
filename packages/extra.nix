@@ -4,11 +4,9 @@
   environment = {
     systemPackages = with pkgs; [
       # CLI
-      radeontop wkhtmltopdf
+      radeontop
       # Video and image
       scrcpy
-      # Theming
-      papirus-icon-theme lxappearance materia-theme capitaine-cursors pywal
       # Other
       gnome.gnome-tweak-tool gnome.gnome-shell-extensions deja-dup gnome.dconf-editor
       # Web browsers
@@ -16,9 +14,6 @@
       # Password managers
       bitwarden
       # Music streaming
-      spotify
-      # E-Mail
-      gnome.geary
       spotify
       # Office
       libreoffice-fresh

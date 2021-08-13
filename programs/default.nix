@@ -73,6 +73,8 @@
         gnome.enable = true;
       };
     };
+    gnome.sushi.enable = true;
+    transmission.enable = true;
     pipewire = {
       enable = true;
       # Support alsa programs
@@ -127,13 +129,27 @@
     dconf.enable = true;
     java.enable = true;
     light.enable = true;
+    xwayland.enable = true;
     sway = {
       enable = true;
       wrapperFeatures.gtk = true;
     };
-    xwayland.enable = true;
-    qt5ct.enable = true;
+    file-roller.enable = true;
+    seahorse.enable = true;
+    gnome-disks.enable = true;
+    #gnome-documents.enable = true;
+    evince.enable = true;
+    geary.enable = true;
+    kdeconnect.enable = true;
     # Some programs need SUID wrappers, can be configured further or are started in user sessions.
     #mtr.enable = true;
   };
+
+  qt5 = {
+    enable = true;
+    platformTheme = "gnome";
+    style = "adwaita-dark";
+  };
+
+  xdg.portal.wlr.enable = true;
 }
