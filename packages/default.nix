@@ -38,7 +38,7 @@
       # Wayland, Xorg
       wl-clipboard polkit polkit_gnome waybar wofi wofi-emoji slurp grim swappy rofi notify-desktop mako libappindicator gnome.zenity
       # Theming
-      lxappearance materia-theme papirus-icon-theme capitaine-cursors arc-kde-theme adapta-kde-theme
+      lxappearance materia-theme papirus-icon-theme capitaine-cursors
       # Other
       alacritty gnome.gnome-tweak-tool gnome.gnome-shell-extensions deja-dup gnome.dconf-editor transmission-gtk
       # File browsers
