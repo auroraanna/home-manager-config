@@ -9,6 +9,11 @@
     allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
       "hplip"
     ];
+    packageOverrides = pkgs: {
+      steam = pkgs.steam.override {
+        nativeOnly = true;
+      };
+    };
   };
 
   boot = {
@@ -137,6 +142,6 @@
   };
 
   programs = {
-    steam.enable = true;
+    #steam.enable = true;
   };
 }
