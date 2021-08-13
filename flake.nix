@@ -38,10 +38,9 @@
             ./users/default/sway/default.nix
             ./users/default/waybar/default.nix
             ./users/default/wofi/default.nix
-            ./users/default/zsh/default.nix
             ./users/default/starship/default.nix
             ./users/papojari/home.nix
-            ./.secrets/users/papojari/home.nix
+            ./.secrets/users/papojari/zsh/default.nix
           ];
         };
       };
@@ -52,12 +51,13 @@
         modules = [
           ./hardware/amd.nix
           ./system/amd.nix
-          ./.secrets/system/amd.nix
+          ./.secrets/users/amd.nix
           ./network/default.nix
           ./network/amd.nix
           ./packages/default.nix
           ./packages/extra.nix
           ./programs/default.nix
+          ./programs/zsh.nix
           ./fonts.nix
           ./default.nix
         ];
