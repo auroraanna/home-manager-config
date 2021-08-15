@@ -89,12 +89,12 @@ is determined by your hostname so change your hostname or the files depending or
 
 #### Highway to shell
 
-![Highway to shell backgrounds](https://codeberg.org/papojari/nixos-config-desktop/raw/branch/main/backgrounds/HighwayToShell.png)
+![Highway to shell backgrounds](https://codeberg.org/papojari/nixos-config/raw/branch/main/backgrounds/HighwayToShell.png)
 
 - run this to to copy the background you already downloaded to the backgrounds folder
 
 ```bash
-cp ~/nixos-config-desktop/backgrounds/HighwayToShell.png /usr/share/backgrounds
+cp ~/nixos-config/backgrounds/HighwayToShell.png /usr/share/backgrounds
 ```
 
 #### 3d NixOS
