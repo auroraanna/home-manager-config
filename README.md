@@ -59,25 +59,30 @@ This repository contains my NixOS desktop configuration files. Other than the `*
 Clone this repository to somewhere, for example: *your home directory*, like this
 
 ```bash
-git clone https://codeberg.org/papojari/nixos-config-desktop.git
+git clone https://codeberg.org/papojari/nixos-config.git
 ```
 
 #### NixOS
 
+Assuming you `cd`ed into the cloned git repository,
+
+To execute `manage.sh` you might have to run
+```bash
+chmod +x manage.sh
+```
+
 My configuration is specifically made for two system so If you don't have a computer with an AMD CPU and an AMD Sea Islands GPU or a Raspberry Pi 4 you'll have to adjust some files.
 
 What configuration will be built when you run
-
 ```bash
-./apply-system.sh
+./manage.sh --apply-system
 ```
-
 is determined by your hostname so change your hostname or the files depending or which should be built.
 
 #### Home Manager
 
 ```bash
-./apply-users
+./manage.sh --apply-users
 ```
 
 ### Backgrounds
@@ -104,9 +109,15 @@ git clone https://github.com/papojari/nixos-artwork.git && mkdir -p /usr/share/b
 
 - to use, uncomment the first `$Background` line and comment the next line in `~/.config/sway/config`
 
-### Wayland
+### Sway
 
-Before you start *sway* adjust `~/.config/sway/config` to you monitor setup. You can just start *sway* with `sway` in a tty. Alternatively start *sway* from a display manager. In my experience, despite what the wiki says, *gdm* works.
+Before you starting to use sway you'll have to adjust the config to you monitor setup. To list your monitors run
+```bash
+swaymsg -t get_outputs
+```
+and then put the identifiers like `DP-1` or `HDMI-A-1` into `~/.config/sway/config` in the `Output configuration` section.
+
+You can just start *sway* with `sway` in a tty. Alternatively start *sway* from a display manager. In my experience, despite what the wiki says, *gdm* works.
 
 #### lxappearance
 
@@ -115,7 +126,7 @@ Before you start *sway* adjust `~/.config/sway/config` to you monitor setup. You
 
 ## Licenses
 
-[View this repository's licenses](https://codeberg.org/papojari/nixos-config-desktop/src/branch/main/Licenses.md)
+[View this repository's licenses](Licenses.md)
 
 ## Credits
 
