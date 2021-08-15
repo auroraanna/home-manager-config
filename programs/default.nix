@@ -4,7 +4,8 @@
   # Automatic upgrades
   system.autoUpgrade ={
     enable = true;
-    channel = "https://nixos.org/channels/nixos-unstable";
+    allowReboot = false;
+    flake = "codeberg:papojari/nixos-config";
     dates = "daily";
   };
 
