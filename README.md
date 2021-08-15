@@ -14,9 +14,7 @@ This repository contains my NixOS desktop configuration files. Other than the `*
 
 ---
 
-## Preview
-
-![Preview](preview.png)
+![Screenshot](screenshot.webp)
 
 ## Stuff used
 
