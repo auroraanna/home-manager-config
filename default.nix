@@ -40,6 +40,7 @@
       CLICOLOR = "TRUE";
       EDITOR = "codium";
       TERM = "xterm-256color";
+      XDG_CURRENT_DESKTOP="Unity";
     };
     shellAliases = {
       ll = "ls -al";
