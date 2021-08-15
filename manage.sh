@@ -17,26 +17,24 @@ nix build .#homeManagerConfigurations.papojari.activationPackage
 elif [ "$1" = "--lock" ]
 then
 tar -cf $SECRETS.tar $SECRETS/* &&
-rm -rf $SECRETS &&
 age -p $SECRETS.tar > $SECRETS.tar.age &&
-rm -rf $SECRETS.tar
+rm -rf $SECRETS $SECRETS.tar
 elif [ "$1" = "--unlock" ]
 then
 age -d $SECRETS.tar.age > $SECRETS.tar &&
-rm -rf $SECRETS.tar.age &&
 tar -xf $SECRETS.tar $SECRETS &&
-rm -rf $SECRETS.tar
+rm -rf $SECRETS.tar.age $SECRETS.tar
 else
 	echo "
 Usage: manage.sh [OPTION]
 
 Options:
 
---update					
---apply-system		
---apply-users			
---lock						
---unlock					
+--update		update inputs/channels
+--rebuild-system	rebuild system configuration
+--rebuild-users		rebuild user configurations
+--lock			encrypt .secrets
+--unlock		unencrypt .secrets.tar.age
 	"
 fi
 
