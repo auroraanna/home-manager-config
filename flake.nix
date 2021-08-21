@@ -40,6 +40,7 @@
             ./users/default/wofi/default.nix
             ./users/default/starship/default.nix
             ./users/papojari/home.nix
+            ./users/default/xdg.nix
             ./.secrets/users/papojari/zsh/default.nix
           ];
         };
@@ -58,6 +59,7 @@
           ./packages/extra.nix
           ./programs/default.nix
           ./programs/zsh.nix
+          ./programs/openrgb.nix
           ./fonts.nix
           ./default.nix
         ];
