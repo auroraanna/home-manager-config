@@ -3,7 +3,7 @@
 <h1>papojari's NixOS configuration</h1>
 
 <p>
-  <a href="https://nixos.org/"><img src="https://img.shields.io/badge/NixOS-unstable-blue" alt="Badge: NixOS | unstable"/></a>
+  <a href="https://nixos.org/"><img src="https://img.shields.io/badge/NixOS-unstable-blue.svg?style=flat&logo=NixOS&logoColor=white" alt="Badge: NixOS | unstable"/></a>
   <a href="https://swaywm.org/"><img src="https://img.shields.io/badge/Sway-1.6.1-yellowgreen" alt="Badge: Sway | 1.6.1"/></a>
 
 [![built with Nix](https://builtwithnix.org/badge.svg)](https://builtwithnix.org)
@@ -105,7 +105,11 @@ cp ~/nixos-config/backgrounds/HighwayToShell.png /usr/share/backgrounds
 git clone https://github.com/papojari/nixos-artwork.git && mkdir -p /usr/share/backgrounds/nixos && mv nixos-artwork/wallpapers/* /usr/share/backgrounds/nixos/ && rm -rf nixos-artwork
 ```
 
-- to use, uncomment the first `$Background` line and comment the next line in `~/.config/sway/config`
+- to use, uncomment the first `$Background` line and comment the next line in `users/default/sway/config`. Then rebuild with
+
+```bash
+./manage.sh --apply-system
+```
 
 ### Sway
 
@@ -113,7 +117,11 @@ Before you starting to use sway you'll have to adjust the config to you monitor 
 ```bash
 swaymsg -t get_outputs
 ```
-and then put the identifiers like `DP-1` or `HDMI-A-1` into `~/.config/sway/config` in the `Output configuration` section.
+and then put the identifiers like `DP-1` or `HDMI-A-1` into `users/default/sway/config` in the `Output configuration` section. Then rebuild with
+
+```bash
+./manage.sh --apply-system
+```
 
 You can just start *sway* with `sway` in a tty. Alternatively start *sway* from a display manager. In my experience, despite what the wiki says, *gdm* works.
 
@@ -121,6 +129,18 @@ You can just start *sway* with `sway` in a tty. Alternatively start *sway* from 
 
 - In sway open `lxappearance`and set *Materia-dark-compact* as the GTK theme.
 - Then set *Papirus-Dark* and as your mouse cursor, select *Capitaine Cursors*.
+
+### How to hide your secrets in this repository
+
+If you want to fork this repository and configure it to your liking you may want to put secrets in some files. I've put mine in `.secrets.tar.age`. This file is useless to you since it is encrypted. if you think that before `tar` and `age` the secrets might've been in `.secrets`, you're correct. So, put your secrets in `.secrets`. If there are nix files in it link them in `flake.nix`. Before doing commits with `git` you should run
+```bash
+./manage.sh --lock
+```
+to encrypt the secrets with a password. Otherwise your secrets won't be secrets anymore so be careful. Put that password in a password manager like Bitwarden. You'll need it to unencrypt your secrets with
+```bash
+./manage.sh --unlock
+```
+as you might've guessed by now.
 
 ## Licenses
 

@@ -30,7 +30,7 @@
       # CLI fun
       cmatrix nyancat cbonsai toilet cowsay lolcat cava
       # Video and image
-      pqiv mpv
+      gthumb mpv ffmpeg avidemux
       # Audio
       pavucontrol pulseaudio
       # Display managers
