@@ -16,7 +16,7 @@
       # Music streaming
       spotify
       # Office
-      libreoffice-fresh
+      libreoffice-fresh pdfslicer
       # Vulkan
       mangohud
       # Printing & scanning
