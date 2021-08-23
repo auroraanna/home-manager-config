@@ -20,7 +20,7 @@
       # Compression algorithms
       zstd zpaqd
       # CLI
-      tmux bat wget kakoune git git-crypt gnupg pinentry-gnome age tealdeer stow pandoc youtube-dl ytfzf librespeed-cli sftpman zbar imagemagick
+      tmux bat wget kakoune git git-crypt git-lfs gnupg pinentry-gnome age tealdeer stow pandoc youtube-dl ytfzf librespeed-cli sftpman zbar imagemagick
       # Prompts
       starship
       # Fetch programs
