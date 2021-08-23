@@ -76,6 +76,7 @@
     };
     gnome.sushi.enable = true;
     transmission.enable = true;
+    flatpak.enable = true;
     pipewire = {
       enable = true;
       # Support alsa programs
