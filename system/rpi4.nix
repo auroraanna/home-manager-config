@@ -35,6 +35,18 @@
     enableRedistributableFirmware = true;
   };
 
+  fileSystems = {
+    "/tmp" = {
+      device = "tmpfs";
+      options = [
+        "rw"
+        "nodev"
+        "nosuid"
+        "size=5G"
+      ];
+    };
+  };
+
   services = {
     xserver = {
       # Enable touchpad support (enabled default in most desktopManager).
