@@ -77,10 +77,6 @@
     gnome.sushi.enable = true;
     transmission.enable = true;
     flatpak.enable = true;
-    mysql= {
-      enable = true;
-      package = pkgs.mariadb;
-    };
   };
 
   programs = {
