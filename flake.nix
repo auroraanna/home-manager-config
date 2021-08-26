@@ -62,6 +62,7 @@
           ./programs/openrgb.nix
           ./programs/steam.nix
           ./programs/audio.nix
+          ./programs/sql.nix
           ./programs/printing/default.nix
           ./programs/printing/hplip.nix
           ./fonts.nix
