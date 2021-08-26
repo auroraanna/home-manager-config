@@ -6,7 +6,7 @@ pushd "$ROOT"
 
 if [ "$1" = "--update" ]
 then
-nix flake update #--recreate-lock-file
+nix flake update
 elif [ "$1" = "--apply-system" ]
 then
 sudo nixos-rebuild switch --flake .#
