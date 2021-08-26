@@ -5,14 +5,6 @@
     allowUnfree = true;
   };
 
-  # Fonts
-  fonts.fonts = with pkgs; [
-    iosevka
-    roboto
-    noto-fonts-emoji
-    font-awesome
-  ];
-
   environment = {
     systemPackages = with pkgs; [
       # Languages
@@ -31,8 +23,6 @@
       cmatrix nyancat cbonsai toilet cowsay lolcat cava
       # Video and image
       gthumb mpv ffmpeg avidemux
-      # Audio
-      pavucontrol pulseaudio
       # Display managers
       libsForQt5.sddm-kcm
       # Wayland, Xorg
@@ -47,10 +37,8 @@
       firefox-wayland
       # Vulkan
       vulkan-loader vulkan-tools
-      # MTP
-      jmtpfs
       # Filesystem stuff
-      gparted dosfstools mtools ntfs3g btrfs-progs sshfs
+      gparted dosfstools mtools ntfs3g btrfs-progs sshfs jmtpfs
     ];
   };
 }

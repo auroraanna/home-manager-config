@@ -25,16 +25,6 @@
     };
   };
 
-  nixpkgs.config = {
-    allowUnfree = true;
-    packageOverrides = pkgs: {
-      # Steam
-      steam = pkgs.steam.override {
-        nativeOnly = true;
-      };
-    };
-  };
-
   xdg.configFile."locale.conf".text = ''
     LANG=en_US.UTF-8
     LC_TIME=de_DE.UTF-8
@@ -61,7 +51,6 @@
       # Games
       minecraft multimc amidst
       osu-lazer
-      steam-tui
       teeworlds
       superTuxKart superTux
       # MultiMC
@@ -76,7 +65,7 @@
       # Media processing
       ffmpeg obs-studio
       # Development
-      atom cobalt vscodium
+      cobalt vscodium
       # Other
       exodus gnome.gnome-boxes
       # Password managers

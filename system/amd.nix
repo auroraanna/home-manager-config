@@ -5,17 +5,6 @@
 { config, pkgs, lib, ... }:
 
 {
-  nixpkgs.config = {
-    allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
-      "hplip"
-    ];
-    packageOverrides = pkgs: {
-      steam = pkgs.steam.override {
-        nativeOnly = true;
-      };
-    };
-  };
-
   boot = {
     loader = {
       systemd-boot = {
@@ -49,10 +38,6 @@
       extraPackages32 = with pkgs; [
         driversi686Linux.amdvlk
       ];
-    };
-    sane = {
-      enable = true;
-      extraBackends = [ pkgs.hplipWithPlugin ];
     };
   };
 
@@ -120,14 +105,6 @@
         "amdgpu"
       ];
     };
-    printing = {
-      # Enable CUPS to print documents.
-      enable = true;
-      # Driver
-      drivers = with pkgs; [
-        hplipWithPlugin
-      ];
-    };
   };
 
   i18n = {
@@ -139,9 +116,5 @@
       LC_PAPER = "de_DE.UTF-8";
       LC_TELEPHONE = "de_DE.UTF-8";
     };
-  };
-
-  programs = {
-    #steam.enable = true;
   };
 }

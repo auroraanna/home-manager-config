@@ -60,6 +60,10 @@
           ./programs/default.nix
           ./programs/zsh.nix
           ./programs/openrgb.nix
+          ./programs/steam.nix
+          ./programs/audio.nix
+          ./programs/printing/default.nix
+          ./programs/printing/hplip.nix
           ./fonts.nix
           ./default.nix
         ];
@@ -73,6 +77,10 @@
           ./network/rpi4.nix
           ./packages/default.nix
           ./default.nix
+          ./fonts.nix
+          ./programs/default.nix
+          ./programs/zsh.nix
+          ./programs/audio.nix
         ];
       };
     };
