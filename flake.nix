@@ -3,13 +3,14 @@
 
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-unstable";
+    nixos-hardware.url = github:NixOS/nixos-hardware/master;
     home-manager = {
       url = "github:nix-community/home-manager/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
-  outputs = { nixpkgs, home-manager, ... }:
+  outputs = { nixpkgs, home-manager, nixos-hardware, ... }:
   let
     pkgs = import nixpkgs {
       config = {
@@ -72,6 +73,7 @@
       Cryogonull = lib.nixosSystem {
         system = "aarch64-linux";
         modules = [
+          nixos-hardware.nixosModules.raspberry-pi-4
           ./hardware/rpi4.nix
           ./system/rpi4.nix
           ./network/default.nix

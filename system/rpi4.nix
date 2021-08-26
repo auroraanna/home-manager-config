@@ -5,11 +5,6 @@
 { config, pkgs, lib, ... }:
 
 {
-  imports = [
-    # Enable Raspberry Pi 4 profile
-    <nixos-hardware/raspberry-pi/4>
-  ];
-
   boot = {
     loader = {
       raspberryPi = {
