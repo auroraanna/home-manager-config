@@ -22,7 +22,7 @@
       # CLI fun
       cmatrix nyancat cbonsai toilet cowsay lolcat cava
       # Video and image
-      gthumb mpv ffmpeg avidemux
+      gthumb mpv ffmpeg
       # Display managers
       libsForQt5.sddm-kcm
       # Wayland, Xorg

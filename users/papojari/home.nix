@@ -61,7 +61,7 @@
       # Web browsers
       brave tor-browser-bundle-bin
       # Creative apps
-      blender gimp godot godot-export-templates inkscape audacity
+      blender gimp godot godot-export-templates inkscape audacity avidemux
       # Media processing
       ffmpeg obs-studio
       # Development
