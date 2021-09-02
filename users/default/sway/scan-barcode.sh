@@ -11,4 +11,5 @@ else
     echo "$SCANRESULT" | wl-copy
     convert $BARCODE_IMAGE -resize 75x75 "$BARCODE_IMAGE"
     notify-desktop -i "$BARCODE_IMAGE" "zbar" "$SCANRESULT\n(copied to clipboard)"
+    xdg-open "$SCANRESULT"
 fi
