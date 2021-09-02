@@ -75,7 +75,10 @@ What configuration will be built when you run
 ```bash
 ./manage.sh --apply-system
 ```
-is determined by your hostname so change your hostname or the files depending or which should be built.
+is determined by your hostname so change your hostname or the files depending or which should be built. To change your hostname you can change `networking.hostname` in `/etc/nixos/configuration.nix` to one of the hostnames in `flake.nix` (*Cryogonal* and *Cryogonull*) and then build it with
+```bash
+nixos-rebuild switch
+```
 
 #### Home Manager
 
