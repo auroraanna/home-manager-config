@@ -108,7 +108,7 @@ git clone https://github.com/papojari/nixos-artwork.git && mkdir -p /usr/share/b
 - to use, uncomment the first `$Background` line and comment the next line in `users/default/sway/config`. Then rebuild with
 
 ```bash
-./manage.sh --apply-system
+./manage.sh --apply-users
 ```
 
 ### Sway
@@ -120,7 +120,7 @@ swaymsg -t get_outputs
 and then put the identifiers like `DP-1` or `HDMI-A-1` into `users/default/sway/config` in the `Output configuration` section. Then rebuild with
 
 ```bash
-./manage.sh --apply-system
+./manage.sh --apply-users
 ```
 
 You can just start *sway* with `sway` in a tty. Alternatively start *sway* from a display manager. In my experience, despite what the wiki says, *gdm* works.
