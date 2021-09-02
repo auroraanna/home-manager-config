@@ -4,7 +4,7 @@
 	"height": 32, // Waybar height
 	// "width": 48, // Waybar width
 	// Choose the order of the modules
-	"modules-left": ["custom/power", "sway/mode", "custom/media", "custom/screenshot", "custom/scan-barcode", "custom/color-picker", "pulseaudio", "backlight"],
+	"modules-left": ["custom/power", "sway/mode", "custom/drive-mount", "custom/drive-unmount", "custom/media", "custom/screenshot", "custom/scan-barcode", "custom/color-picker", "pulseaudio", "backlight"],
 	"modules-center": ["sway/workspaces", "sway/window", "tray"],
 	"modules-right": ["battery", "battery#bat2", "cpu", "custom/gpu", "memory", "disk", "temperature", "network", "clock"],
 	// Modules configuration
@@ -166,5 +166,17 @@
 		"format": "",
 		"tooltip-format": "Pick a color on the screen(s)",
 		"on-click": "sh $HOME/.config/sway/color-picker.sh"
+	},
+	"custom/drive-mount": {
+		"format": "",
+		"tooltip": "true",
+		"tooltip-format": "Mount /dev/sde1",
+		"on-click": "sh $HOME/.config/sway/drive-mount.sh"
+	},
+	"custom/drive-unmount": {
+		"format": "",
+		"tooltip": "true",
+		"tooltip-format": "Unmount /dev/sde1",
+		"on-click": "sh $HOME/.config/sway/drive-unmount.sh"
 	}
 }
