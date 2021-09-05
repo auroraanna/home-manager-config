@@ -59,13 +59,13 @@
       #}))
       #mindustry-wayland
       # Web browsers
-      brave tor-browser-bundle-bin
+      brave
       # Creative apps
       blender gimp godot godot-export-templates inkscape audacity avidemux
       # Media processing
       ffmpeg obs-studio
       # Development
-      cobalt vscodium
+      cobalt vscodium-fhs
       # Other
       exodus gnome.gnome-boxes
       # Password managers
