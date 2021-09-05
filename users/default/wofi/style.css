@@ -3,9 +3,8 @@
 }
 
 #window {
-	background-color: rgba(23, 20, 33, 0.7);
-	border: 3px solid #5e5c64;
-	border-radius: 10px;
+	border-radius: 8px;
+	background-color: #212121;
 }
 
 #outer-box {
@@ -14,9 +13,8 @@
 
 #input {
 	margin-bottom: 10px;
-	background-color: #272238;
-	border: 1px solid #5e5c64;
-	border-radius: 10px;
+	border-radius: 8px;
+	background-color: #424242;
 }
 
 #scroll {
@@ -28,7 +26,8 @@
 }
 
 #entry:selected {
+	border-radius: 8px;
+	background-color: #424242;
 	font-weight: bold;
 	color: white;
-	background-color: rgba(0, 0, 0, 0.2);
 }
