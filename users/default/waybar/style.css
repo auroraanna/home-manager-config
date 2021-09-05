@@ -8,7 +8,7 @@ I also put it in `color-schemes`*/
 	min-height: 0;
 }
 
-#window, #workspaces button.urgent, #workspaces button.focused, .workspaces button, #mode, #custom-power, #tray, #clock, #battery, #cpu, #custom-gpu, #memory, #disk, #temperature, #backlight, #network, #pulseaudio, #custom-media, #idle_inhibitor, #custom-drive-mount, #custom-drive-unmount, #custom-screenshot, #custom-scan-barcode, #custom-color-picker {
+#window, #workspaces button.urgent, #workspaces button.focused, .workspaces button, #mode, #custom-power, #tray, #clock, #battery, #cpu, #custom-gpu, #memory, #disk, #temperature, #backlight, #network, #pulseaudio, #custom-media, #idle_inhibitor, #custom-drive-mount, #custom-drive-unmount, #custom-screenshot, #custom-scan-barcode, #custom-color-picker, #custom-emoji-picker {
 	padding: 0 10px;
 	margin: 0 3px;
 	border-bottom-width: 3px;
@@ -191,4 +191,9 @@ I also put it in `color-schemes`*/
 #custom-color-picker {
 	background-color: #f3a833;
 	border-color: #e98537;
+}
+
+#custom-emoji-picker {
+	background-color: #2c1e31;
+	border-color: #10121c;
 }

@@ -4,7 +4,7 @@
 	"height": 32, // Waybar height
 	// "width": 48, // Waybar width
 	// Choose the order of the modules
-	"modules-left": ["custom/power", "sway/mode", "custom/drive-mount", "custom/drive-unmount", "custom/media", "custom/screenshot", "custom/scan-barcode", "custom/color-picker", "pulseaudio", "backlight"],
+	"modules-left": ["custom/power", "sway/mode", "custom/drive-mount", "custom/drive-unmount", "custom/media", "custom/screenshot", "custom/scan-barcode", "custom/color-picker", "pulseaudio", "backlight", "custom/emoji-picker" ],
 	"modules-center": ["sway/workspaces", "sway/window", "tray"],
 	"modules-right": ["battery", "battery#bat2", "cpu", "custom/gpu", "memory", "disk", "temperature", "network", "clock"],
 	// Modules configuration
@@ -178,5 +178,11 @@
 		"tooltip": "true",
 		"tooltip-format": "Unmount /dev/sde1",
 		"on-click": "sh $HOME/.config/sway/drive-unmount.sh"
+	},
+	"custom/emoji-picker": {
+		"format": "👾",
+		"tooltip": "true",
+		"tooltip-format": "Pick an emoji and copy it to the clipboard",
+		"on-click": "wofi-emoji"
 	}
 }
