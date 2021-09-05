@@ -8,7 +8,7 @@
       # Video and image
       scrcpy
       # Other
-      gnome.gnome-tweak-tool gnome.gnome-shell-extensions deja-dup gnome.dconf-editor
+      gnome.gnome-tweak-tool gnome.gnome-shell-extensions deja-dup gnome.dconf-editor piper
       # Web browsers
       brave
       # Password managers
