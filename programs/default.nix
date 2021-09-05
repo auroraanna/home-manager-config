@@ -46,6 +46,7 @@
   services = {
     fstrim.enable = true;
     dbus.apparmor = "enabled";
+    ratbagd.enable = true;
     openssh = {
       enable = true;
       passwordAuthentication = false;
@@ -89,6 +90,7 @@
     java.enable = true;
     light.enable = true;
     xwayland.enable = true;
+    wshowkeys.enable = false;
     sway = {
       enable = true;
       wrapperFeatures.gtk = true;
