@@ -187,7 +187,7 @@ exec swayidle -w \
 		bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
 
 		# Toggle mute
-		bindsym XF86AudioMicMute exec pactl set-source-mute @DEFAULT_SOURCE@ toggle && play ~/Music/the-open-source-drumkit/sidestick/sidestick1.wav
+		bindsym f12 exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
 
 		# Raise sink volume
 		bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +2%
