@@ -17,10 +17,11 @@
 	# Your preferred terminal emulator
 	set $term alacritty
 
-	# Note: pass the final command to swaymsg so that the resulting window can be opened
+	# Note: pass the final command to swaymsg so that the resulting wAAindow can be opened
 	# on the original workspace that the command was run on.
 	# Your preferred application launcher
-	set $menu bash -ic 'wofi --show=drun --lines=10 --prompt="" | xargs swaymsg exec --' # Graphical file browser
+	#set $menu bash -ic 'wofi --show=drun --lines=10 --prompt="" | xargs swaymsg exec --' # Graphical file browser
+	set $menu 'ulauncher'
 
 	set $FileBrowser nemo
 
@@ -34,8 +35,8 @@
 	set $MusicApp spotify
 
 	# Path to background image
-	#set $Background /usr/share/backgrounds/nixos/nix-wallpaper-3d-showcase-3840x2160.png
-	set $Background /../../../backgrounds/HighwayToShell.png
+	#set $Background $HOME/.cache/backgrounds/nix-wallpaper-3d-showcase.png
+	set $Background $HOME/.cache/backgrounds/highway-to-shell.png
 
 #
 # Appearance

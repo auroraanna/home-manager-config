@@ -33,7 +33,7 @@ For more information, please refer to <http://unlicense.org/>
 
 Copyright (c) 2021 Jefferson González
 
-## `backgrounds/HighwayToShell.png`
+## `backgrounds/highway-to-shell.png`
 
 © 2013 Helena Mosher  
 © 2013 kernel concepts  

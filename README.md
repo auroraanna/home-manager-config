@@ -92,11 +92,7 @@ nixos-rebuild switch
 
 ![Highway to shell backgrounds](https://codeberg.org/papojari/nixos-config/raw/branch/main/backgrounds/HighwayToShell.png)
 
-- run this to to copy the background you already downloaded to the backgrounds folder
-
-```bash
-cp ~/nixos-config/backgrounds/HighwayToShell.png /usr/share/backgrounds
-```
+This is the default wallpaper. You just need to build the Home Manager configuration to look at it in sway.
 
 #### 3d NixOS
 
@@ -105,7 +101,7 @@ cp ~/nixos-config/backgrounds/HighwayToShell.png /usr/share/backgrounds
 - to install run
 
 ```bash
-git clone https://github.com/papojari/nixos-artwork.git && mkdir -p /usr/share/backgrounds/nixos && mv nixos-artwork/wallpapers/* /usr/share/backgrounds/nixos/ && rm -rf nixos-artwork
+curl https://raw.githubusercontent.com/papojari/nixos-artwork/master/wallpapers/nix-wallpaper-3d-showcase-1920x1080.png --output backgrounds/nix-wallpaper-3d-showcase.png
 ```
 
 - to use, uncomment the first `$Background` line and comment the next line in `users/default/sway/config`. Then rebuild with
