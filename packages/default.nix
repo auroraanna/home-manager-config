@@ -26,7 +26,7 @@
       # Display managers
       libsForQt5.sddm-kcm
       # Wayland, Xorg
-      wl-clipboard polkit polkit_gnome waybar wofi wofi-emoji slurp grim swappy swaylock-fancy notify-desktop mako libappindicator gnome.zenity
+      wl-clipboard polkit polkit_gnome waybar ulauncher wofi wofi-emoji slurp grim swappy swaylock-fancy notify-desktop mako libappindicator gnome.zenity
       # Theming
       lxappearance materia-theme papirus-icon-theme capitaine-cursors
       # Other
@@ -39,6 +39,8 @@
       vulkan-loader vulkan-tools
       # Filesystem stuff
       gparted dosfstools mtools ntfs3g btrfs-progs sshfs jmtpfs
+      # Python
+      python39Packages.pyqrcode python39Packages.spotipy python39Packages.pytz
     ];
   };
 }
