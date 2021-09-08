@@ -8,22 +8,22 @@
     # Set your keyboard layout
     keyMap = "de";
     colors = [
-      "171421"
-      "c01c28"
-      "26A269"
-      "a2734c"
-      "12488b"
-      "a347ba"
-      "06989a"
-      "d0cfcc"
-      "5e5c64"
-      "ef2929"
-      "8ae234"
-      "e9ad0c"
-      "2a7bde"
-      "c061cb"
-      "33c7de"
-      "ffffff"
+      "0c0c0c"
+      "c50f1f"
+      "13a10e"
+      "c19c00"
+      "0037da"
+      "881798"
+      "3a96dd"
+      "cccccc"
+      "767676"
+      "e74856"
+      "16c60c"
+      "f9f1a5"
+      "3b78ff"
+      "b4009e"
+      "61d6d6"
+      "f2f2f2"
     ];
   };
 

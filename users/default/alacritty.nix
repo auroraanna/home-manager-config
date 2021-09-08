@@ -55,7 +55,7 @@
             action = "ResetFontSize";
           }
         ];
-        background_opacity = 0.9;
+        background_opacity = 1;
         bell = {
           animation = "EaseOutExpo";
           duration = 5;
@@ -98,31 +98,31 @@
         };
         draw_bold_text_with_bright_colors = true;
         colors = {
-          name = "GNOME dark custom";
+          name = "Campbell extended";
           # Default colors
           primary = {
-            background = "0x06002b";
-            foreground = "0xabb2bf";
+            background = "0x0c0c0c";
+            foreground = "0xf2f2f2";
           };
           normal = {
-            black = "0x171421";
-            red = "0xc01c28";
-            green = "0x26A269";
-            yellow = "0xa2734c";
-            blue = "0x12488b";
-            magenta = "0xa347ba";
-            cyan = "0x06989a";
-            white = "0xd0cfcc";
+            black = "0x0c0c0c";
+            red = "0xc50f1f";
+            green = "0x13a10e";
+            yellow = "0xc19c00";
+            blue = "0x0037da";
+            magenta = "0x881798";
+            cyan = "0x3a96dd";
+            white = "0xcccccc";
           };
           bright = {
-            black = "0x5e5c64";
-            red = "0xef2929";
-            green = "0x8ae234";
-            yellow = "0xe9ad0c";
-            blue = "0x2a7bde";
-            magenta = "0xc061cb";
-            cyan = "0x33c7de";
-            white = "0xffffff";
+            black = "0x767676";
+            red = "0xe74856";
+            green = "0x16c60c";
+            yellow = "0xf9f1a5";
+            blue = "0x3b78ff";
+            magenta = "0xb4009e";
+            cyan = "0x61d6d6";
+            white = "0xf2f2f2";
           };
         };
       };
