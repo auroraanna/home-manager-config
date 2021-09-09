@@ -9,8 +9,8 @@
     systemPackages = with pkgs; [
       # Languages
       zsh rustc jdk
-      # Compression algorithms
-      zstd zpaqd
+      # Compression tools
+      zstd zpaq
       # CLI
       tmux bat wget kakoune git git-crypt git-lfs gnupg pinentry-gnome age tealdeer stow pandoc youtube-dl ytfzf librespeed-cli sftpman zbar imagemagick xorg.xeyes wev
       # Prompts
