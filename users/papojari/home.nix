@@ -49,14 +49,10 @@
       # Wine both 32- and 64 bit support
       wineWowPackages.staging
       # Games
-      minecraft multimc amidst
+      minecraft amidst multimc
       osu-lazer
       teeworlds
       superTuxKart superTux
-      # MultiMC
-      #(multimc.overrideAttrs (old: {
-      #	buildInputs = with pkgs; [ libsForQt5.qt5.qtbase jdk11 zlib ];
-      #}))
       #mindustry-wayland
       # Web browsers
       brave
