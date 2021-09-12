@@ -9,7 +9,7 @@
     dates = "daily";
   };
 
-	nix = {
+  nix = {
     # Garbage collection
     gc = {
       automatic = true;
