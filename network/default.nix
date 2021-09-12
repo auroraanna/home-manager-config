@@ -15,6 +15,7 @@
     dhcpcd.extraConfig = "nohook resolv.conf";
     # Firewall
     firewall = {
+      enable = true;
       allowedTCPPorts = [
         # Web traffic
         80 443
