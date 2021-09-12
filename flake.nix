@@ -44,6 +44,7 @@
             ./users/default/xdg.nix
             ./.secrets/users/papojari/zsh/default.nix
             ./users/default/gtk.nix
+            ./users/default/cursor.nix
           ];
         };
       };
