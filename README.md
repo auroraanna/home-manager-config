@@ -124,11 +124,6 @@ and then put the identifiers like `DP-1` or `HDMI-A-1` into `users/default/sway/
 
 You can just start *sway* with `sway` in a tty. Alternatively start *sway* from a display manager. In my experience, despite what the wiki says, *gdm* works.
 
-#### lxappearance
-
-- In sway open `lxappearance`and set *Materia-dark-compact* as the GTK theme.
-- Then set *Papirus-Dark* and as your mouse cursor, select *Capitaine Cursors*.
-
 ### How to hide your secrets in this repository
 
 If you want to fork this repository and configure it to your liking you may want to put secrets in some files. I've put mine in `.secrets.tar.age`. This file is useless to you since it is encrypted. if you think that before `tar` and `age` the secrets might've been in `.secrets`, you're correct. So, put your secrets in `.secrets`. If there are nix files in it link them in `flake.nix`. Before doing commits with `git` you should run
