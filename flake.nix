@@ -51,39 +51,26 @@
       Cryogonal = lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
+          ./flake-default-modules.nix
           ./hardware/amd.nix
           ./system/amd.nix
           ./.secrets/users/amd.nix
-          ./network/default.nix
           ./network/amd.nix
-          ./packages/default.nix
           ./packages/extra.nix
-          ./programs/default.nix
-          ./programs/zsh.nix
           ./programs/openrgb.nix
           ./programs/steam.nix
-          ./programs/audio.nix
-          ./programs/sql.nix
           ./programs/printing/default.nix
           ./programs/printing/hplip.nix
-          ./fonts.nix
-          ./default.nix
         ];
       };
       Cryogonull = lib.nixosSystem {
         system = "aarch64-linux";
         modules = [
+          ./flake-default-modules.nix
           nixos-hardware.nixosModules.raspberry-pi-4
           ./hardware/rpi4.nix
           ./system/rpi4.nix
-          ./network/default.nix
           ./network/rpi4.nix
-          ./packages/default.nix
-          ./default.nix
-          ./fonts.nix
-          ./programs/default.nix
-          ./programs/zsh.nix
-          ./programs/audio.nix
         ];
       };
     };
