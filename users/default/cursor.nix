@@ -3,7 +3,7 @@
 {
 	xsession = {
 		pointerCursor = {
-			name = "Capitaine cursors";
+			name = "capitaine-cursors-white";
 			package =  pkgs.capitaine-cursors;
 		};
 	};
