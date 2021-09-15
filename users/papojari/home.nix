@@ -61,7 +61,7 @@
       # Media processing
       ffmpeg obs-studio
       # Development
-      cobalt vscodium-fhs
+      cobalt
       # Other
       exodus gnome.gnome-boxes
       # Password managers
