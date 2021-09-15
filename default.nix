@@ -35,11 +35,16 @@
     ];
   };
 
+  environment.systemPackages = with pkgs.hunspellDicts; [
+    en_US
+    de_DE
+  ];
+
   environment = {
     variables = {
       CLICOLOR = "TRUE";
-      EDITOR = "codium";
       TERM = "xterm-256color";
+      MOZ_ENABLE_WAYLAND = "1";
     };
     shellAliases = {
       ll = "ls -al";
