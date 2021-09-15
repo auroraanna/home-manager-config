@@ -22,13 +22,9 @@
       # CLI fun
       cmatrix nyancat cbonsai toilet cowsay lolcat cava
       # Video and image
-      gthumb mpv ffmpeg
-      # Display managers
-      libsForQt5.sddm-kcm
+      gthumb mpv mpvScripts.youtube-quality ffmpeg
       # Wayland, Xorg
       wl-clipboard polkit polkit_gnome waybar ulauncher wofi wofi-emoji slurp grim swappy swaylock-fancy notify-desktop mako libappindicator gnome.zenity
-      # Theming
-      lxappearance materia-theme papirus-icon-theme capitaine-cursors
       # Other
       alacritty gnome.gnome-tweak-tool gnome.gnome-shell-extensions deja-dup gnome.dconf-editor transmission-gtk
       # File browsers
