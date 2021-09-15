@@ -45,6 +45,7 @@
             ./.secrets/users/papojari/zsh/default.nix
             ./users/default/gtk.nix
             ./users/default/cursor.nix
+            ./users/default/vscode.nix
           ];
         };
       };
@@ -61,8 +62,8 @@
           ./packages/extra.nix
           ./programs/openrgb.nix
           ./programs/steam.nix
-          ./programs/printing/default.nix
-          ./programs/printing/hplip.nix
+          ./programs/printing-scanning/default.nix
+          ./programs/printing-scanning/hplip.nix
         ];
       };
       Cryogonull = lib.nixosSystem {

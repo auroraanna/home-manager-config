@@ -3,17 +3,19 @@
 {
   hardware = {
     sane = {
-      extraBackends = [ pkgs.hplipWithPlugin ];
+      enable = true;
     };
   };
 
   services = {
     printing = {
       # Enable CUPS to print documents.
-      # Driver
-      drivers = with pkgs; [
-        hplipWithPlugin
-      ];
+      enable = true;
     };
   };
+
+  environment.systemPackages = with pkgs; [
+    system-config-printer
+    gnome.simple-scan
+  ];
 }
