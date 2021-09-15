@@ -16,13 +16,11 @@
       # Music streaming
       spotify
       # Office
-      libreoffice-fresh pdfslicer
+      libreoffice-fresh pdfarranger
+      # OCR
+      gImageReader
       # Vulkan
       mangohud
-      # Printing & scanning
-      cups system-config-printer gnome.simple-scan
-      # Python packages
-      python39Packages.pyqt5
     ];
   };
 }
