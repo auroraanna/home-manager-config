@@ -75,7 +75,10 @@
         gnome.enable = true;
       };
     };
-    gnome.sushi.enable = true;
+    gnome = {
+      sushi.enable = true;
+      gnome-keyring.enable = true;
+    };
     transmission.enable = true;
     flatpak.enable = true;
   };
