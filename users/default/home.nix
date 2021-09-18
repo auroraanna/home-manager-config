@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
 {
   # Let Home Manager install and manage itself.
@@ -13,4 +13,19 @@
   # the Home Manager release notes for a list of state version
   # changes in each release.
   home.stateVersion = "20.09";
+
+  imports = [
+    ./alacritty.nix
+    ./mako.nix
+    ./neofetch/default.nix
+    ./swappy.nix
+    ./sway/default.nix
+    ./waybar/default.nix
+    ./wofi/default.nix
+    ./starship/default.nix
+    ./xdg.nix
+    ./gtk.nix
+    ./cursor.nix
+    ./vscode.nix
+  ];
 }

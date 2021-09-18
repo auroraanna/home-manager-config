@@ -6,12 +6,19 @@
   home.username = "papojari";
   home.homeDirectory = "/home/papojari";
 
+  imports = [
+    ./../default/home.nix
+    ./../../.secrets/users/papojari/zsh/default.nix
+  ];
+
   programs = {
     bat.enable = true;
     git = {
       enable = true;
       userName = "papojari";
       userEmail = "papojari-git.ovoid@aleeas.com";
+      lfs.enable = true;
+      delta.enable = true;
     };
     gpg = {
       enable = true;
@@ -25,24 +32,12 @@
     };
   };
 
-  xdg.configFile."locale.conf".text = ''
-    LANG=en_US.UTF-8
-    LC_TIME=de_DE.UTF-8
-    LC_MEASUREMENT=de_DE.UTF-8
-    LC_ADDRESS=de_DE.UTF-8
-    LC_PAPER=de_DE.UTF-8
-    LC_TELEPHONE=de_DE.UTF-8
-  '';
+  home = {
+    language.base = "en_US.UTF-8";
+    keyboard.layout = "de";
+  };
 
   home = {
-    sessionVariables = {
-      LANG = "en_US.UTF-8";
-      LC_TIME = "de_DE.UTF-8";
-      LC_MEASUREMENT = "de_DE.UTF-8";
-      LC_ADDRESS = "de_DE.UTF-8";
-      LC_PAPER = "de_DE.UTF-8";
-      LC_TELEPHONE = "de_DE.UTF-8";
-    };
     packages = with pkgs; [
       # Wine
       wine-staging lutris-unwrapped

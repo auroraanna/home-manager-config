@@ -31,21 +31,7 @@
         homeDirectory = "/home/papojari";
         configuration = {
           imports = [
-            ./users/default/home.nix
-            ./users/default/alacritty.nix
-            ./users/default/mako.nix
-            ./users/default/neofetch/default.nix
-            ./users/default/swappy.nix
-            ./users/default/sway/default.nix
-            ./users/default/waybar/default.nix
-            ./users/default/wofi/default.nix
-            ./users/default/starship/default.nix
             ./users/papojari/home.nix
-            ./users/default/xdg.nix
-            ./.secrets/users/papojari/zsh/default.nix
-            ./users/default/gtk.nix
-            ./users/default/cursor.nix
-            ./users/default/vscode.nix
           ];
         };
       };
@@ -57,7 +43,7 @@
           ./flake-default-modules.nix
           ./hardware/amd.nix
           ./system/amd.nix
-          ./.secrets/users/amd.nix
+          ./.secrets/system/amd.nix
           ./network/amd.nix
           ./packages/extra.nix
           ./programs/openrgb.nix
