@@ -80,6 +80,8 @@ is determined by your hostname so change your hostname or the files depending or
 nixos-rebuild switch
 ```
 
+**Note that to build a config whether it is the system config or the Home manager config all required files need to be staged or commited with `git`.**
+
 #### Home Manager
 
 ```bash
@@ -98,13 +100,7 @@ This is the default wallpaper. You just need to build the Home Manager configura
 
 ![3d NixOS background](https://raw.githubusercontent.com/papojari/nixos-artwork/master/wallpapers/nix-wallpaper-3d-showcase-1920x1080.png)
 
-- to install run
-
-```bash
-curl https://raw.githubusercontent.com/papojari/nixos-artwork/master/wallpapers/nix-wallpaper-3d-showcase-1920x1080.png --output backgrounds/nix-wallpaper-3d-showcase.png
-```
-
-- to use, uncomment the first `$Background` line and comment the next line in `users/default/sway/config`. Then rebuild with
+- to use, uncomment the first `$Background` line and comment the next line in `users/default/sway/config`. The default resolution is `2560` by `1440`. If this does not match your resolution you should comment the current resolution in `users/default/sway/default.nix` and uncomment your desired resolution. Then rebuild with
 
 ```bash
 ./manage.sh --apply-users
