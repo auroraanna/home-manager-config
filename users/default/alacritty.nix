@@ -1,6 +1,8 @@
 { config, pkgs, fontSize, ... }:
 
-{
+let
+  colorScheme = import ../../color-schemes/campbell.nix;
+in {
   programs = {
     alacritty = {
       enable = true;
@@ -99,31 +101,30 @@
         };
         draw_bold_text_with_bright_colors = true;
         colors = {
-          name = "Campbell extended";
-          # Default colors
+          name = colorScheme.name;
           primary = {
-            background = "#0c0c0c";
-            foreground = "#f2f2f2";
+            background = colorScheme.black;
+            foreground = colorScheme.white;
           };
           normal = {
-            black = "#0c0c0c";
-            red = "#c50f1f";
-            green = "#13a10e";
-            yellow = "#c19c00";
-            blue = "#0037da";
-            magenta = "#881798";
-            cyan = "#3a96dd";
-            white = "#cccccc";
+            black = colorScheme.black;
+            red = colorScheme.red;
+            green = colorScheme.green;
+            yellow = colorScheme.yellow;
+            blue = colorScheme.blue;
+            magenta = colorScheme.magenta;
+            cyan = colorScheme.cyan;
+            white = colorScheme.white;
           };
           bright = {
-            black = "#767676";
-            red = "#e74856";
-            green = "#16c60c";
-            yellow = "#f9f1a5";
-            blue = "#3b78ff";
-            magenta = "#b4009e";
-            cyan = "#61d6d6";
-            white = "#f2f2f2";
+            black = colorScheme.blackBright;
+            red = colorScheme.redBright;
+            green = colorScheme.greenBright;
+            yellow = colorScheme.yellowBright;
+            blue = colorScheme.blueBright;
+            magenta = colorScheme.magentaBright;
+            cyan = colorScheme.cyanBright;
+            white = colorScheme.whiteBright;
           };
         };
       };
