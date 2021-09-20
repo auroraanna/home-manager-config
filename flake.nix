@@ -47,7 +47,7 @@
           ./network/amd.nix
           ./packages/extra.nix
           ./programs/openrgb.nix
-          ./programs/steam.nix
+          ./programs/gaming.nix
           ./programs/printing-scanning/default.nix
           ./programs/printing-scanning/hplip.nix
         ];

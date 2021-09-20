@@ -11,5 +11,7 @@
     ./programs/sql.nix
     ./fonts.nix
     ./default.nix
+    ./programs/numlock.nix
+    ./programs/security.nix
 	];
 }

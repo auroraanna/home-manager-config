@@ -4,7 +4,7 @@
   # Automatic upgrades
   system.autoUpgrade ={
     enable = true;
-    allowReboot = false;
+    allowReboot = true;
     flake = "codeberg:papojari/nixos-config";
     dates = "daily";
   };
@@ -27,30 +27,11 @@
     '';
   };
 
-  hardware = {
-    # Disable Pulseaudio because Pipewire is used
-    pulseaudio.enable = false;
-  };
-
-  security = {
-    # rtkit is optional but recommended
-    rtkit.enable = true;
-    apparmor = {
-      enable = false;
-      packages = with pkgs; [
-        apparmor-profiles
-      ];
-    };
-  };
-
   services = {
     fstrim.enable = true;
-    dbus.apparmor = "enabled";
     ratbagd.enable = true;
     openssh = {
       enable = true;
-      passwordAuthentication = false;
-      permitRootLogin = "no";
     };
     gvfs = {
       enable = true;
