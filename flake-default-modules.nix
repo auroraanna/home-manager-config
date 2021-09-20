@@ -1,7 +1,7 @@
 { config, pkgs, lib, ... }:
 
 {
-	imports = [
+  imports = [
     ./network/default.nix
     ./packages/default.nix
     ./programs/default.nix
@@ -11,5 +11,5 @@
     ./programs/sql.nix
     ./fonts.nix
     ./default.nix
-	];
+  ];
 }
