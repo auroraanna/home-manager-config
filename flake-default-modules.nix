@@ -1,7 +1,7 @@
 { config, pkgs, lib, ... }:
 
 {
-	imports = [
+  imports = [
     ./network/default.nix
     ./packages/default.nix
     ./programs/default.nix
@@ -13,5 +13,5 @@
     ./default.nix
     ./programs/numlock.nix
     ./programs/security.nix
-	];
+  ];
 }
