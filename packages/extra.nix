@@ -19,8 +19,6 @@
       libreoffice-fresh pdfarranger
       # OCR
       gImageReader
-      # Vulkan
-      mangohud
     ];
   };
 }
