@@ -27,5 +27,6 @@
     ./gtk.nix
     ./cursor.nix
     ./vscode.nix
+    ./mangohud.nix
   ];
 }
