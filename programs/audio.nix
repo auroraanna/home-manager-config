@@ -1,6 +1,11 @@
 { config, pkgs, lib, ... }:
 
 {
+  hardware = {
+    # Disable Pulseaudio because Pipewire is used
+    pulseaudio.enable = false;
+  };
+
 	environment.systemPackages = with pkgs; [
 		pavucontrol pulseaudio
 	];
