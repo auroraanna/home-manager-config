@@ -20,7 +20,7 @@
       # System monitors
       bpytop
       # CLI fun
-      cmatrix nyancat cbonsai toilet cowsay lolcat cava
+      cmatrix nyancat cbonsai toilet figlet cowsay lolcat cava
       # Video and image
       gthumb mpv mpvScripts.youtube-quality ffmpeg
       # Wayland, Xorg
@@ -37,6 +37,8 @@
       gparted dosfstools mtools ntfs3g btrfs-progs sshfs jmtpfs
       # Python
       python39Packages.pyqrcode python39Packages.spotipy python39Packages.pytz
+      # SSH askpass
+      x11_ssh_askpass
     ];
   };
 }
