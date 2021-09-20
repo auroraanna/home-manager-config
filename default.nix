@@ -56,7 +56,7 @@
       duf = "du -sh *";
       base2 = "basenc --base2msbf";
       meip = "curl ifconfig.me";
-      speed = "librespeed";
+      speed = "librespeed-cli";
       help = "man";
       rtop = "radeontop";
       neo = "neofetch";
