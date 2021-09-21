@@ -20,7 +20,7 @@
       # System monitors
       bpytop
       # CLI fun
-      cmatrix nyancat cbonsai toilet figlet cowsay lolcat cava
+      asciiquarium cmatrix nyancat cbonsai toilet figlet cowsay lolcat cava
       # Video and image
       gthumb mpv mpvScripts.youtube-quality ffmpeg
       # Wayland, Xorg
