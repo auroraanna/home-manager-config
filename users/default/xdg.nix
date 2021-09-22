@@ -7,8 +7,9 @@
       enable = true;
       defaultApplications = {
         "text/plain" = [ "codium.desktop" ];
-        "x-scheme-handler/http" = [ "brave.desktop" ];
-        "x-scheme-handler/https" = [ "brave.desktop" ];
+        "x-scheme-handler/http" = [ "brave-browser.desktop" ];
+        "x-scheme-handler/https" = [ "brave-browser.desktop" ];
+        "image/svg" = [ "brave-browser.desktop" ];
         "image/webp" = [ "org.gnome.gThumb.desktop" ];
         "image/png" = [ "org.gnome.gThumb.desktop" ];
         "image/jpeg" = [ "org.gnome.gThumb.desktop" ];
