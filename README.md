@@ -112,21 +112,21 @@ Before you starting to use sway you'll have to adjust the config to you monitor 
 ```bash
 swaymsg -t get_outputs
 ```
-and then put the identifiers like `DP-1` or `HDMI-A-1` into `users/default/sway/config` in the `Output configuration` section. Then rebuild with
+and then adjust the identifiers like `DP-1` or `HDMI-A-1`, resolutions and positions in `users/default/sway/default.nix` in the `wayland.windowManager.sway.config.output` section. Then rebuild with
 
 ```bash
 ./manage.sh --apply-users
 ```
 
-You can just start *sway* with `sway` in a tty. Alternatively start *sway* from a display manager. In my experience, despite what the wiki says, *gdm* works.
+You can just start *sway* with `sway` in a tty. Alternatively start *sway* from a display manager. ~In my experience, despite what the wiki says, *gdm* works.~ Don't use gdm though. It breaks gvfs.
 
 ### How to hide your secrets in this repository
 
-If you want to fork this repository and configure it to your liking you may want to put secrets in some files. I've put mine in `.secrets.tar.age`. This file is useless to you since it is encrypted. if you think that before `tar` and `age` the secrets might've been in `.secrets`, you're correct. So, put your secrets in `.secrets`. If there are nix files in it link them in `flake.nix`. Before doing commits with `git` you should run
+If you want to fork this repository and configure it to your liking you may want to put secrets in some files. I've put mine in `.secrets.tar.age`. This file is useless to you since it is encrypted. if you think that before `tar` and `age` the secrets might've been in `.secrets`, you're correct. So, put your secrets in `.secrets`. If there are nix files in it import them in the other nix files. Before doing commits with `git` you should run
 ```bash
 ./manage.sh --lock
 ```
-to encrypt the secrets with a password. Otherwise your secrets won't be secrets anymore so be careful. Put that password in a password manager like Bitwarden. You'll need it to unencrypt your secrets with
+to encrypt the secrets with a password. Otherwise your secrets won't be secrets anymore so be careful, if your secrets are included in the commit. Put that password in a password manager like Bitwarden. You'll need it to unencrypt your secrets with
 ```bash
 ./manage.sh --unlock
 ```
