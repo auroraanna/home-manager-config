@@ -42,7 +42,7 @@ in {
   wayland.windowManager.sway = {
     enable = true;
     config = {
-      bars."*".mode = "invisible";
+      bars = [ ];
       colors = {
         focused = {
           background = colorScheme.magenta;
