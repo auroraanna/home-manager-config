@@ -13,7 +13,7 @@ let
   menu = "wofi";
   filebrowser = "nemo";
   webbrowser = "brave";
-  webbrowserPersistent = "firefox-wayland";
+  webbrowserPersistent = "firefox";
   musicplayer = "spotify";
 in {
   home = {
