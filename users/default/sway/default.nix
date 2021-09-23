@@ -42,34 +42,40 @@ in {
   wayland.windowManager.sway = {
     enable = true;
     config = {
+      gaps = {
+        smartBorders = "on";
+        smartGaps = true;
+      };
+      floating.border = 1;
+      window.border = 1;
       bars = [ ];
       colors = {
         focused = {
-          background = colorScheme.magenta;
-          border = colorScheme.magentaBright;
-          childBorder= colorScheme.white;
-          indicator = colorScheme.white;
+          background = colorScheme.green;
+          border = colorScheme.greenBright;
+          childBorder= colorScheme.green;
+          indicator = colorScheme.green;
           text = colorScheme.black;
         };
         focusedInactive = {
-          background = colorScheme.magenta;
-          border = colorScheme.magentaBright;
-          childBorder= colorScheme.white;
-          indicator = colorScheme.white;
+          background = colorScheme.yellow;
+          border = colorScheme.yellowBright;
+          childBorder= colorScheme.yellow;
+          indicator = colorScheme.yellow;
           text = colorScheme.black;
         };
         unfocused = {
           background = colorScheme.magenta;
           border = colorScheme.magentaBright;
-          childBorder= colorScheme.white;
-          indicator = colorScheme.white;
+          childBorder= colorScheme.magenta;
+          indicator = colorScheme.magenta;
           text = colorScheme.black;
         };
         urgent = {
           background = colorScheme.red;
           border = colorScheme.redBright;
-          childBorder= colorScheme.white;
-          indicator = colorScheme.white;
+          childBorder= colorScheme.red;
+          indicator = colorScheme.red;
           text = colorScheme.black;
         };
         background = colorScheme.black;
@@ -116,7 +122,7 @@ in {
         # Toggle mute
         "f13" = "pactl set-source-mute @DEFAULT_SOURCE@ toggle";
         # Raise sink (speaker, headphones) volume
-        "XF86AudioRaiseVolume" = "exec pactl set-sink-volume @DEFAULT_SINK@ +2%0";
+        "XF86AudioRaiseVolume" = "exec pactl set-sink-volume @DEFAULT_SINK@ +2%";
         # Lower sink (microphone) volume
         "XF86AudioLowerVolume" = "exec pactl set-sink-volume @DEFAULT_SINK@ -2%";
         # Spotify
