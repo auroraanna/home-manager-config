@@ -110,9 +110,9 @@ in {
         # Launch the default terminal. $TERM is defined in ../alacritty.nix line 11
         "${modifier}+x" = "exec alacritty";
         # Take a screenshot by selecting an area
-        "print" = "exec $HOME/.config/sway/screenshot.sh";
+        "print" = "exec sh $HOME/.config/sway/screenshot.sh";
         # Scan a barcode on the screen
-        "pause" = "exec $HOME/.config/sway/scan-barcode.sh";
+        "pause" = "exec sh $HOME/.config/sway/scan-barcode.sh";
         "${modifier}+f7" = "exec ${filebrowser}";
         "${modifier}+f8" = "exec ${webbrowser}";
         "${modifier}+f9" = "exec ${webbrowserPersistent}";
@@ -130,8 +130,10 @@ in {
         "XF86AudioPlay" = "exec dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause";
         ## Play previous spotify track
         "XF86AudioPrev" = "exec dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous";
+        "XF86Launch5" = "exec dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous";
         ## Play next spotify track
         "XF86AudioNext" = "exec dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next";
+        "XF86Tools" = "exec dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next";
         # Moving around
         ## Move your focus around
         "${modifier}+${left}" = "focus left";
