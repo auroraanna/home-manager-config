@@ -118,9 +118,9 @@ in {
         "${modifier}+f9" = "exec ${webbrowserPersistent}";
         "${modifier}+f10" = "exec ${musicplayer}";
         # Toggle deafen
-        "XF86AudioMute" = "pactl set-sink-mute @DEFAULT_SINK@ toggle";
+        "XF86AudioMute" = "exec pactl set-sink-mute @DEFAULT_SINK@ toggle";
         # Toggle mute
-        "f13" = "pactl set-source-mute @DEFAULT_SOURCE@ toggle";
+        "XF86AudioMute+Ctrl" = "exec pactl set-source-mute @DEFAULT_SOURCE@ toggle";
         # Raise sink (speaker, headphones) volume
         "XF86AudioRaiseVolume" = "exec pactl set-sink-volume @DEFAULT_SINK@ +2%";
         # Lower sink (microphone) volume
