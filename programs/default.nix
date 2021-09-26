@@ -37,7 +37,7 @@
       enable = true;
     };
     xserver = {
-      enable = false;
+      enable = true;
       # Configure keymap in X11
       layout = "de";
       # Enable touchpad support (enabled default in most desktopManager).
@@ -67,7 +67,7 @@
   programs = {
     ssh = {
       startAgent = true;
-      askPassword = "/nix/store/ld6a2hkvcdxc384rmxfxfnil3fpnd835-x11-ssh-askpass-1.2.4.1/libexec/ssh-askpass";
+      askPassword = "${pkgs.x11_ssh_askpass}/libexec/ssh-askpass";
     };
     gnupg.agent.enableSSHSupport = true;
     # enable dconf for setting GTK themes via home manager
