@@ -23,6 +23,7 @@
     gpg = {
       enable = true;
     };
+    obs-studio.enable = true;
   };
 
   services = {
@@ -54,7 +55,7 @@
       # Creative apps
       blender gimp godot godot-export-templates inkscape audacity avidemux
       # Media processing
-      ffmpeg obs-studio
+      ffmpeg
       # Development
       cobalt
       # Other

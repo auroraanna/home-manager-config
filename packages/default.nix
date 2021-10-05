@@ -24,7 +24,7 @@
       # Video and image
       gthumb mpv mpvScripts.youtube-quality ffmpeg
       # Wayland, Xorg
-      wl-clipboard polkit polkit_gnome waybar ulauncher wofi wofi-emoji slurp grim swappy swaylock-fancy notify-desktop mako libappindicator gnome.zenity
+      wl-clipboard polkit polkit_gnome waybar ulauncher wofi wofi-emoji slurp grim swappy notify-desktop mako libappindicator gnome.zenity #swaylock-fancy
       # Other
       alacritty gnome.gnome-tweak-tool gnome.gnome-shell-extensions deja-dup gnome.dconf-editor transmission-gtk
       # File browsers
@@ -37,8 +37,6 @@
       gparted dosfstools mtools ntfs3g btrfs-progs sshfs jmtpfs
       # Python
       python39Packages.pyqrcode python39Packages.spotipy python39Packages.pytz
-      # SSH askpass
-      x11_ssh_askpass
     ];
   };
 }

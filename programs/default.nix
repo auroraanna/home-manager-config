@@ -48,7 +48,7 @@
       displayManager = {
         defaultSession = "sway";
         gdm = {
-          enable = false;
+          enable = true;
           wayland = true;
         };
       };
@@ -67,7 +67,6 @@
   programs = {
     ssh = {
       startAgent = true;
-      askPassword = "${pkgs.x11_ssh_askpass}/libexec/ssh-askpass";
     };
     gnupg.agent.enableSSHSupport = true;
     # enable dconf for setting GTK themes via home manager
