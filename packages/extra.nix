@@ -9,8 +9,6 @@
       scrcpy
       # Other
       gnome.gnome-tweak-tool gnome.gnome-shell-extensions deja-dup gnome.dconf-editor piper
-      # Web browsers
-      brave
       # Password managers
       bitwarden
       # Music streaming
