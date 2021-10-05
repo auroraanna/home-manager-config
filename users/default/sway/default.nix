@@ -228,13 +228,13 @@ in {
       };
       startup = [
         # Status bar: waybar
-        { command = "exec waybar"; }
+        { command = "waybar"; }
         # Notification daemon
-        { command = "exec mako"; }
+        { command = "mako"; }
         # Polkit
-        { command = "exec /run/current-system/sw/libexec/polkit-gnome-authentication-agent-1"; }
+        { command = "/run/current-system/sw/libexec/polkit-gnome-authentication-agent-1"; }
         # Idle
-        { command = "exec $HOME/.config/sway/idle.sh"; }
+        { command = "$HOME/.config/sway/idle.sh"; }
       ];
       terminal = pkgs.alacritty;
       window.titlebar = false;
