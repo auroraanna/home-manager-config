@@ -4,6 +4,7 @@
   imports = [
     ./network/default.nix
     ./packages/default.nix
+    #./packages/python.nix
     ./programs/default.nix
     ./programs/zsh.nix
   	./programs/vim/default.nix
@@ -13,5 +14,6 @@
     ./default.nix
     ./programs/numlock.nix
     ./programs/security.nix
+    ./programs/chromium.nix
   ];
 }
