@@ -31,8 +31,8 @@ Usage: manage.sh [OPTION]
 Options:
 
 --update		update inputs/channels
---rebuild-system	rebuild system configuration
---rebuild-users		rebuild user configurations
+--apply-system	rebuild system configuration
+--apply-users		rebuild user configurations
 --lock			encrypt .secrets
 --unlock		unencrypt .secrets.tar.age
 	"
