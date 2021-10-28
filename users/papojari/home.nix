@@ -17,8 +17,15 @@
       enable = true;
       userName = "papojari";
       userEmail = "papojari-git.ovoid@aleeas.com";
+      signing = {
+        signByDefault = true;
+        key = "319A982F5F12013B730139FF5D98BEEC20C9695C";
+      };
       lfs.enable = true;
       delta.enable = true;
+      extraConfig = {
+        init.defaultBranch = "main";
+      };
     };
     gpg = {
       enable = true;
