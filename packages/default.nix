@@ -12,7 +12,7 @@
       # Compression tools
       zstd zpaq
       # CLI
-      tmux bat wget kakoune git git-crypt git-lfs gnupg pinentry-gnome age tealdeer stow pandoc youtube-dl ytfzf librespeed-cli sftpman zbar imagemagick xorg.xeyes wev sox
+      tmux bat wget kakoune git git-crypt git-lfs gnupg pinentry-gnome age tealdeer stow pandoc youtube-dl ytfzf librespeed-cli sftpman zbar imagemagick xorg.xeyes wev sox trash-cli
       # Prompts
       starship
       # Fetch programs
@@ -24,7 +24,7 @@
       # Video and image
       gthumb mpv mpvScripts.youtube-quality ffmpeg
       # Wayland, Xorg
-      wl-clipboard polkit polkit_gnome waybar ulauncher wofi wofi-emoji slurp grim swappy notify-desktop mako libappindicator gnome.zenity #swaylock-fancy
+      wl-clipboard polkit polkit_gnome waybar ulauncher wofi wofi-emoji slurp grim swappy swaylock-fancy notify-desktop mako libappindicator gnome.zenity
       # Other
       alacritty gnome.gnome-tweak-tool gnome.gnome-shell-extensions deja-dup gnome.dconf-editor transmission-gtk
       # File browsers
