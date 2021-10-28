@@ -22,6 +22,7 @@
         "image/png" = [ "org.gnome.gThumb.desktop" ];
         "image/jpeg" = [ "org.gnome.gThumb.desktop" ];
         "video/mp4" = [ "mpv.desktop" ];
+        "video/mkv" = [ "mpv.desktop" ];
         "video/webm" = [ "mpv.desktop" ];
         "audio/mpeg" = [ "mpv.desktop" ];
         "audio/mp4" = [ "mpv.desktop" ];
