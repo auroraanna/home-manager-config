@@ -57,7 +57,6 @@
       base2 = "basenc --base2msbf";
       meip = "curl ifconfig.me";
       speed = "librespeed-cli";
-      help = "man";
       rtop = "radeontop";
       neo = "neofetch";
       frsh = "freshfetch";
@@ -65,6 +64,8 @@
       hp-setup = "nix run nixpkgs.hplipWithPlugin -c sudo hp-setup";
       rainbow = "cat /dev/random | base64 -w 0 | lolcat";
       buytime = "dd if=/dev/urandom of=homework.pdf bs=1M count=4";
+      create-trash = "sudo mkdir -p .Trash-$UID/{expunged,files,info} && sudo chown -R $USER .Trash-$UID && sudo chmod -R 0700 .Trash-$UID";
+      random-noise-video = "ffmpeg -f rawvideo -framerate 60 -pixel_format yuv422p -video_size 1920x1080 -t 10 -i /dev/urandom output.mkv";
     };
     pathsToLink = [ "/libexec" ];
   };
