@@ -122,7 +122,27 @@ You can just start *sway* with `sway` in a tty. Alternatively start *sway* from 
 
 ### How to hide your secrets in this repository
 
-If you want to fork this repository and configure it to your liking you may want to put secrets in some files. I've put mine in `.secrets.tar.age`. This file is useless to you since it is encrypted. if you think that before `tar` and `age` the secrets might've been in `.secrets`, you're correct. So, put your secrets in `.secrets`. If there are nix files in it import them in the other nix files. Before doing commits with `git` you should run
+If you want to fork this repository and configure it to your liking you may want to put secrets in some files. I've put mine in `.secrets`. This folder is useless to you since it is encrypted.
+
+The next to sub headings describe 2 ways in which you can encrypt your `.secrets`. `git-crypt` is more convenient. But first, follow the next steps.
+
+1. ```bash
+   rm .secrets .git-crypt
+   ```
+
+2. Put your secrets in `.secrets`.
+
+3. If there are nix files in `.secrets` you may want to import them in the other nix files.
+
+### via `git-crypt`
+
+```bash
+git-crypt init
+```
+
+### via `age`
+
+Before doing commits with `git` you should run
 ```bash
 ./manage.sh --lock
 ```
