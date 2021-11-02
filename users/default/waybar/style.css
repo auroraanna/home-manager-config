@@ -13,8 +13,8 @@ I also put it in `color-schemes`*/
 	margin: 0 3px;
 	border-bottom-width: 3px;
 	border-bottom-style: solid;
-	background-color: #36c5f4;
-	border-color: #3388de;
+	background-color: #ffffff;
+	border-color: #9b9baa;
 	color: #000000;
 }
 
@@ -22,8 +22,8 @@ I also put it in `color-schemes`*/
 }*/
 
 #window {
-	background-color: #ffa2ac;
-	border-color: #fa6e79;
+	background-color: #eb80a1;
+	border-color: #dd2222;
 }
 
 #workspaces {
@@ -33,63 +33,65 @@ I also put it in `color-schemes`*/
 /* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
 #workspaces button {
 	padding: 0 0px;
-	color: #ffffff;
 }
 
 #workspaces button.focused {
 	padding: 0 0px;
-	background-color: #deceed;
-	border-color: #b0a7b8;
+	background-color: #47c0f2;
+	border-color: #0a4ce1;
 }
 
 #workspaces button.urgent {
 	padding: 0 0px;
-	background-color: #ec273f;
-	border-color: #ac2847;
+	background-color: #dd2222;
+	border-color: #71111a;
 }
 
 #mode {
-	background-color: #008b8b;
-	border-color: #62a477;
+	background-color: #343447;
+	border-color: #171725;
 	color: #ffffff;
 }
 
 #custom-power {
 	margin-left: 0;
 	padding: 0 12px;
-	background-color: #cc99ff;
-	border-color: #8c78a5;
+	background-color: #ffcc00;
+	border-color: #aa6400;
 }
 
 #tray {
-	background-color: #3859b3;
-	border-color: #3e3b65;
+	background-color: #ffffff;
+	border-color: #9b9baa;
 }
 
 #clock {
 	margin-right: 0;
-	background-color: #e8d282;
-	border-color: #dab163;
+	background-color: #343447;
+	border-color: #171725;
+	color: #ffffff;
 }
 
 #battery {
-	background-color: #e98537;
-	border-color: #de5d3a;
+	background-color: #eb80a1;
+	border-color: #dd2222;
 }
 
 #battery.charging {
-	background-color: #9de64e;
-	border-color: #5ab552;
+	background-color: #47c0f2;
+	border-color: #0a4ce1;
 }
 
 @keyframes blink {
 	to {
-		background-color: #f7f3b7;
+		background-color: #dd2222;
+		border-color: #71111a;
 	}
 }
 
 #battery.critical:not(.charging) {
-	background: #de5d3a;
+	background-color: #ffcc00;
+	border-color: #aa6400;
 	animation-name: blink;
 	animation-duration: 0.5s;
 	animation-timing-function: linear;
@@ -98,102 +100,99 @@ I also put it in `color-schemes`*/
 }
 
 #cpu {
-	background: #b0a7b8;
-	border-color: #8c78a5;
+	background-color: #ffffff;
+	border-color: #c5c5c5;
 }
 
 #custom-gpu {
-	background: #5ab552;
-	border-color: #26854c;
+	background-color: #ffffff;
+	border-color: #c5c5c5;
 }
 
 #memory {
-	background: #006554;
-	border-color: #1e4044;
-	color: white;
+	background-color: #ffffff;
+	border-color: #c5c5c5;
 }
 
 #disk {
-	background: #8c78a5;
-	border-color: #5e5b8c;
+	background-color: #343447;
+	border-color: #171725;
+	color: #ffffff;
 }
 
 #backlight {
-	background: #90b1b1;
+	background-color: #ffffff;
+	border-color: #c5c5c5;
 }
 
 #network {
-	background: #3859b3;
-	border-color: #1d2b53;
-	color: white;
+	background-color: #47c0f2;
+	border-color: #0a4ce1;
 }
 
 #network.disconnected {
-	background: #ff004d;
+	background-color: #ffcc00;
+	border-color: #aa6400;
 }
 
 #pulseaudio {
-	background: #ac2847;
-	border-color: #6b2643;
-	color: white;
-
+	background-color: #ffffff;
+	border-color: #c5c5c5;
 }
 
 #pulseaudio.muted {
-	background: #6b2643;
-	border-color: #2c1e31;
-	color: white;
+	background-color: #9b9baa;
+	border-color: #5c5c71;
 }
 
 #temperature {
-	background: #e98537;
-	border-color: #de5d3a;
-
+	background-color: #eb80a1;
+	border-color: #dd2222;
 }
 
 #temperature.critical {
-	background: #ff004d;
-	border-color: #ac2847;
-
+	background-color: #dd2222;
+	border-color: #71111a;
 }
 
 #idle_inhibitor {
-	background-color: #2d3436;
+	background-color: #252525;
+	border-color: #161616;
 }
 
 #idle_inhibitor.activated {
-	background-color: #ecf0f1;
-	color: #2d3436;
+	background-color: #ffffff;
+	border-color: #c5c5c5;
 }
 
 #custom-screenshot {
-	background-color: #6dead6;
-	border-color: #36c5f4;
+	background-color: #eb80a1;
+	border-color: #dd2222;
 }
 
 #custom-drive-mount {
-	background-color: #a26d3f;
-	border-color: #6e4c30;
-	color: white;
+	background-color: #ffffff;
+	border-color: #9b9baa;
 }
 
 #custom-drive-unmount {
-	background-color: #6e4c30;
-	border-color: #4d3533;
-	color: white;
+	background-color: #343447;
+	border-color: #171725;
+	color: #ffffff;
 }
 
 #custom-scan-barcode {
 	background-color: #ffffff;
-	border-color: #b0a7b8;
+	border-color: #9b9baa;
 }
 
 #custom-color-picker {
-	background-color: #f3a833;
-	border-color: #e98537;
+	background-color: #47c0f2;
+	border-color: #0a4ce1;
 }
 
 #custom-emoji-picker {
-	background-color: #2c1e31;
-	border-color: #10121c;
+	background-color: #343447;
+	border-color: #171725;
+	color: #ffffff;
 }

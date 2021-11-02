@@ -1,6 +1,8 @@
 { config, pkgs, lib, ... }:
 
-{
+let
+  colorScheme = import ../../../color-schemes/prism.nix;
+in {
   home.file = {
     ".config/waybar/style.css".source = ./style.css;
   };
@@ -15,7 +17,7 @@
         # Choose the order of the modules
         modules-left = [ "custom/power" "sway/mode" "custom/drive-mount" "custom/drive-unmount" "custom/media" "custom/screenshot" "custom/scan-barcode" "custom/color-picker" "pulseaudio" "backlight" "custom/emoji-picker" ];
         modules-center = [ "sway/workspaces" "sway/window" "tray" ];
-        modules-right = [ "battery" "battery#bat2" "cpu" "custom/gpu" "memory" "disk" "temperature" "network" "clock" ];
+        modules-right = [ "battery" "battery#bat2" "cpu" "memory" "custom/gpu" "disk" "temperature" "network" "clock" ];
           modules = {
           "sway/workspaces" = {
             disable-scroll = true;
@@ -143,7 +145,7 @@
           };
           "custom/power" = {
             format = "";
-            on-click = "swaynag --border-bottom-size=3 --message-padding=8 --button-border-size=5 --button-padding=8 --background=#b0a7b8 --border-bottom=#8c78a5 --button-border=#8c78a5 --button-background=#deceed -f Roboto -t warning -m 'Power Menu Options' -b '⏻︁ Power off'  'shutdown -P now' -b '↻︁ Restart' 'shutdown -r now' -b '🛌︁ Hibernate' 'systemctl hibernate' -b '🛌︁ Hybrid-sleep' 'systemctl hybrid-sleep' -b '🛌︁ Suspend' 'systemctl suspend' -b '︁ Logout' 'swaymsg exit' -b ' Lock' 'swaylock-fancy -f Roboto'";
+            on-click = "swaynag --border-bottom-size=3 --message-padding=8 --button-border-size=5 --button-padding=8 --background=${colorScheme.yellow} --border-bottom=${colorScheme.yellowDarker} --button-border=${colorScheme.greyLight} --button-background=${colorScheme.white} -f Roboto -t warning -m 'Power Menu Options' -b '⏻︁ Power off'  'shutdown -P now' -b '↻︁ Restart' 'shutdown -r now' -b '🛌︁ Hibernate' 'systemctl hibernate' -b '🛌︁ Hybrid-sleep' 'systemctl hybrid-sleep' -b '🛌︁ Suspend' 'systemctl suspend' -b '︁ Logout' 'swaymsg exit' -b ' Lock' 'swaylock-fancy -f Roboto'";
             #on-click = "sh $HOME/.config/waybar/power-menu.sh";
           };
           "custom/gpu" = {
