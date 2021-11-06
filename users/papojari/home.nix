@@ -19,7 +19,7 @@
       userEmail = "papojari-git.ovoid@aleeas.com";
       signing = {
         signByDefault = true;
-        key = "319A982F5F12013B730139FF5D98BEEC20C9695C";
+        key = "5D98BEEC20C9695C";
       };
       lfs.enable = true;
       delta.enable = true;
@@ -27,17 +27,7 @@
         init.defaultBranch = "main";
       };
     };
-    gpg = {
-      enable = true;
-    };
     obs-studio.enable = true;
-  };
-
-  services = {
-    gpg-agent = {
-      enable = true;
-      pinentryFlavor = "gnome3";
-    };
   };
 
   home = {

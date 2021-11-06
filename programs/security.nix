@@ -10,6 +10,7 @@
         apparmor-profiles
       ];
     };
+    pam.services.login.enableGnomeKeyring = true;
   };
 
   services = {

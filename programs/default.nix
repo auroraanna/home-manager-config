@@ -30,6 +30,7 @@
   services = {
     fstrim.enable = true;
     ratbagd.enable = true;
+    pcscd.enable = true;
     openssh = {
       enable = true;
     };
@@ -66,9 +67,13 @@
 
   programs = {
     ssh = {
-      startAgent = true;
+      startAgent = false;
     };
-    gnupg.agent.enableSSHSupport = true;
+    gnupg.agent = {
+      enable = true;
+      pinentryFlavor = "gtk2";
+      enableSSHSupport = true;
+    };
     # enable dconf for setting GTK themes via home manager
     dconf.enable = true;
     java.enable = true;
