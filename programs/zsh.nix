@@ -48,7 +48,10 @@
           fi
         }
       '';
-      promptInit = ''eval "$(starship init zsh)"'';
+      promptInit = ''
+        eval "$(starship init zsh)"
+        eval "$(zoxide init zsh)"
+      '';
     };
   };
 }
