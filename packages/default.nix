@@ -9,17 +9,17 @@
     systemPackages = with pkgs; [
       # Languages
       zsh rustc jdk
-      # Compression tools
-      zstd zpaq
       # CLI
-      tmux bat wget kakoune git git-crypt git-lfs gnupg pinentry-gnome age tealdeer stow pandoc youtube-dl ytfzf librespeed-cli sftpman zbar imagemagick xorg.xeyes wev sox trash-cli
-      # Prompts
+      tmux bat wget kakoune git git-crypt git-lfs gnupg pinentry-gnome age tealdeer stow pandoc youtube-dl ytfzf librespeed-cli sftpman zbar imagemagick xorg.xeyes wev sox trash-cli pinentry-curses exa zoxide fd ripgrep bat-extras.batdiff bat-extras.batgrep bat-extras.batman bat-extras.batwatch bat-extras.prettybat monolith
+      ## Compression tools
+      zstd zpaq
+      ## Prompts
       starship
-      # Fetch programs
+      ## Fetch programs
       freshfetch neofetch
-      # System monitors
+      ## System monitors
       bpytop
-      # CLI fun
+      ## Fun
       asciiquarium cmatrix nyancat cbonsai toilet figlet cowsay lolcat cava
       # Video and image
       gthumb mpv mpvScripts.youtube-quality ffmpeg
