@@ -13,8 +13,8 @@
       bitwarden
       # Music streaming
       spotify
-      # Office
-      libreoffice-fresh pdfarranger
+      # Office and note taking
+      obsidian libreoffice-fresh pdfarranger
       # OCR
       gImageReader
     ];
