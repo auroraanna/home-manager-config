@@ -1,7 +1,6 @@
 format = """
-$username$hostname$shell$shlvl$cmd_duration$fill$time$battery
-$directory $git_branch git_commit $git_state $git_metrics $git_status $hg_branch
-$character
+$username$hostname$shell$shellvl$cmd_duration$fill$time$battery
+$directory$git_branch$git_commit$git_state$git_metrics$git_status$hg_branch$character
 """
 
 # Inserts a blank line between shell prompts
@@ -29,6 +28,13 @@ prefix = "💻️ "
 trim_at = ".companyname.com"
 disabled = false
 style = "bold italic cyan dimmed"
+
+[shell]
+disabled = false
+format = "[$indicator ](italic green)"
+
+[shlvl]
+disabled = false
 
 [cmd_duration]
 min_time = 0
@@ -64,9 +70,9 @@ separator = "/"
 style = "bold dimmed green"
 
 [time]
-time_format = "%Y/%m/%d %T%Z"
-format = "🕙 $time($style) "
-style = "italic white dimmed"
+time_format = "%Y-%m-%d %T%Z"
+format = '[🕙 $time]($style)'
+style = "italic dimmed white"
 disabled = false
 
 [battery]
