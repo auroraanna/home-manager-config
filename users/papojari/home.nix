@@ -27,7 +27,6 @@
         init.defaultBranch = "main";
       };
     };
-    obs-studio.enable = true;
   };
 
   home = {
@@ -50,9 +49,7 @@
       # Web browsers
       brave
       # Creative apps
-      blender gimp godot godot-export-templates inkscape audacity avidemux
-      # Media processing
-      ffmpeg
+      blender gimp godot godot-export-templates inkscape audacity #avidemux
       # Development
       cobalt
       # Other
