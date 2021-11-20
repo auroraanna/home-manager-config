@@ -17,7 +17,7 @@
   fileSystems."/" = {
     device = "/dev/disk/by-uuid/9feb2ea8-a1c5-4dc7-866e-402437d2489f";
     fsType = "btrfs";
-    options = [ "subvol=nixos" ];
+    options = [ "subvol=root" ];
   };
 
   fileSystems."/home" = {
@@ -27,7 +27,7 @@
   };
 
   fileSystems."/boot" = {
-    device = "/dev/disk/by-uuid/1F45-3EFE";
+    device = "/dev/disk/by-uuid/53BD-0DFD";
     fsType = "vfat";
   };
 
