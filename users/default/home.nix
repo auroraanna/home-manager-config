@@ -28,7 +28,6 @@
     ./cursor.nix
     ./vscode.nix
     ./mangohud.nix
-    ./firefox.nix
     ./chromium.nix
   ];
 }
