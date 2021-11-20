@@ -259,4 +259,7 @@ in {
       #focus = "DP-1";
     };
   };
+  home.packages = with pkgs; [
+    waybar ulauncher wofi wofi-emoji slurp grim swappy swaylock-fancy notify-desktop mako libappindicator gnome.zenity
+  ];
 }
