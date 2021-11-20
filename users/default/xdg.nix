@@ -7,16 +7,16 @@
       enable = true;
       defaultApplications = {
         "text/plain" = [ "codium.desktop" ];
-        "x-scheme-handler/http" = [ "firefox.desktop" ];
-        "x-scheme-handler/https" = [ "firefox.desktop" ];
-        "x-scheme-handler/chrome" = [ "firefox.desktop" ];
-        "text/html" = [ "firefox.desktop" ];
-        "application/x-extension-htm" = [ "firefox.desktop" ];
-        "application/x-extension-html" = [ "firefox.desktop" ];
-        "application/x-extension-shtml" = [ "firefox.desktop" ];
-        "application/xhtml+xml" = [ "firefox.desktop" ];
-        "application/x-extension-xhtml" = [ "firefox.desktop" ];
-        "application/x-extension-xht" = [ "firefox.desktop" ];
+        "x-scheme-handler/http" = [ "brave-browser.desktop" ];
+        "x-scheme-handler/https" = [ "brave-browser.desktop" ];
+        "x-scheme-handler/chrome" = [ "brave-browser.desktop" ];
+        "text/html" = [ "brave.desktop" ];
+        "application/x-extension-htm" = [ "brave-browser.desktop" ];
+        "application/x-extension-html" = [ "brave-browser.desktop" ];
+        "application/x-extension-shtml" = [ "brave-browser.desktop" ];
+        "application/xhtml+xml" = [ "brave.desktop" ];
+        "application/x-extension-xhtml" = [ "brave-browser.desktop" ];
+        "application/x-extension-xht" = [ "brave-browser.desktop" ];
         "image/svg" = [ "brave-browser.desktop" ];
         "image/webp" = [ "org.gnome.gThumb.desktop" ];
         "image/png" = [ "org.gnome.gThumb.desktop" ];
@@ -30,7 +30,7 @@
         "audio/x-opus+ogg" = [ "mpv.desktop" ];
         "audio/flac" = [ "mpv.desktop" ];
         "application/json" = [ "codium.desktop" ];
-        "application/pdf" = [ "firefox.desktop;org.gnome.Evince.desktop" ];
+        "application/pdf" = [ "brave.desktop;org.gnome.Evince.desktop" ];
       };
     };
   };
