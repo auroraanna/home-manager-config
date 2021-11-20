@@ -10,7 +10,9 @@
         "x-scheme-handler/http" = [ "brave-browser.desktop" ];
         "x-scheme-handler/https" = [ "brave-browser.desktop" ];
         "x-scheme-handler/chrome" = [ "brave-browser.desktop" ];
-        "text/html" = [ "brave.desktop" ];
+        "x-scheme-handler/about" = [ "brave-browser.desktop" ];
+        "x-scheme-handler/unknown" = [ "brave-browser.desktop" ];
+        "text/html" = [ "brave-browser.desktop" ];
         "application/x-extension-htm" = [ "brave-browser.desktop" ];
         "application/x-extension-html" = [ "brave-browser.desktop" ];
         "application/x-extension-shtml" = [ "brave-browser.desktop" ];
