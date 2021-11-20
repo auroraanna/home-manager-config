@@ -8,7 +8,7 @@
     ./programs/zsh.nix
   	./programs/vim/default.nix
     ./programs/audio.nix
-    ./programs/sql.nix
+    #./programs/sql.nix
     ./fonts.nix
     ./default.nix
     ./programs/numlock.nix
