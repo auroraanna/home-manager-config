@@ -5,7 +5,7 @@
     enable = true;
     extraOpts = {
       "BrowserSignin" = 0;
-      "SyncDisabled" = true;
+      "SyncDisabled" = false;
       "PasswordManagerEnabled" = false;
       "SpellcheckEnabled" = true;
       "SpellcheckLanguage" = [
@@ -23,6 +23,5 @@
       "eimadpbcbfnmbkopoojfekhnkhdbieeh" # Dark Reader
       "nngceckbapebfimnlniiiahkandclblb" # Bitwarden
     ];
-    homepageLocation = "https://daily-web.de/coeck-studios/";
   };
 }
