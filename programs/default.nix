@@ -43,9 +43,6 @@
       layout = "de";
       # Enable touchpad support (enabled default in most desktopManager).
       #libinput.enable = true;
-      videoDrivers = [
-        "amdgpu"
-      ];
       displayManager = {
         defaultSession = "sway";
         gdm = {
@@ -54,6 +51,7 @@
         };
       };
       desktopManager = {
+        plasma5.enable = true;
         gnome.enable = true;
       };
     };
@@ -85,7 +83,7 @@
       wrapperFeatures.gtk = true;
     };
     file-roller.enable = true;
-    seahorse.enable = true;
+    seahorse.enable = false;
     gnome-disks.enable = true;
     #gnome-documents.enable = true;
     evince.enable = true;
