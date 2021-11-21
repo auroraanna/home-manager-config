@@ -22,6 +22,9 @@
       "ldpochfccmkkmhdbclfhpagapcfdljkj" # Decentraleyes
       "eimadpbcbfnmbkopoojfekhnkhdbieeh" # Dark Reader
       "nngceckbapebfimnlniiiahkandclblb" # Bitwarden
+      "pmcmeagblkinmogikoikkdjiligflglb" # Privacy Redirect
+      "fihnjjcciajhdojfnbdddfaoknhalnja" # I don't care about cookies
+      "nomnklagbgmgghhjidfhnoelnjfndfpd" # Canvas Blocker - Fingerprint Protect
     ];
   };
 }
