@@ -23,7 +23,6 @@ style_user = "bold italic purple"
 # shows the hostname on new lines
 [hostname]
 ssh_only = false
-prefix = "💻️ "
 # suffix = ">>"
 trim_at = ".companyname.com"
 disabled = false
@@ -40,7 +39,6 @@ disabled = false
 min_time = 0
 show_milliseconds = true
 disabled = false
-prefix = " ⏲️  "
 style = "italic yellow"
 
 [git_commit]
@@ -56,7 +54,6 @@ stashed = "📦 ×${count}"
 modified = "📝 ×${count}"
 staged.value = "++"
 staged.style = "green"
-staged_count.style = "green"
 renamed = "👅 ×${count}"
 deleted = "🗑 ×${count}"
 
