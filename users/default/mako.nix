@@ -4,7 +4,7 @@
   programs = {
     mako = {
       enable = true;
-      defaultTimeout = 8000;
+      defaultTimeout = 2000;
       margin = "20";
       padding = "10";
       anchor = "bottom-right";
