@@ -2,7 +2,15 @@
 
 let
   colorScheme = import ../../../color-schemes/prism.nix;
+  scratchpadIndicatorScript = builtins.fetchurl {
+    url = https://raw.githubusercontent.com/justinesmithies/sway-dotfiles/master/.local/bin/statusbar/scratchpad-indicator.sh;
+    sha256 = "0xv2w1512gv31sbnwd1grdhrcvzngn8ljdj3x61mqgcqfcp57mwz";
+  };
 in {
+  home.packages = with pkgs; [
+    jq
+  ];
+
   home.file = {
     ".config/waybar/style.css".source = ./style.css;
   };
@@ -16,7 +24,7 @@ in {
         # "width" = 48; # Waybar width
         # Choose the order of the modules
         modules-left = [ "custom/power" "sway/mode" "custom/drive-mount" "custom/drive-unmount" "custom/media" "custom/screenshot" "custom/scan-barcode" "custom/color-picker" "pulseaudio" "backlight" "custom/emoji-picker" ];
-        modules-center = [ "sway/workspaces" "sway/window" "tray" ];
+        modules-center = [ "sway/workspaces" "sway/window" "custom/scratchpad-indicator" "tray" ];
         modules-right = [ "battery" "battery#bat2" "cpu" "memory" "custom/gpu" "disk" "temperature" "network" "clock" ];
           modules = {
           "sway/workspaces" = {
@@ -188,6 +196,15 @@ in {
             "tooltip" = "true";
             "tooltip-format" = "Pick an emoji and copy it to the clipboard";
             "on-click" = "wofi-emoji";
+          };
+          "custom/scratchpad-indicator" = {
+            "format-text" = "{}";
+            "return-type" = "json";
+            "interval" = 2;
+            "exec" = "sh ${scratchpadIndicatorScript} 2> /dev/null";
+            "exec-if" = "exit 0";
+            "on-click"= "swaymsg 'scratchpad show'";
+            "on-click-right" = "swaymsg 'move scratchpad'";
           };
         };
       }
