@@ -3,6 +3,7 @@
 {
   fonts.fonts = with pkgs; [
     iosevka
+    inter
     roboto
     noto-fonts-emoji
     font-awesome
@@ -16,7 +17,7 @@
       antialias = true;
       defaultFonts = {
         serif = [ "Roboto Slab" ];
-        sansSerif = [ "Roboto" ];
+        sansSerif = [ "Inter" ];
         monospace = [ "Iosevka" ];
         emoji = [ "Noto Color Emoji" ];
       };
