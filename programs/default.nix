@@ -102,4 +102,6 @@
   xdg = {
     portal.wlr.enable = true;
   };
+
+  virtualisation.docker.enable = true;
 }
