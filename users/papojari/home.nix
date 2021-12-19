@@ -45,13 +45,14 @@
       osu-lazer
       teeworlds
       superTuxKart superTux
+      heroic
       #mindustry-wayland
       # Web browsers
       brave
       # Creative apps
       blender gimp godot godot-export-templates inkscape audacity #avidemux
       # Development
-      cobalt
+      cobalt zola
       # Other
       exodus gnome.gnome-boxes
       # Password managers
