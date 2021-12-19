@@ -8,7 +8,7 @@
     extraConfig = builtins.readFile (
       builtins.fetchurl {
         url = https://raw.githubusercontent.com/gpakosz/.tmux/master/.tmux.conf;
-        sha256 = "0ww8cyx1k4zdrjhx6x2i0byg8c4drqnj4i05i7fm0crkllkf1c8z";
+        sha256 = "1s3j13wkxn79g29lbw8lf3rl5a1bawdj1vyf06bnfgsr0gc37jdl";
       }
     );
     extraTmuxConf = builtins.readFile (
