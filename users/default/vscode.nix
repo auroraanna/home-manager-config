@@ -29,6 +29,7 @@
         "[markdown]" = {
             editor.defaultFormatter = "yzhang.markdown-all-in-one";
         };
+        editor."cursorBlinking" = "solid";
       };
       extensions = with pkgs.vscode-extensions; [
         # Languages
