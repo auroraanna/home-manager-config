@@ -12,6 +12,7 @@
     ./fonts.nix
     ./default.nix
     ./programs/numlock.nix
+    ./programs/tldr.nix
     ./programs/tmux.nix
     ./programs/security.nix
     ./programs/chromium.nix
