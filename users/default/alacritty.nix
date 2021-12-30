@@ -78,7 +78,7 @@ in {
             x = 0;
             y = 0;
           };
-          size = 15;
+          size = 13;
           normal = {
             family = "Iosevka";
             style = "Medium";
