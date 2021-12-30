@@ -30,6 +30,7 @@
             editor.defaultFormatter = "yzhang.markdown-all-in-one";
         };
         editor."cursorBlinking" = "solid";
+        editor.fontLigatures = true;
       };
       extensions = with pkgs.vscode-extensions; [
         # Languages
