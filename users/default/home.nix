@@ -30,5 +30,6 @@
     ./vscode.nix
     ./mangohud.nix
     ./chromium.nix
+    ./kitty/default.nix
   ];
 }
