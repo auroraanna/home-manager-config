@@ -11,7 +11,6 @@
     serviceConfig = {
       Type = "forking";
       ExecStart = "${pkgs.tealdeer}/bin/tldr --update";
-      ExecStop = "pkill tldr";
       Restart = "always";
       RestartSec = 5400;
     };
