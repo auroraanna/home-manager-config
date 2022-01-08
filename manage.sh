@@ -22,7 +22,7 @@ age -d $SECRETS.tar.age > $SECRETS.tar &&
 tar -xf $SECRETS.tar $SECRETS &&
 rm -rf $SECRETS.tar.age $SECRETS.tar
 else
-	echo "
+echo "
 Usage: manage.sh [OPTION]
 
 Options:
@@ -31,7 +31,7 @@ Options:
 --apply		rebuild user configurations
 --lock		encrypt .secrets
 --unlock	unencrypt .secrets.tar.age
-	"
+"
 fi
 
 popd
