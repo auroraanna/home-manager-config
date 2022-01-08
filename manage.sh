@@ -1,5 +1,5 @@
 #!/bin/sh
-ROOT="/git-repos/nixos-config"
+ROOT="/git-repos/home-manager-config"
 SECRETS=".secrets"
 
 pushd "$ROOT"
@@ -7,12 +7,9 @@ pushd "$ROOT"
 if [ "$1" = "--update" ]
 then
 nix flake update
-elif [ "$1" = "--apply-system" ]
+elif [ "$1" = "--apply" ]
 then
-sudo nixos-rebuild switch --flake .#
-elif [ "$1" = "--apply-users" ]
-then
-nix build .#homeManagerConfigurations.papojari.activationPackage
+nix build .#home-managerConfigurations.papojari.activationPackage
 ./result/activate
 elif [ "$1" = "--lock" ]
 then
@@ -30,11 +27,10 @@ Usage: manage.sh [OPTION]
 
 Options:
 
---update		update inputs/channels
---apply-system	rebuild system configuration
---apply-users		rebuild user configurations
---lock			encrypt .secrets
---unlock		unencrypt .secrets.tar.age
+--update	update inputs/channels
+--apply		rebuild user configurations
+--lock		encrypt .secrets
+--unlock	unencrypt .secrets.tar.age
 	"
 fi
 

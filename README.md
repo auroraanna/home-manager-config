@@ -1,6 +1,6 @@
 <div align="center">
 
-<h1>papojari's NixOS configuration</h1>
+<h1>papojari's Home Manager configuration</h1>
 
 <p>
   <a href="https://nixos.org/"><img src="https://img.shields.io/badge/NixOS-unstable-blue.svg?style=flat&logo=NixOS&logoColor=white" alt="Badge: NixOS | unstable"/></a>
@@ -8,7 +8,7 @@
 
 [![built with Nix](https://builtwithnix.org/badge.svg)](https://builtwithnix.org)
 
-This repository contains my NixOS desktop configuration files. Other than the `*.nix` files you will be able to use all of the files on other operating systems like BSD, macOS or any of the other Linux distributions.
+This repository contains my Home Manager configuration files. Other than the `*.nix` files you will be able to use all of the files on other operating systems like BSD, macOS or any of the other Linux distributions.
 
 </div>
 
@@ -40,52 +40,16 @@ This repository contains my NixOS desktop configuration files. Other than the `*
 
 ## Getting started
 
-### Installing NixOS with my configuration
-
-#### x86_64 architecture
-
-1. Follow [NixOS unstable manual](https://nixos.org/manual/nixos/unstable/) until you have a working system.
-2. Boot it without the installation medium.
-
-#### Raspberry Pi 4 Model B
-
-1. Follow this [nix.dev turorial](https://nix.dev/tutorials/installing-nixos-on-a-raspberry-pi) until you have a working system.
-2. Boot from the disk.
-
-### Building from the Nix files
-
 Clone this repository to somewhere, for example: *your home directory*, like this
 
 ```bash
-git clone https://codeberg.org/papojari/nixos-config.git
+git clone https://codeberg.org/papojari/home-manager-config.git
 ```
 
-#### NixOS
-
-Assuming you `cd`ed into the cloned git repository,
-
-To execute `manage.sh` you might have to run
-```bash
-chmod +x manage.sh
-```
-
-My configuration is specifically made for two system so If you don't have a computer with an AMD CPU and an AMD Sea Islands GPU or a Raspberry Pi 4 you'll have to adjust some files.
-
-What configuration will be built when you run
-```bash
-./manage.sh --apply-system
-```
-is determined by your hostname so change your hostname or the files depending or which should be built. To change your hostname you can change `networking.hostname` in `/etc/nixos/configuration.nix` to one of the hostnames in `flake.nix` (*Cryogonal* and *Cryogonull*) and then build it with
-```bash
-nixos-rebuild switch
-```
-
-**Note that to build a config whether it is the system config or the Home manager config all required files need to be staged or commited with `git`.**
-
-#### Home Manager
+Then apply the config with this command:
 
 ```bash
-./manage.sh --apply-users
+./manage.sh --apply
 ```
 
 ### Backgrounds
