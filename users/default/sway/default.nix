@@ -37,6 +37,7 @@ in {
       ".config/sway/scan-barcode.sh".source = ./scan-barcode.sh;
       ".config/sway/color-picker.sh".source = ./color-picker.sh;
       ".config/sway/screenshot.sh".source = ./screenshot.sh;
+      ".config/sway/ocr.sh".source = ./ocr.sh;
     };
   };
   wayland.windowManager.sway = {
@@ -113,6 +114,7 @@ in {
         "print" = "exec sh $HOME/.config/sway/screenshot.sh";
         # Scan a barcode on the screen
         "pause" = "exec sh $HOME/.config/sway/scan-barcode.sh";
+        "${modifier}+f12" = "exec sh $HOME/.config/sway/ocr.sh";
         "${modifier}+f7" = "exec ${filebrowser}";
         "${modifier}+f8" = "exec ${webbrowser}";
         "${modifier}+f9" = "exec ${webbrowserPersistent}";
@@ -260,6 +262,6 @@ in {
     };
   };
   home.packages = with pkgs; [
-    waybar dmenu-wayland ulauncher wofi wofi-emoji slurp grim swappy swaylock-fancy notify-desktop mako libappindicator gnome.zenity
+    tesseract4 waybar dmenu-wayland ulauncher wofi wofi-emoji slurp grim swappy swaylock-fancy notify-desktop mako libappindicator gnome.zenity
   ];
 }
