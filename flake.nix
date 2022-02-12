@@ -30,6 +30,7 @@
             ./users/papojari/home.nix
           ];
         };
+        extraSpecialArgs = { inherit nix-colors; };
         stateVersion = "21.11";
       };
     };
