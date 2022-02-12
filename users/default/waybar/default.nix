@@ -16,12 +16,12 @@ in {
   };
   programs.waybar = {
     enable = true;
-    settings =
-      {
+    settings = {
+      mainBar = {
         layer = "top"; # Waybar at top layer
         position = "top"; # Waybar position (top|bottom|left|right)
         height = 32; # Waybar height
-        # "width" = 48; # Waybar width
+        width = 48; # Waybar width
         # Choose the order of the modules
         modules-left = [ "custom/power" "sway/mode" "custom/drive-mount" "custom/drive-unmount" "custom/media" "custom/screenshot" "custom/scan-barcode" "custom/color-picker" "pulseaudio" "backlight" "custom/emoji-picker" ];
         modules-center = [ "sway/workspaces" "sway/window" "custom/scratchpad-indicator" "tray" ];
@@ -206,5 +206,6 @@ in {
           "on-click-right" = "swaymsg 'move scratchpad'";
         };
       };
+    };
   };
 }
