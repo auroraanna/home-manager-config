@@ -8,7 +8,6 @@
 
   imports = [
     ./../default/home.nix
-    ./../../.secrets/users/papojari/zsh/default.nix
   ];
 
   programs = {
