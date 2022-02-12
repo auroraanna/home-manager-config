@@ -15,7 +15,7 @@
         system = "x86_64-linux";
         homeDirectory = "/home/papojari";
         username = "papojari";
-        configuration.imports = [ ./users/papojari/home.nix ];
+        stateVersion = "21.11";
       };
     };
   };
