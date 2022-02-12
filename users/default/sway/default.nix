@@ -35,7 +35,10 @@ in {
       ".config/sway/drive-mount.sh".source = ./drive-mount.sh;
       ".config/sway/drive-unmount.sh".source = ./drive-unmount.sh;
       ".config/sway/scan-barcode.sh".source = ./scan-barcode.sh;
-      ".config/sway/color-picker.sh".source = ./color-picker.sh;
+      ".config/sway/color-picker.sh".source = builtins.fetchurl {
+        url = https://raw.githubusercontent.com/jgmdev/wl-color-picker/main/wl-color-picker.sh;
+        sha256 = "0f3i86q9vx0665h2wvmmnfccd85kav4d9kinfzdnqpnh96iqsjkg";
+      };
       ".config/sway/screenshot.sh".source = ./screenshot.sh;
       ".config/sway/ocr.sh".source = ./ocr.sh;
     };

@@ -27,12 +27,6 @@ OTHER DEALINGS IN THE SOFTWARE.
 
 For more information, please refer to <http://unlicense.org/>
 
-## `users/default/sway/color-picker.sh`
-
-[MIT License](https://github.com/jgmdev/wl-color-picker/blob/main/LICENSE)
-
-Copyright (c) 2021 Jefferson González
-
 ## `backgrounds/highway-to-shell.png`
 
 © 2013 Helena Mosher  
