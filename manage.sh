@@ -9,8 +9,7 @@ then
 nix flake update
 elif [ "$1" = "--apply" ]
 then
-nix build .#home-managerConfigurations.papojari.activationPackage
-./result/activate
+home-manager switch --flake path:$ROOT
 elif [ "$1" = "--lock" ]
 then
 tar -cf $SECRETS.tar $SECRETS/* &&
