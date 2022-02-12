@@ -9,9 +9,18 @@
     };
   };
 
-  outputs = inputs: {
+  outputs = { nixpkgs, home-manager, ... }:
+  let
+    pkgs = import nixpkgs {
+      config = {
+        # Allow unfree packages (sorry stallman)
+        allowUnfree = true;
+      };
+    };
+    lib = nixpkgs.lib;
+  in {
     homeConfigurations = {
-      "papojari" = inputs.home-manager.lib.homeManagerConfiguration {
+      papojari = home-manager.lib.homeManagerConfiguration {
         system = "x86_64-linux";
         homeDirectory = "/home/papojari";
         username = "papojari";
