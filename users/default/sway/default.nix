@@ -10,7 +10,7 @@ let
   up = "k";
   right = "l";
   resizeAmount = "30px";
-  menu = "wofi";
+  menu = "dmenu-wl_run -i";
   filebrowser = "nemo";
   webbrowser = "brave";
   webbrowserPersistent = "firefox";
@@ -260,6 +260,6 @@ in {
     };
   };
   home.packages = with pkgs; [
-    waybar ulauncher wofi wofi-emoji slurp grim swappy swaylock-fancy notify-desktop mako libappindicator gnome.zenity
+    waybar dmenu-wayland ulauncher wofi wofi-emoji slurp grim swappy swaylock-fancy notify-desktop mako libappindicator gnome.zenity
   ];
 }
