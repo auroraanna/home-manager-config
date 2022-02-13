@@ -245,7 +245,7 @@ in {
       window.titlebar = false;
       workspaceAutoBackAndForth = true;
       output = {
-        "*" = { bg = "${background} fit #000000"; };
+        "*" = { bg = "${background} fit #1d2021"; };
         # You can get the names of your outputs by running: swaymsg -t get_outputs
         DVI-I-1 = {
           resolution = "1920x1080";
