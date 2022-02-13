@@ -37,7 +37,7 @@
       osu-lazer
       teeworlds
       superTuxKart superTux
-      heroic
+      #heroic
       #mindustry-wayland
       # Web browsers
       brave
