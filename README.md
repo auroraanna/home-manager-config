@@ -37,6 +37,8 @@ This repository contains my Home Manager configuration files. Because Home Manag
 
 ## Getting started
 
+Install [Home Manager](https://github.com/nix-community/home-manager).
+
 Clone this repository to somewhere, for example: *your home directory*, like this
 
 ```bash
