@@ -24,5 +24,6 @@
     ./kitty/default.nix
     ./zsh/default.nix
     ./zoxide.nix
+    ./kakoune/default.nix
   ];
 }
