@@ -40,3 +40,12 @@ For more information, please refer to <http://unlicense.org/>
 - no changes were made
 
 - for more information visit [LinuxTag: HIGHWAY TO SHELL: OFFIZIELLES LINUXTAG-T-SHIRT UNTER CC FREIGEGEBEN](http://www.linuxtag.org/2013/de/presse/newsarchiv/entry/article/highway-to-shell-offizielles-linuxtag-t-shirt-rockt-so-sehr-dass-es-cc-wird.html)
+
+# `backgrounds/ferris-tux-nix-systemd.*`
+
+- There are 4 logos in the image:
+	- [Ferris](https://www.rustacean.net/) was made by Karen Rustad Tölva and is licensed under the [CC0](https://creativecommons.org/publicdomain/zero/1.0/)
+	- [Tux](https://de.wikipedia.org/wiki/Linux#/media/Datei:Tux.svg) is licensed under the [CC0](https://creativecommons.org/publicdomain/zero/1.0/)
+		- attribution: [lewing@isc.tamu.edu Larry Ewing](lewing@isc.tamu.edu) and [The GIMP](https://en.wikipedia.org/wiki/GIMP)
+	- [NixOS Snowflake](https://github.com/NixOS/nixos-artwork/blob/master/logo/nix-snowflake.svg) was made by [Tim Cuthbertson](https://github.com/timbertson) and is licensed under the [CC-BY license](https://creativecommons.org/licenses/by/4.0/). For more information visit [this page](https://github.com/NixOS/nixos-artwork/tree/master/logo).
+	- [systemd logo](https://de.wikipedia.org/wiki/Systemd#/media/Datei:Systemd-logo.svg) is licensed under the [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) and was made by [these people](https://github.com/systemd/brand.systemd.io/graphs/contributors) (They at least commited the files, but I'm not sure who made the logo.) The logo itself was not changed but there is now a border around it.
