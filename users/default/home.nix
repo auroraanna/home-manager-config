@@ -23,5 +23,6 @@
     ./chromium.nix
     ./kitty/default.nix
     ./zsh/default.nix
+    ./zoxide.nix
   ];
 }
