@@ -3,8 +3,7 @@
 <h1>papojari's Home Manager configuration</h1>
 
 <p>
-  <a href="https://nixos.org/"><img src="https://img.shields.io/badge/NixOS-unstable-blue.svg?style=flat&logo=NixOS&logoColor=white" alt="Badge: NixOS | unstable"/></a>
-  <a href="https://swaywm.org/"><img src="https://img.shields.io/badge/Sway-1.6.1-yellowgreen" alt="Badge: Sway | 1.6.1"/></a>
+  <a href="https://nixos.org/"><img src="https://img.shields.io/badge/nixpkgs-stable-blue" alt="Badge: nixpkgs | stable"/></a>
 
 [![built with Nix](https://builtwithnix.org/badge.svg)](https://builtwithnix.org)
 
