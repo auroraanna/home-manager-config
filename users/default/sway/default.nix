@@ -3,7 +3,7 @@
 let
   colorScheme = import ../../../color-schemes/campbell.nix;
   #background = "../../../highway-to-shell.png";
-  background = ../../../backgrounds/ferris-tux-nixos-systemd.png;
+  background = ../../../backgrounds/ferris-tux-nix-systemd.png;
   #background = builtins.fetchurl {
   #  url = https://raw.githubusercontent.com/papojari/nixos-artwork/master/wallpapers/nix-wallpaper-3d-showcase-3840x2160.png;
   #  sha256 = "35376f1c95424580c3d3c3f1843b047789be389bff689285bf1948fe36d84779";
