@@ -41,7 +41,7 @@ For more information, please refer to <http://unlicense.org/>
 
 - for more information visit [LinuxTag: HIGHWAY TO SHELL: OFFIZIELLES LINUXTAG-T-SHIRT UNTER CC FREIGEGEBEN](http://www.linuxtag.org/2013/de/presse/newsarchiv/entry/article/highway-to-shell-offizielles-linuxtag-t-shirt-rockt-so-sehr-dass-es-cc-wird.html)
 
-# `backgrounds/ferris-tux-nix-systemd.*`
+# `backgrounds/ferris-tux-nix-systemd.*` and `screenshot.webp`
 
 - There are 4 logos in the image:
 	- [Ferris](https://www.rustacean.net/) was made by Karen Rustad Tölva and is licensed under the [CC0](https://creativecommons.org/publicdomain/zero/1.0/)
