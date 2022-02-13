@@ -7,7 +7,7 @@
 
 [![built with Nix](https://builtwithnix.org/badge.svg)](https://builtwithnix.org)
 
-This repository contains my Home Manager configuration files. Other than the `*.nix` files you will be able to use all of the files on other operating systems like BSD, macOS or any of the other Linux distributions.
+This repository contains my Home Manager configuration files. Because Home Manager is available for several *nix OSs like Linux or macOS you are able to use this config these OSs.
 
 </div>
 
