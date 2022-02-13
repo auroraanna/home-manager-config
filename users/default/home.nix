@@ -22,5 +22,6 @@
     ./mangohud.nix
     ./chromium.nix
     ./kitty/default.nix
+    ./zsh/default.nix
   ];
 }
