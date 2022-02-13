@@ -22,9 +22,7 @@ This repository contains my Home Manager configuration files. Other than the `*.
 
 | Type of program      | Type of programs used                                                              |
 | -------------------- | ---------------------------------------------------------------------------------- |
-| OS                   | [NixOS](https://nixos.org/)                                                        |
 | Shell                | [Zsh](https://en.wikipedia.org/wiki/Z_shell/)                                      |
-| Display manager      | [GDM](https://wiki.archlinux.org/title/GDM/)                                       |
 | Wayland compositor   | [sway](https://swaywm.org/)                                                        |
 | Status bar           | [Waybar](https://github.com/Alexays/Waybar/)                                       |
 | Application launcher | [Wofi](https://hg.sr.ht/~scoopta/wofi/)                                            |
