@@ -24,8 +24,8 @@ This repository contains my Home Manager configuration files. Because Home Manag
 | Shell                | [Zsh](https://en.wikipedia.org/wiki/Z_shell/)                                      |
 | Wayland compositor   | [sway](https://swaywm.org/)                                                        |
 | Status bar           | [Waybar](https://github.com/Alexays/Waybar/)                                       |
-| Application launcher | [Wofi](https://hg.sr.ht/~scoopta/wofi/)                                            |
-| Terminal emulator    | [Alacritty](https://github.com/alacritty/alacritty/)                               |
+| Application launcher | [dmenu](https://tools.suckless.org/dmenu/)                                         |
+| Terminal emulator    | [Kitty](https://sw.kovidgoyal.net/kitty/)                                          |
 | Text editor          | [VSCodium](https://vscodium.com/), [Kakoune](https://kakoune.org/)                 |
 | Web browser          | [Brave](https://brave.com/), [Firefox](https://www.mozilla.org/en-US/firefox/new/) |
 
