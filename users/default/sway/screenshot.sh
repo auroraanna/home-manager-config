@@ -1,5 +1,7 @@
 #!/bin/sh
-sleep 3s &&
-grim -t png /tmp/screenshot.png &&
-convert /tmp/screenshot.png -crop "$(slurp -d -c \#ff0000 -f '%wx%h+%x+%y')" /tmp/screenshot.png &&
-swappy -f /tmp/screenshot.png
+set -eu # So you don't have to keep using &&
+FILENAME="$(mktemp --suffix .png)"
+sleep 3s
+grim -t png "${FILENAME}"
+convert "${FILENAME}" -crop "$(slurp -d -c \#ff0000 -f '%wx%h+%x+%y')" "${FILENAME}"
+swappy -f "${FILENAME}"
