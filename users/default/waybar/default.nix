@@ -22,7 +22,7 @@ in {
         # Choose the order of the modules
         modules-left = [ "custom/power" "sway/mode" "custom/drive-mount" "custom/drive-unmount" "custom/media" "custom/screenshot" "custom/scan-barcode" "custom/color-picker" "pulseaudio" "backlight" "custom/emoji-picker" ];
         modules-center = [ "sway/workspaces" "sway/window" "custom/scratchpad-indicator" "tray" ];
-        modules-right = [ "battery" "battery#bat2" "cpu" "memory" "custom/gpu" "disk" "temperature" "network" "clock" ];
+        modules-right = [ "battery" "battery#bat2" "cpu" "memory" "custom/gpu" "disk" "temperature" "network" "custom/copy-date" "clock" ];
         "sway/workspaces" = {
           disable-scroll = true;
           disable-markup  = false;
@@ -193,6 +193,12 @@ in {
           "tooltip-format" = "Pick an emoji and copy it to the clipboard";
           "on-click" = "wofi-emoji";
         };
+        "custom/copy-date" = {
+          "format" = "📅";
+          "tooltip" = "true";
+          "tooltip-format" = "Copy the current date to the clipboard";
+          "on-click" = "sh $HOME/.config/sway/copy-date.sh";
+        };
         "custom/scratchpad-indicator" = {
           "format-text" = "{}";
           "return-type" = "json";
@@ -212,7 +218,7 @@ in {
         min-height: 0;
       }
 
-      #window, #workspaces button.urgent, #workspaces button.focused, .workspaces button, #mode, #custom-power, #tray, #clock, #battery, #cpu, #custom-gpu, #memory, #disk, #temperature, #backlight, #network, #pulseaudio, #custom-media, #idle_inhibitor, #custom-drive-mount, #custom-drive-unmount, #custom-screenshot, #custom-scan-barcode, #custom-color-picker, #custom-emoji-picker , #custom-scratchpad-indicator {
+      #window, #workspaces button.urgent, #workspaces button.focused, .workspaces button, #mode, #custom-power, #tray, #clock, #battery, #cpu, #custom-gpu, #memory, #disk, #temperature, #backlight, #network, #pulseaudio, #custom-media, #idle_inhibitor, #custom-drive-mount, #custom-drive-unmount, #custom-screenshot, #custom-scan-barcode, #custom-color-picker, #custom-emoji-picker, #custom-copy-date, #custom-scratchpad-indicator {
         padding: 0 10px;
         margin: 0 3px;
         border-bottom-width: 3px;
@@ -396,6 +402,12 @@ in {
       }
 
       #custom-emoji-picker {
+        background-color: #${colorScheme.blackBright};
+        border-color: #${colorScheme.black};
+        color: #${colorScheme.whiteBright};
+      }
+
+      #custom-copy-date {
         background-color: #${colorScheme.blackBright};
         border-color: #${colorScheme.black};
         color: #${colorScheme.whiteBright};

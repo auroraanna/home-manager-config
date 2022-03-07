@@ -41,6 +41,7 @@ in {
       };
       ".config/sway/screenshot.sh".source = ./screenshot.sh;
       ".config/sway/ocr.sh".source = ./ocr.sh;
+      ".config/sway/copy-date.sh".source = ./copy-date.sh;
     };
   };
   wayland.windowManager.sway = {
