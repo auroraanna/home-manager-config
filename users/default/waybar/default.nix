@@ -7,9 +7,7 @@ let
     sha256 = "0xv2w1512gv31sbnwd1grdhrcvzngn8ljdj3x61mqgcqfcp57mwz";
   };
 in {
-  home.packages = with pkgs; [
-    jq
-  ];
+  home.packages = with pkgs; [ jq radeontop ];
 
   programs.waybar = {
     enable = true;
@@ -154,9 +152,8 @@ in {
         };
         "custom/gpu" = {
           # Use either the next line or the second and third next line
-          "exec" = "command -v radeontop >/dev/null 2>&1 && radeontop -d - -l 1 | tr -d '\n' | cut -s -d ',' -f3 | cut -s -d ' ' -f3 | tr -d '%' | awk '{ print $1 }' | tr -d '\n' || echo 'No radeontop'";
+          "exec" = "radeontop -d - -l 1 | tr -d '\n' | cut -s -d ',' -f3 | cut -s -d ' ' -f3 | tr -d '%' | awk '{ print $1 }' | tr -d '\n'";
           #"exec" = "radeontop -d - -l 1 | tr -d '\n' | cut -s -d ',' -f3 | cut -s -d ' ' -f3 | tr -d '%' | awk '{ print $1 }' | tr -d '\n'";
-          #"exec-if" = "command -v radeontop";
           "format" = "{}%  GPU";
           "interval" = 10;
         };
@@ -421,3 +418,4 @@ in {
     ";
   };
 }
+
