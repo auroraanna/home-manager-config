@@ -6,6 +6,7 @@ let
     url = https://raw.githubusercontent.com/justinesmithies/sway-dotfiles/master/.local/bin/statusbar/scratchpad-indicator.sh;
     sha256 = "0xv2w1512gv31sbnwd1grdhrcvzngn8ljdj3x61mqgcqfcp57mwz";
   };
+  specialTime = "2022-02-19T19:00:00+01:00";
 in {
   home.packages = with pkgs; [ jq radeontop ];
 
@@ -18,7 +19,7 @@ in {
         height = 32; # Waybar height
         width = 48; # Waybar width
         # Choose the order of the modules
-        modules-left = [ "custom/power" "sway/mode" "custom/drive-mount" "custom/drive-unmount" "custom/media" "custom/screenshot" "custom/scan-barcode" "custom/color-picker" "pulseaudio" "backlight" "custom/emoji-picker" ];
+        modules-left = [ "custom/power" "sway/mode" "custom/drive-mount" "custom/drive-unmount" "custom/media" "custom/screenshot" "custom/scan-barcode" "custom/color-picker" "pulseaudio" "backlight" "custom/emoji-picker" "custom/dabet" ];
         modules-center = [ "sway/workspaces" "sway/window" "custom/scratchpad-indicator" "tray" ];
         modules-right = [ "battery" "battery#bat2" "cpu" "memory" "custom/gpu" "disk" "temperature" "network" "custom/copy-date" "clock" ];
         "sway/workspaces" = {
@@ -205,6 +206,12 @@ in {
           "on-click"= "swaymsg 'scratchpad show'";
           "on-click-right" = "swaymsg 'move scratchpad'";
         };
+        "custom/dabet" = {
+          "format" = "{}";
+          "interval" = 60;
+          "exec" = "export NO_COLOR=true && didu -d 2 -r -u s -v $(dabet -n -s ${specialTime} -e $(date --iso-8601=s)) -o d";
+          "exec-if" = "exit 0";
+        };
       };
     };
     style = "
@@ -215,7 +222,7 @@ in {
         min-height: 0;
       }
 
-      #window, #workspaces button.urgent, #workspaces button.focused, .workspaces button, #mode, #custom-power, #tray, #clock, #battery, #cpu, #custom-gpu, #memory, #disk, #temperature, #backlight, #network, #pulseaudio, #custom-media, #idle_inhibitor, #custom-drive-mount, #custom-drive-unmount, #custom-screenshot, #custom-scan-barcode, #custom-color-picker, #custom-emoji-picker, #custom-copy-date, #custom-scratchpad-indicator {
+      #window, #workspaces button.urgent, #workspaces button.focused, .workspaces button, #mode, #custom-power, #tray, #clock, #battery, #cpu, #custom-gpu, #memory, #disk, #temperature, #backlight, #network, #pulseaudio, #custom-media, #idle_inhibitor, #custom-drive-mount, #custom-drive-unmount, #custom-screenshot, #custom-scan-barcode, #custom-color-picker, #custom-emoji-picker, #custom-copy-date, #custom-scratchpad-indicator, #custom-dabet {
         padding: 0 10px;
         margin: 0 3px;
         border-bottom-width: 3px;
