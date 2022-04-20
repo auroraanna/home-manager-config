@@ -16,8 +16,6 @@
     ./waybar/default.nix
     ./starship/default.nix
     ./xdg.nix
-    ./gtk.nix
-    ./cursor.nix
     ./vscode.nix
     ./mangohud.nix
     ./chromium.nix
@@ -25,5 +23,6 @@
     ./zsh/default.nix
     ./zoxide.nix
     ./kakoune/default.nix
+    ./theming.nix
   ];
 }
