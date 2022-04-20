@@ -50,7 +50,7 @@
       # Password managers
       gnome-passwordsafe
       # Email
-      thunderbird-bin
+      evolution
       # Voicechat, Social media, Messaging
       discord mumble teamspeak_client element-desktop signal-desktop
     ];
