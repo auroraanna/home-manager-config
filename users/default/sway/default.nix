@@ -42,6 +42,7 @@ in {
       ".config/sway/screenshot.sh".source = ./screenshot.sh;
       ".config/sway/ocr.sh".source = ./ocr.sh;
       ".config/sway/copy-date.sh".source = ./copy-date.sh;
+      ".config/sway/lock.sh".source = ./lock.sh;
     };
   };
   wayland.windowManager.sway = {
@@ -266,6 +267,6 @@ in {
     };
   };
   home.packages = with pkgs; [
-    tesseract4 waybar dmenu-wayland ulauncher wofi wofi-emoji slurp grim swappy swaylock-fancy notify-desktop mako libappindicator gnome.zenity
+    tesseract4 waybar dmenu-wayland ulauncher wofi wofi-emoji slurp grim swappy swaylock-effects notify-desktop mako libappindicator gnome.zenity
   ];
 }

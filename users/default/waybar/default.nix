@@ -148,7 +148,7 @@ in {
         };
         "custom/power" = {
           format = "";
-          on-click = "swaynag --border-bottom-size 0 --details-border-size 0 --button-border-size 0 --button-margin 5 --message-padding=8 --button-padding=8 --background=${colorScheme.background} --text=${colorScheme.on_background} --button-background=${colorScheme.surface_variant} --button-text=${colorScheme.on_surface_variant} -f ${font} -t warning -m 'Power Menu Options' -b '⏻︁ Power off'  'shutdown -P now' -b '↻︁ Restart' 'shutdown -r now' -b '🛌︁ Hibernate' 'systemctl hibernate' -b '🛌︁ Hybrid-sleep' 'systemctl hybrid-sleep' -b '🛌︁ Suspend' 'systemctl suspend' -b '︁ Logout' 'swaymsg exit' -b ' Lock' 'swaylock-fancy -f ${font}'";
+          on-click = "swaynag --border-bottom-size 0 --details-border-size 0 --button-border-size 0 --button-margin 5 --message-padding=8 --button-padding=8 --background=${colorScheme.background} --text=${colorScheme.on_background} --button-background=${colorScheme.surface_variant} --button-text=${colorScheme.on_surface_variant} -f ${font} -t warning -m 'Power Menu Options' -b '⏻︁ Power off'  'shutdown -P now' -b '↻︁ Restart' 'shutdown -r now' -b '🛌︁ Hibernate' 'systemctl hibernate' -b '🛌︁ Hybrid-sleep' 'systemctl hybrid-sleep' -b '🛌︁ Suspend' 'systemctl suspend' -b '︁ Logout' 'swaymsg exit' -b ' Lock' 'exec ~/.config/sway/lock.sh'";
           #on-click = "sh $HOME/.config/waybar/power-menu.sh";
         };
         "custom/gpu" = {
