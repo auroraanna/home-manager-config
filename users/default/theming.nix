@@ -6,6 +6,7 @@
     cursorTheme = {
       package = pkgs.capitaine-cursors;
       name = "capitaine-cursors-white";
+      size = 32;
     };
     iconTheme = {
       name = "Adwaita-dark";
@@ -25,5 +26,6 @@
   xsession.pointerCursor = {
     package = pkgs.capitaine-cursors;
     name = "capitaine-cursors-white";
+    size = 32;
   };
 }
