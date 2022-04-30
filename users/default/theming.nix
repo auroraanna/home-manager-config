@@ -9,8 +9,8 @@
       size = 32;
     };
     iconTheme = {
-      name = "Adwaita-dark";
-      package = pkgs.libadwaita;
+      name = "Papirus-Dark";
+      package = pkgs.papirus-icon-theme;
     };
     theme = {
       name = "Materia-dark";
