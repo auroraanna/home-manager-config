@@ -15,7 +15,7 @@
     ./sway/default.nix
     ./waybar/default.nix
     ./starship/default.nix
-    ./xdg.nix
+    ./xdg/default.nix
     ./vscode.nix
     ./mangohud.nix
     ./chromium.nix
